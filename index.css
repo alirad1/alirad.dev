@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: verdana;
+}
+header,footer{
+    position: absolute;
+    width: 100%;
+    color: white;
+}
+header{
+    background-color: #ce0909;
+    height: 20vh;
+}
+header h2{
+    position: absolute;
+    margin-top: 50px;
+    left:10%;
+}
+footer{
+    background-color: #ffa6a6;
+    height: 10vh;
+    bottom:0;
+}
+footer h2{
+    position: absolute;
+    left: 45%;
+}
+.navigation{
+    positon: absolute;
+    width:100%;
+}
+.navigation a{
+    position: relative;
+    left:45%;
+    top: 20px;
+    color: white;
+    text-decoration: none;
+    margin-right; 20px;
+}
