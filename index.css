@@ -11,22 +11,23 @@ header,footer{
     color: white;
 }
 header{
-    background-color: #ce0909;
+    background-color: #7289da;
     height: 20vh;
 }
-header h2{
+header h1{
     position: absolute;
     margin-top: 50px;
-    left:10%;
+    left: 10%;
 }
 footer{
-    background-color: #ffa6a6;
+    background-color: #282b30;
     height: 10vh;
     bottom:0;
 }
 footer h2{
     position: absolute;
     left: 45%;
+    top: 15 px;
 }
 .navigation{
     positon: absolute;
@@ -34,9 +35,9 @@ footer h2{
 }
 .navigation a{
     position: relative;
-    left:45%;
-    top: 20px;
+    left:65%;
+    top: 50px;
     color: white;
     text-decoration: none;
-    margin-right; 20px;
+    margin-right: 50px;
 }
