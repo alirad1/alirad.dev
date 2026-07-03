@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moments - Ali's Portfolio</title>
+    <meta name="description" content="Photos and stories from leadership, music, athletics, and life at A&amp;M.">
+    <link rel="canonical" href="https://alirad.dev/moments.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alirad.dev/moments.html">
+    <meta property="og:title" content="Moments - Ali Rad">
+    <meta property="og:description" content="Photos and stories from leadership, music, athletics, and life at A&amp;M.">
+    <meta property="og:image" content="https://alirad.dev/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Moments - Ali Rad">
+    <meta name="twitter:description" content="Photos and stories from leadership, music, athletics, and life at A&amp;M.">
+    <meta name="twitter:image" content="https://alirad.dev/og-image.png">
+    <script>
+        // theme before flash
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="projects-header">
+        <nav class="main-nav">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+                <a href="moments.html" class="nav-link active">Moments</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4" y1="4" x2="6" y2="6"></line>
+                        <line x1="18" y1="18" x2="20" y2="20"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4" y1="20" x2="6" y2="18"></line>
+                        <line x1="18" y1="6" x2="20" y2="4"></line>
+                    </svg>
+                    <svg class="theme-icon moon-icon active" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="blog-section">
+        <div class="page-header fade-in">
+            <h1 class="page-title">Moments</h1>
+            <p class="page-subtitle">
+                A collection of moments and memories captured through photography. Each image tells a story and holds a special place in my journey.
+            </p>
+        </div>
+
+        <div class="blog-gallery">
+            <div class="blog-photo fade-in">
+                <div class="photo-container">
+                    <img loading="lazy" src="Moments/Goodbull.jpeg" alt="Good Bull Pitch Competition" class="blog-image">
+                    <div class="photo-overlay">
+                        <p class="photo-text">This is my team after we pitched IRIS, an autonomous surgical light, at the Good Bull Pitch Competition and won first place, along with a $500 prize to help us keep developing our prototype!</p>
+                    </div>
+                </div>
+                <p class="photo-caption-mobile">This is my team after we pitched IRIS, an autonomous surgical light, at the Good Bull Pitch Competition and won first place, along with a $500 prize to help us keep developing our prototype!</p>
+            </div>
+
+            <div class="blog-photo fade-in">
+                <div class="photo-container">
+                    <img loading="lazy" src="Moments/FREE.jpeg" alt="FREE" class="blog-image">
+                    <div class="photo-overlay">
+                        <p class="photo-text">This is from my freshman leadership organization's winter formal, and this photo is with my committee, Internal.</p>
+                    </div>
+                </div>
+                <p class="photo-caption-mobile">This is from my freshman leadership organization's winter formal, and this photo is with my committee, Internal.</p>
+            </div>
+
+            <div class="blog-photo fade-in">
+                <div class="photo-container">
+                    <img loading="lazy" src="Moments/FishCamp.JPG" alt="FishCamp" class="blog-image">
+                    <div class="photo-overlay">
+                        <p class="photo-text">This was me on the final day of Fish Camp, when I officially became an Aggie.</p>
+                    </div>
+                </div>
+                <p class="photo-caption-mobile">This was me on the final day of Fish Camp, when I officially became an Aggie.</p>
+            </div>
+
+            <div class="blog-photo fade-in">
+                <div class="photo-container">
+                    <img loading="lazy" src="Moments/TeamSoccerPhoto.jpg" alt="TeamSoccer" class="blog-image">
+                    <div class="photo-overlay">
+                        <p class="photo-text">This is me with my soccer teammates after winning our first playoff game in three years!</p>
+                    </div>
+                </div>
+                <p class="photo-caption-mobile">This is me with my soccer teammates after winning our first playoff game in three years!</p>
+            </div>
+
+            <div class="blog-photo fade-in">
+                <div class="photo-container">
+                    <img loading="lazy" src="Moments/Conducting.JPG" alt="Conducting" class="blog-image">
+                    <div class="photo-overlay">
+                        <p class="photo-text">This is me, an officer of my high school orchestra, conducting one of our school's orchestras. I believe I was conducting Aladdin in this photo!</p>
+                    </div>
+                </div>
+                <p class="photo-caption-mobile">This is me, an officer of my high school orchestra, conducting one of our school's orchestras. I believe I was conducting Aladdin in this photo!</p>
+            </div>
+
+            <div class="blog-photo fade-in">
+                <div class="photo-container">
+                    <img loading="lazy" src="Moments/OrchestraAward.jpg" alt="OrchestraAward" class="blog-image">
+                    <div class="photo-overlay">
+                        <p class="photo-text">I was nominated as the embodiment of what it means to be a leader as an orchestra student across my entire school district.</p>
+                    </div>
+                </div>
+                <p class="photo-caption-mobile">I was nominated as the embodiment of what it means to be a leader as an orchestra student across my entire school district.</p>
+            </div>
+
+            <div class="blog-photo fade-in">
+                <div class="photo-container">
+                    <img loading="lazy" src="Moments/GroupChamber.jpg" alt="GroupChamber" class="blog-image">
+                    <div class="photo-overlay">
+                        <p class="photo-text">This is my chamber group photo after we performed a very daunting Dvořák Piano Quintet!</p>
+                    </div>
+                </div>
+                <p class="photo-caption-mobile">This is my chamber group photo after we performed a very daunting Dvořák Piano Quintet!</p>
+            </div>
+
+            <div class="blog-photo fade-in">
+                <div class="photo-container">
+                    <img loading="lazy" src="Moments/SeniorAwards.jpeg" alt="Senior Awards" class="blog-image">
+                    <div class="photo-overlay">
+                        <p class="photo-text">During high school, I was nominated for most school spirit and also won prom king.</p>
+                    </div>
+                </div>
+                <p class="photo-caption-mobile">During high school, I was nominated for most school spirit and also won prom king.</p>
+            </div>
+
+            <div class="blog-photo fade-in">
+                <div class="photo-container">
+                    <img loading="lazy" src="Moments/FirstTimePlayingPiano.jpeg" alt="FirstTimePlayingPiano" class="blog-image">
+                    <div class="photo-overlay">
+                        <p class="photo-text">This is the oldest photo I have of me playing the piano!</p>
+                    </div>
+                </div>
+                <p class="photo-caption-mobile">This is the oldest photo I have of me playing the piano!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-message">Thank you for reading this far. Please feel free to reach out whenever you'd like!</p>
+            <div class="footer-links">
+                <a href="mailto:alizrad99@gmail.com" class="footer-button email" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/alirad07/" target="_blank" rel="noopener noreferrer" class="footer-button linkedin" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/alirad1" target="_blank" rel="noopener noreferrer" class="footer-button github" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-credit">made with ❤️ by Ali Rad</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
