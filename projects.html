@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Ali's Portfolio</title>
+    <meta name="description" content="Portfolio projects: Milo, AliChart, LapseCam, hackathon work, and more.">
+    <link rel="canonical" href="https://alirad.dev/projects.html">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alirad.dev/projects.html">
+    <meta property="og:title" content="Projects - Ali Rad">
+    <meta property="og:description" content="Portfolio projects: Milo, AliChart, LapseCam, hackathon work, and more.">
+    <meta property="og:image" content="https://alirad.dev/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects - Ali Rad">
+    <meta name="twitter:description" content="Portfolio projects: Milo, AliChart, LapseCam, hackathon work, and more.">
+    <meta name="twitter:image" content="https://alirad.dev/og-image.png">
     <script>
-        // Apply theme immediately to prevent flash
+        // theme before flash
         (function() {
             const theme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', theme);
@@ -14,121 +26,186 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Animated Background Particles -->
-    <div class="particles" id="particles"></div>
-
-    <!-- Header Navigation -->
     <header class="projects-header">
         <nav class="main-nav">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="projects.html" class="nav-link active">Projects</a>
-            <a href="blog.html" class="nav-link">Blog</a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
-                <svg class="theme-icon moon-icon active" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
             </button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+                <a href="moments.html" class="nav-link">Moments</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4" y1="4" x2="6" y2="6"></line>
+                        <line x1="18" y1="18" x2="20" y2="20"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4" y1="20" x2="6" y2="18"></line>
+                        <line x1="18" y1="6" x2="20" y2="4"></line>
+                    </svg>
+                    <svg class="theme-icon moon-icon active" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path>
+                    </svg>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- Projects Section -->
     <section class="projects-section">
-        <!-- Page Title -->
         <div class="page-header fade-in">
             <h1 class="page-title">Projects</h1>
             <p class="page-subtitle">
-                Welcome to my portfolio! Each projects showcase different skills and technologies, and I'm always excited to explore new stacks and see what I can build. Explore my projects below and how I've brought them to life!
+                Welcome to my portfolio! Each project showcases different skills and technologies, and I'm always excited to explore new stacks and see what I can build. Explore my projects below and how I've brought them to life!
             </p>
         </div>
 
-        <!-- Projects Grid -->
-        <div class="projects-grid">
-            <!-- Project Card 1: My Personal Website -->
-            <div class="project-card fade-in">
-                <h2 class="project-title">My Personal Website</h2>
+        <div class="projects-toolbar fade-in">
+            <div>
+                <p class="projects-toolbar-label">Filter by tag</p>
+                <div class="filter-pills">
+                    <button type="button" class="filter-pill active" data-filter="all">All</button>
+                    <button type="button" class="filter-pill" data-filter="live">Live Demos</button>
+                    <button type="button" class="filter-pill" data-filter="webdev">Web Development</button>
+                    <button type="button" class="filter-pill" data-filter="aws">AWS</button>
+                    <button type="button" class="filter-pill" data-filter="python">Python</button>
+                    <button type="button" class="filter-pill" data-filter="java">Java</button>
+                    <button type="button" class="filter-pill" data-filter="award">Award Winner</button>
+                    <button type="button" class="filter-pill" data-filter="sql">SQL</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+            <p id="projectsEmpty" class="projects-empty" hidden>No projects match this filter.</p>
+            <div class="project-card fade-in" data-tags="Live,HTML,CSS,JavaScript" data-live="true">
+                <h2 class="project-title">Personal Website</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Live</span>
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
                 <p class="project-description">
-                    A modern, responsive portfolio website showcasing my work and skills. Built with clean HTML, CSS, and JavaScript, featuring animated backgrounds and smooth transitions. This site demonstrates my front-end development capabilities and attention to design details.
+                    My personal website where I showcase my projects, experience, and what I'm currently working on. I built it from scratch using <strong>HTML, CSS, and JavaScript</strong>, focusing on <strong>clean visuals</strong>, <strong>smooth animations</strong>, and making the site feel simple and fun to explore.
                 </p>
                 <div class="project-image">
-                    <div class="image-placeholder">Image Placeholder</div>
+                    <img loading="lazy" src="Projects/Website.png" alt="Personal Website" class="project-img">
                 </div>
                 <span class="project-button btn-primary">You're already on it!</span>
             </div>
 
-            <!-- Project Card 2: MiloAI -->
-            <div class="project-card fade-in">
-                <h2 class="project-title">MiloAI</h2>
+            <div class="project-card fade-in" data-tags="JavaScript,FFmpeg" data-live="false">
+                <h2 class="project-title">LapseCam</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">FFmpeg</span>
+                </div>
                 <p class="project-description">
-                    An AI-powered application that leverages machine learning to provide intelligent solutions. Built with modern AI frameworks and APIs, this project demonstrates my interest in artificial intelligence and practical application development.
+                    coming soon!
                 </p>
                 <div class="project-image">
-                    <div class="image-placeholder">Image Placeholder</div>
+                    <img loading="lazy" src="Projects/LapseCam.png" alt="LapseCam" class="project-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="project-image-placeholder" style="display:none;">Screenshot coming soon</div>
+                </div>
+                <span class="project-button btn-primary">Coming Soon</span>
+            </div>
+
+            <div class="project-card fade-in" data-tags="Live,JavaScript,MySQL" data-live="true">
+                <h2 class="project-title">Milo Motivational Buddy</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Live</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">MySQL</span>
+                </div>
+                <p class="project-description">
+                    Milo is a goal and habit-tracking app I built to help users stay consistent with daily goals. It uses <strong>JavaScript and MySQL</strong> to store <strong>progress and streaks</strong>, and includes a small <strong>chatbot</strong> for journaling, reminders, and daily prompts to make the experience feel more motivating and interactive.
+                </p>
+                <div class="project-image">
+                    <img loading="lazy" src="Projects/Milo.png" alt="Milo" class="project-img">
                 </div>
                 <a href="https://milo.alirad.dev" target="_blank" rel="noopener noreferrer" class="project-button btn-primary">View Project</a>
             </div>
 
-            <!-- Project Card 3: Mock EHR -->
-            <div class="project-card fade-in">
-                <h2 class="project-title">Mock EHR</h2>
+            <div class="project-card fade-in" data-tags="Live,AWS,PostgreSQL,JavaScript" data-live="true">
+                <h2 class="project-title">AliChart</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Live</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
                 <p class="project-description">
-                    A mock Electronic Health Records system designed to simulate real-world healthcare data management. This project showcases database design, secure data handling, and user interface development for complex systems.
+                    A live web application designed around a <strong>PostgreSQL relational database</strong>, previously deployed on <strong>AWS</strong>. Implements <strong>JavaScript-driven workflows</strong> to model data relationships, authentication logic, and <strong>CRUD-style operations</strong> within a healthcare-style system.
                 </p>
                 <div class="project-image">
-                    <div class="image-placeholder">Image Placeholder</div>
+                    <img loading="lazy" src="Projects/AliChart.jpg" alt="AliChart" class="project-img">
                 </div>
-                <a href="https://milo.alirad.dev" target="_blank" rel="noopener noreferrer" class="project-button btn-primary">View Project</a>
+                <a href="https://chart.alirad.dev" target="_blank" rel="noopener noreferrer" class="project-button btn-primary">View Project</a>
             </div>
 
-            <!-- Project Card 4: AggieQuest (FREEworks) -->
-            <div class="project-card fade-in">
-                <h2 class="project-title">AggieQuest (FREEworks)</h2>
+            <div class="project-card fade-in" data-tags="Python,Flask,REST API" data-live="false">
+                <h2 class="project-title">AggieQuest – HowdyHack</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">REST API</span>
+                </div>
                 <p class="project-description">
-                    A collaborative platform developed for the FREEworks initiative, designed to connect students with opportunities and resources. Built with a focus on user experience and community engagement, featuring real-time updates and interactive features.
+                    A full-stack web app that generates daily challenges to encourage student engagement. I built a <strong>Flask backend</strong> with <strong>REST endpoints</strong> to handle challenge creation, submissions, and user progress, focusing on building a clean <strong>end-to-end flow</strong> from frontend interactions to backend logic.
                 </p>
                 <div class="project-image">
-                    <div class="image-placeholder">Image Placeholder</div>
+                    <img loading="lazy" src="Projects/AggieQuest.png" alt="AggieQuest – HowdyHack" class="project-img">
                 </div>
-                <a href="https://milo.alirad.dev" target="_blank" rel="noopener noreferrer" class="project-button btn-primary">View Project</a>
+                <a href="https://github.com/alirad1/AggieQuest-HowdyHack25" target="_blank" rel="noopener noreferrer" class="project-button btn-primary">View on GitHub</a>
             </div>
 
-            <!-- Project Card 5: MarketScope (HowdyHack) -->
-            <div class="project-card fade-in">
-                <h2 class="project-title">MarketScope (HowdyHack)</h2>
+            <div class="project-card fade-in" data-tags="Award Winner,Python,Streamlit" data-live="false">
+                <h2 class="project-title">MarketScope – FREEWORKS</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Award Winner</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Streamlit</span>
+                </div>
                 <p class="project-description">
-                    A hackathon project created during HowdyHack, MarketScope provides market analysis and insights. This project demonstrates rapid prototyping, API integration, and data visualization skills developed under time constraints.
+                    An interactive stock analysis dashboard built with <strong>Python and Streamlit</strong> for comparing multiple stocks over different time periods. The app <strong>visualizes returns and price trends</strong> in an easy-to-explore way and <strong>placed 2nd in the FREEWORKS competition at Texas A&M</strong>.
                 </p>
                 <div class="project-image">
-                    <div class="image-placeholder">Image Placeholder</div>
+                    <img loading="lazy" src="Projects/MarketScope.png" alt="MarketScope – FREEworks Comp (2nd place)" class="project-img">
                 </div>
-                <a href="https://milo.alirad.dev" target="_blank" rel="noopener noreferrer" class="project-button btn-primary">View Project</a>
+                <a href="https://github.com/alirad1/MarketScope-FREEworks" target="_blank" rel="noopener noreferrer" class="project-button btn-primary">View on GitHub</a>
             </div>
 
-            <!-- Project Card 6: RadGame -->
-            <div class="project-card fade-in">
+            <div class="project-card fade-in" data-tags="Java,LWJGL,ImGui" data-live="false">
                 <h2 class="project-title">RadGame</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">LWJGL</span>
+                    <span class="tech-tag">ImGui</span>
+                </div>
                 <p class="project-description">
-                    An interactive game project showcasing game development principles and user engagement techniques. Features include dynamic gameplay mechanics, score tracking, and responsive controls, demonstrating both technical and creative skills.
+                    A 3D game I built in <strong>Java</strong> to learn graphics programming and game engine basics. Using <strong>LWJGL and ImGui</strong>, I implemented <strong>real-time rendering</strong>, player movement, <strong>collision detection</strong>, and <strong>basic enemy AI</strong> while experimenting with low-level game systems.
                 </p>
                 <div class="project-image">
-                    <div class="image-placeholder">Image Placeholder</div>
+                    <img loading="lazy" src="Projects/RadGame.png" alt="RadGame" class="project-img">
                 </div>
-                <a href="https://milo.alirad.dev" target="_blank" rel="noopener noreferrer" class="project-button btn-primary">View Project</a>
+                <a href="https://github.com/alirad1/RadGame" target="_blank" rel="noopener noreferrer" class="project-button btn-primary">View on GitHub</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
             <p class="footer-message">Thank you for reading this far. Please feel free to reach out whenever you'd like!</p>
