@@ -62,6 +62,7 @@ function closeNavMenu() {
     const header = document.querySelector('.projects-header');
     const navToggle = document.getElementById('navToggle');
     if (header) header.classList.remove('nav-open');
+    document.body.classList.remove('nav-open');
     if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
 }
 
@@ -70,16 +71,35 @@ function setupNavToggle() {
     const header = document.querySelector('.projects-header');
     const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 
+    let backdrop = document.querySelector('.nav-backdrop');
+    if (!backdrop) {
+        backdrop = document.createElement('button');
+        backdrop.className = 'nav-backdrop';
+        backdrop.type = 'button';
+        backdrop.setAttribute('aria-label', 'Close menu');
+        backdrop.setAttribute('tabindex', '-1');
+        document.body.appendChild(backdrop);
+    }
+
+    backdrop.addEventListener('click', closeNavMenu);
+
     if (navToggle && header) {
         navToggle.addEventListener('click', function() {
             header.classList.toggle('nav-open');
             const isOpen = header.classList.contains('nav-open');
+            document.body.classList.toggle('nav-open', isOpen);
             navToggle.setAttribute('aria-expanded', isOpen);
         });
     }
 
     navLinks.forEach(function(link) {
         link.addEventListener('click', closeNavMenu);
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeNavMenu();
+        }
     });
 
     window.addEventListener('resize', function() {
