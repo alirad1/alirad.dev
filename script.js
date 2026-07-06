@@ -4,7 +4,7 @@ function handleScrollAnimations() {
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
         const elementVisible = 100;
-        
+
         if (elementTop < window.innerHeight - elementVisible) {
             element.classList.add('visible');
         }
@@ -58,12 +58,71 @@ function setupThemeToggle() {
     }
 }
 
-function closeNavMenu() {
+function setNavCollapsed(collapsed) {
     const header = document.querySelector('.projects-header');
     const navToggle = document.getElementById('navToggle');
-    if (header) header.classList.remove('nav-open');
-    document.body.classList.remove('nav-open');
-    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+    if (!header) return;
+
+    header.classList.toggle('nav-collapsed', collapsed);
+    if (navToggle) navToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+}
+
+function closeNavMenu() {
+    setNavCollapsed(true);
+}
+
+function expandNavMenu() {
+    setNavCollapsed(false);
+}
+
+function isMobileNav() {
+    return window.innerWidth <= 768;
+}
+
+function isDesktopNav() {
+    return !isMobileNav();
+}
+
+function isHomePage() {
+    return document.body.classList.contains('home');
+}
+
+function initNavState() {
+    const header = document.querySelector('.projects-header');
+    if (!header) return;
+
+    if (isMobileNav()) {
+        setNavCollapsed(true);
+        return;
+    }
+
+    if (!isHomePage() && window.scrollY > 60) {
+        setNavCollapsed(true);
+    } else {
+        setNavCollapsed(false);
+    }
+}
+
+function setupNavScrollCollapse() {
+    if (isHomePage()) return;
+
+    const threshold = 60;
+    let ticking = false;
+
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() {
+            if (window.scrollY > threshold) {
+                setNavCollapsed(true);
+            } else if (isDesktopNav()) {
+                setNavCollapsed(false);
+            }
+            ticking = false;
+        });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
 }
 
 function setupNavToggle() {
@@ -71,42 +130,58 @@ function setupNavToggle() {
     const header = document.querySelector('.projects-header');
     const navLinks = document.querySelectorAll('.nav-menu .nav-link');
 
-    let backdrop = document.querySelector('.nav-backdrop');
-    if (!backdrop) {
-        backdrop = document.createElement('button');
-        backdrop.className = 'nav-backdrop';
-        backdrop.type = 'button';
-        backdrop.setAttribute('aria-label', 'Close menu');
-        backdrop.setAttribute('tabindex', '-1');
-        document.body.appendChild(backdrop);
-    }
+    const oldBackdrop = document.querySelector('.nav-backdrop');
+    if (oldBackdrop) oldBackdrop.remove();
 
-    backdrop.addEventListener('click', closeNavMenu);
+    initNavState();
 
     if (navToggle && header) {
-        navToggle.addEventListener('click', function() {
-            header.classList.toggle('nav-open');
-            const isOpen = header.classList.contains('nav-open');
-            document.body.classList.toggle('nav-open', isOpen);
-            navToggle.setAttribute('aria-expanded', isOpen);
+        navToggle.addEventListener('click', function(event) {
+            event.stopPropagation();
+
+            if (isMobileNav()) {
+                const collapsed = header.classList.contains('nav-collapsed');
+                setNavCollapsed(!collapsed);
+                return;
+            }
+
+            if (header.classList.contains('nav-collapsed')) {
+                expandNavMenu();
+            }
         });
     }
 
     navLinks.forEach(function(link) {
-        link.addEventListener('click', closeNavMenu);
+        link.addEventListener('click', function() {
+            if (isMobileNav()) {
+                closeNavMenu();
+            }
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!isMobileNav()) return;
+        if (!header || header.classList.contains('nav-collapsed')) return;
+        if (!header.contains(event.target)) {
+            closeNavMenu();
+        }
     });
 
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape' && isMobileNav()) {
             closeNavMenu();
         }
     });
 
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            closeNavMenu();
+        if (isMobileNav()) {
+            setNavCollapsed(true);
+        } else if (isHomePage() || window.scrollY <= 60) {
+            setNavCollapsed(false);
         }
     });
+
+    setupNavScrollCollapse();
 }
 
 // Page transitions
