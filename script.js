@@ -1,5 +1,16 @@
 // Scroll animations
+function revealAllFadeIns() {
+    document.querySelectorAll('.fade-in').forEach(function(element) {
+        element.classList.add('visible');
+    });
+}
+
 function handleScrollAnimations() {
+    if (document.body.classList.contains('home')) {
+        revealAllFadeIns();
+        return;
+    }
+
     const elements = document.querySelectorAll('.fade-in');
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
@@ -292,9 +303,22 @@ function setupProjectFilters() {
 
     filterPills.forEach(function(pill) {
         pill.addEventListener('click', function() {
+            const filter = pill.dataset.filter;
+
+            if (pill.classList.contains('active')) {
+                pill.classList.remove('active');
+                activeFilter = 'all';
+                if (filter !== 'all') {
+                    const allPill = document.querySelector('.filter-pill[data-filter="all"]');
+                    if (allPill) allPill.classList.add('active');
+                }
+                renderProjects();
+                return;
+            }
+
             filterPills.forEach(function(p) { p.classList.remove('active'); });
             pill.classList.add('active');
-            activeFilter = pill.dataset.filter;
+            activeFilter = filter;
             renderProjects();
         });
     });

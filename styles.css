@@ -252,6 +252,11 @@ body > footer {
     transform: translateY(0);
 }
 
+.home .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* nav */
 .projects-header {
     position: fixed;
