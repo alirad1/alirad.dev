@@ -78,20 +78,8 @@ function setNavCollapsed(collapsed) {
     if (navToggle) navToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
 }
 
-function closeNavMenu() {
-    setNavCollapsed(true);
-}
-
 function expandNavMenu() {
     setNavCollapsed(false);
-}
-
-function isMobileNav() {
-    return window.innerWidth <= 768;
-}
-
-function isDesktopNav() {
-    return !isMobileNav();
 }
 
 function isHomePage() {
@@ -101,11 +89,6 @@ function isHomePage() {
 function initNavState() {
     const header = document.querySelector('.projects-header');
     if (!header) return;
-
-    if (isMobileNav()) {
-        setNavCollapsed(true);
-        return;
-    }
 
     if (!isHomePage() && window.scrollY > 60) {
         setNavCollapsed(true);
@@ -126,7 +109,7 @@ function setupNavScrollCollapse() {
         requestAnimationFrame(function() {
             if (window.scrollY > threshold) {
                 setNavCollapsed(true);
-            } else if (isDesktopNav()) {
+            } else {
                 setNavCollapsed(false);
             }
             ticking = false;
@@ -139,10 +122,6 @@ function setupNavScrollCollapse() {
 function setupNavToggle() {
     const navToggle = document.getElementById('navToggle');
     const header = document.querySelector('.projects-header');
-    const navLinks = document.querySelectorAll('.nav-menu .nav-link');
-
-    const oldBackdrop = document.querySelector('.nav-backdrop');
-    if (oldBackdrop) oldBackdrop.remove();
 
     initNavState();
 
@@ -150,45 +129,17 @@ function setupNavToggle() {
         navToggle.addEventListener('click', function(event) {
             event.stopPropagation();
 
-            if (isMobileNav()) {
-                const collapsed = header.classList.contains('nav-collapsed');
-                setNavCollapsed(!collapsed);
-                return;
-            }
-
             if (header.classList.contains('nav-collapsed')) {
                 expandNavMenu();
             }
         });
     }
 
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            if (isMobileNav()) {
-                closeNavMenu();
-            }
-        });
-    });
-
-    document.addEventListener('click', function(event) {
-        if (!isMobileNav()) return;
-        if (!header || header.classList.contains('nav-collapsed')) return;
-        if (!header.contains(event.target)) {
-            closeNavMenu();
-        }
-    });
-
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && isMobileNav()) {
-            closeNavMenu();
-        }
-    });
-
     window.addEventListener('resize', function() {
-        if (isMobileNav()) {
-            setNavCollapsed(true);
-        } else if (isHomePage() || window.scrollY <= 60) {
+        if (isHomePage() || window.scrollY <= 60) {
             setNavCollapsed(false);
+        } else {
+            setNavCollapsed(true);
         }
     });
 
