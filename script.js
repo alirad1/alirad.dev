@@ -78,19 +78,25 @@ function setNavCollapsed(collapsed) {
     if (navToggle) navToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
 }
 
-function expandNavMenu() {
-    setNavCollapsed(false);
-}
-
 function isHomePage() {
     return document.body.classList.contains('home');
+}
+
+const mobileNavQuery = window.matchMedia('(max-width: 768px)');
+
+function isMobileNav() {
+    return mobileNavQuery.matches;
 }
 
 function initNavState() {
     const header = document.querySelector('.projects-header');
     if (!header) return;
 
-    if (!isHomePage() && window.scrollY > 60) {
+    // On mobile the links live in a tap-to-open dropdown, so the pill
+    // starts collapsed regardless of page or scroll position.
+    if (isMobileNav()) {
+        setNavCollapsed(true);
+    } else if (!isHomePage() && window.scrollY > 60) {
         setNavCollapsed(true);
     } else {
         setNavCollapsed(false);
@@ -107,10 +113,13 @@ function setupNavScrollCollapse() {
         if (ticking) return;
         ticking = true;
         requestAnimationFrame(function() {
-            if (window.scrollY > threshold) {
-                setNavCollapsed(true);
-            } else {
-                setNavCollapsed(false);
+            // Mobile open/close is driven by the toggle, not scroll.
+            if (!isMobileNav()) {
+                if (window.scrollY > threshold) {
+                    setNavCollapsed(true);
+                } else {
+                    setNavCollapsed(false);
+                }
             }
             ticking = false;
         });
@@ -125,23 +134,42 @@ function setupNavToggle() {
 
     initNavState();
 
+    // Enable nav transitions only after the initial state has painted, so the
+    // menu doesn't animate open->closed on load (a flash on every mobile page).
+    if (header) {
+        const enableNavTransitions = function() { header.classList.add('nav-ready'); };
+        requestAnimationFrame(function() {
+            requestAnimationFrame(enableNavTransitions);
+        });
+        // Fallback in case rAF is throttled (e.g. loaded in a background tab).
+        setTimeout(enableNavTransitions, 120);
+    }
+
     if (navToggle && header) {
         navToggle.addEventListener('click', function(event) {
             event.stopPropagation();
+            setNavCollapsed(!header.classList.contains('nav-collapsed'));
+        });
 
-            if (header.classList.contains('nav-collapsed')) {
-                expandNavMenu();
-            }
+        // Tap outside the pill to dismiss the open mobile dropdown.
+        document.addEventListener('click', function(event) {
+            if (!isMobileNav()) return;
+            if (header.classList.contains('nav-collapsed')) return;
+            if (header.contains(event.target)) return;
+            setNavCollapsed(true);
         });
     }
 
-    window.addEventListener('resize', function() {
-        if (isHomePage() || window.scrollY <= 60) {
-            setNavCollapsed(false);
-        } else {
-            setNavCollapsed(true);
-        }
-    });
+    // Only re-evaluate when the breakpoint actually changes. Listening to
+    // resize would fire on mobile URL-bar show/hide and slam the menu shut.
+    function onBreakpointChange() {
+        initNavState();
+    }
+    if (mobileNavQuery.addEventListener) {
+        mobileNavQuery.addEventListener('change', onBreakpointChange);
+    } else if (mobileNavQuery.addListener) {
+        mobileNavQuery.addListener(onBreakpointChange);
+    }
 
     setupNavScrollCollapse();
 }
@@ -208,7 +236,7 @@ function setupProjectFilters() {
             return card.dataset.live === 'true';
         },
         webdev: function(card, tags) {
-            return tags.some(function(t) { return ['HTML', 'CSS', 'JavaScript'].includes(t); });
+            return tags.some(function(t) { return ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Next.js', 'React', 'Tailwind CSS'].includes(t); });
         },
         aws: function(card, tags) {
             return tags.includes('AWS');

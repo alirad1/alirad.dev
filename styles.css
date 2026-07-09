@@ -323,6 +323,7 @@ body > footer {
     position: relative;
     z-index: 1;
     overflow: visible;
+    transition: gap 0.45s cubic-bezier(0.32, 0.72, 0, 1), padding 0.45s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .nav-toggle {
@@ -490,6 +491,97 @@ html[data-theme="dark"] .moon-icon {
 html[data-theme="dark"] .moon-icon.active {
     opacity: 0;
     transform: translate(-50%, -50%) rotate(-180deg) scale(0);
+}
+
+/* Hold all nav transitions until JS has applied the initial collapsed state
+   (see nav-ready in script.js), otherwise the first paint animates. */
+.projects-header:not(.nav-ready),
+.projects-header:not(.nav-ready)::before,
+.projects-header:not(.nav-ready) .main-nav,
+.projects-header:not(.nav-ready) .nav-menu,
+.projects-header:not(.nav-ready) .nav-menu .nav-link {
+    transition: none !important;
+}
+
+/* Mobile nav: a compact pill that opens the links as a dropdown.
+   The desktop inline row can't hold four links at phone widths, so the
+   links move into an absolutely-positioned panel instead of overflowing. */
+@media (max-width: 768px) {
+    /* Toggle stays visible in both states so the menu can be closed */
+    .projects-header .nav-toggle {
+        display: flex;
+    }
+
+    /* Hamburger swaps to an X while the dropdown is open */
+    .projects-header:not(.nav-collapsed) .nav-toggle .icon-menu {
+        display: none;
+    }
+
+    .projects-header:not(.nav-collapsed) .nav-toggle .icon-close {
+        display: block;
+    }
+
+    /* Pill holds only the toggle + theme button; keep it steady (no scale) */
+    .main-nav,
+    .projects-header.nav-collapsed .main-nav {
+        gap: 0.35rem;
+        padding: 0.5rem 0.6rem;
+    }
+
+    .projects-header:not(.nav-collapsed) {
+        transform: translateX(-50%);
+    }
+
+    /* Links become an absolutely-positioned dropdown panel below the pill */
+    .nav-menu {
+        position: absolute;
+        top: calc(100% + 0.6rem);
+        left: 50%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
+        width: max-content;
+        min-width: 190px;
+        max-width: min(78vw, 320px);
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 0, 0, 0.2);
+        border-radius: 20px;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+        overflow: visible;
+        transition: opacity 0.28s ease, transform 0.34s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .projects-header.nav-collapsed .nav-menu {
+        max-width: min(78vw, 320px);
+        opacity: 0;
+        transform: translateX(-50%) translateY(-0.5rem);
+        pointer-events: none;
+    }
+
+    .projects-header:not(.nav-collapsed) .nav-menu {
+        max-width: min(78vw, 320px);
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+    }
+
+    /* Full-width links that are always visible once the panel is open */
+    .projects-header.nav-collapsed .nav-menu .nav-link,
+    .projects-header:not(.nav-collapsed) .nav-menu .nav-link {
+        width: 100%;
+        text-align: center;
+        opacity: 1;
+        transform: none;
+    }
+
+    html[data-theme="dark"] .nav-menu {
+        background: rgba(22, 22, 22, 0.96);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+    }
 }
 
 .projects-section {
