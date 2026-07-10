@@ -39,7 +39,7 @@ function setupEventListeners() {
 
 // theme
 function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
     document.documentElement.setAttribute('data-theme', newTheme);
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     setupPageTransitions();
     setupProjectFilters();
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
     updateThemeIcon(currentTheme);
     setupThemeToggle();
     setupNavToggle();
