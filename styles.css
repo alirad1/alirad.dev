@@ -953,12 +953,41 @@ html[data-theme="dark"] .moon-icon.active {
     border-color: #ff3333;
 }
 
+.project-actions {
+    display: flex;
+    width: 100%;
+    gap: 0.65rem;
+    align-items: stretch;
+}
+
+.project-actions .btn-primary,
+.project-actions span.project-button {
+    flex: 7 1 0;
+    min-width: 0;
+}
+
+.project-actions .project-button-github {
+    flex: 3 1 0;
+    min-width: 0;
+}
+
+.project-actions > .project-button:only-child {
+    flex: 1 1 100%;
+}
+
 .project-button {
-    display: inline-block;
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.25rem;
+    font-size: 0.95rem;
     text-align: center;
     cursor: pointer;
+    box-sizing: border-box;
+}
+
+.project-card > .project-button {
+    width: 100%;
 }
 
 .project-button:hover {
@@ -966,6 +995,29 @@ html[data-theme="dark"] .moon-icon.active {
 }
 
 .project-button:active {
+    transform: translateY(-1px);
+}
+
+.project-button-github {
+    padding: 0.75rem 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: #828282;
+    border: 1px solid #727272;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+.project-button-github:hover {
+    background: #757575;
+    color: #ffffff;
+    border-color: #656565;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.project-button-github:active {
     transform: translateY(-1px);
 }
 
@@ -1144,8 +1196,12 @@ span.project-button:hover {
     }
 
     .project-button {
-        padding: 0.8rem 1.5rem;
+        padding: 0.8rem 1rem;
         font-size: 0.9rem;
+    }
+
+    .project-button-github {
+        padding: 0.7rem 0.5rem;
     }
 
     .back-home-link {
@@ -1464,6 +1520,19 @@ html[data-theme="dark"] .btn-secondary:hover {
     background: rgba(255, 0, 0, 0.15);
     border-color: #ff0000;
     color: #ff0000;
+}
+
+html[data-theme="dark"] .project-button-github {
+    color: #ffffff;
+    background: #3a3a3a;
+    border-color: #505050;
+}
+
+html[data-theme="dark"] .project-button-github:hover {
+    color: #ffffff;
+    background: #454545;
+    border-color: #5a5a5a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 html[data-theme="dark"] .main-heading {
