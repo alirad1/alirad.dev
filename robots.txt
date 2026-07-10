@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Ali Rad portfolio — https://alirad.dev
+# Ali Rad | Texas A&M | Computer Engineering
+
 Sitemap: https://alirad.dev/sitemap.xml
