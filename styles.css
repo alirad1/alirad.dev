@@ -123,6 +123,16 @@ body > footer {
     text-align: center;
 }
 
+.about-text a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.about-text a:hover {
+    color: #500000;
+}
+
 .skills-line {
     font-size: 1rem;
     color: #555555;
@@ -1501,6 +1511,10 @@ html[data-theme="dark"] .subheading {
 
 html[data-theme="dark"] .about-text {
     color: #e0e0e0;
+}
+
+html[data-theme="dark"] .about-text a:hover {
+    color: #ff6b6b;
 }
 
 html[data-theme="dark"] .skills-line {
