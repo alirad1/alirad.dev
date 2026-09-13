@@ -1,34 +1,26 @@
 # alirad.dev
 
-Source for my personal portfolio site.
+The source for my personal portfolio. It is a static [Astro](https://astro.build) site
+built with Tailwind CSS and TypeScript, and it is where I keep my projects, my experience,
+and whatever I happen to be building at the moment.
 
 **Live:** [https://alirad.dev](https://alirad.dev)
 
-Built with [Astro](https://astro.build), Tailwind CSS, and TypeScript.
+## How it fits together
 
-## Develop
+All of the content lives as data in `src/data/site.ts`. The page in `src/pages/index.astro`
+maps over those arrays and renders them through small components in `src/components/`, so
+adding a project or an experience entry is an edit to one file rather than a block of markup
+to copy out by hand. Styling is written by hand in `src/styles/`, and everything static (the
+images, the favicon, robots, sitemap) sits in `public/`.
 
-```bash
-npm install
-npm run dev      # http://localhost:4321
-npm run build    # static output to dist/
-npm run preview  # serve the build locally
-```
-
-Content lives in `src/data/site.ts`; sections are composed in `src/pages/index.astro`
-from small components in `src/components/`. Styling is in `src/styles/`. Static assets
-(images, favicon, robots, sitemap) are in `public/`.
+Keeping the content apart from the presentation like this is really the whole idea. The site
+reads as one measured page, and the parts that repeat are described once and reused.
 
 ## AliBot
 
-The assistant docked in the corner answers questions about my work by retrieving the
-site's own content. Its Cloudflare Worker lives in [`alibot/`](alibot/) and has its own
-README; the widget is `src/components/AliBot.astro` and `src/scripts/alibot.ts`, and the
-write-up is at [alirad.dev/alibot](https://alirad.dev/alibot).
-
-```bash
-npm run alibot:corpus   # rebuild the retrieval corpus from src/data/
-npm run alibot:dev      # run the worker locally
-npm run alibot:deploy
-npm run alibot:eval
-```
+The assistant docked in the corner answers questions about my work by retrieving the site's
+own content rather than making anything up. The Cloudflare Worker behind it lives in
+[`alibot/`](alibot/) and has its own README that walks through the retrieval and generation
+logic. The widget you see on the page is `src/components/AliBot.astro` together with
+`src/scripts/alibot.ts`.
