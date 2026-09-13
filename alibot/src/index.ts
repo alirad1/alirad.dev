@@ -2,15 +2,17 @@
 
    GET  /health        what is deployed and how much of it is indexed
    GET  /search?q=     retrieval only, as JSON: the tuning and debugging view
+   POST /chat          the widget's endpoint, streamed as server-sent events
    POST /ingest        embed the bundled corpus into Vectorize (shared secret)
 
    Runs on the Workers free plan with no payment method on the account, so
    exhausting the daily inference allowance returns an error rather than a bill.
-   Retrieval degrades instead of failing: see retrieve.ts. */
+   Every path degrades instead of failing: see chat.ts and retrieve.ts. */
 
 import { chunks } from './corpus.js';
 import { retrieve } from './retrieve.js';
 import { ingest } from './ingest.js';
+import { handleChat } from './chat.js';
 
 const JSON_HEADERS = { 'content-type': 'application/json; charset=utf-8' };
 
@@ -105,6 +107,13 @@ export default {
         200,
         origin,
       );
+    }
+
+    /* ── Chat ──────────────────────────────────────────────────────────── */
+
+    if (url.pathname === '/chat' && request.method === 'POST') {
+      if (!origin) return json({ error: 'forbidden_origin' }, 403, null);
+      return handleChat(request, env, origin);
     }
 
     /* ── Ingest ────────────────────────────────────────────────────────── */
