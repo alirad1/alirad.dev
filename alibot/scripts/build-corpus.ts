@@ -88,7 +88,8 @@ function siteChunks(): Chunk[] {
       onPage: true,
       text: plain(
         `${p.title}${p.titleSub ? ` (${p.titleSub})` : ''} is a project by Ali Rad. ` +
-          `Status: ${p.state.label}. ${p.desc} Stack: ${p.stack}. Links: ${links}.`,
+          `Status: ${p.state.label}. ${p.desc} Stack: ${p.stack}. ` +
+          `Tags: ${p.tags.split(',').join(', ')}. Links: ${links}.`,
       ),
     });
   }

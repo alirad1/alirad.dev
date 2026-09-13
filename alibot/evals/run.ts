@@ -19,7 +19,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const GOLDEN = resolve(HERE, 'golden.json');
 const OUT = resolve(HERE, 'results.json');
 
-const URL_BASE = (process.env.ALIBOT_URL ?? 'https://alibot.alirad1.workers.dev').replace(/\/$/, '');
+const URL_BASE = (process.env.ALIBOT_URL ?? 'https://alibot.alizrad07.workers.dev').replace(/\/$/, '');
 const ORIGIN = process.env.ALIBOT_ORIGIN ?? 'https://alirad.dev';
 const GAP_MS = Number(process.env.ALIBOT_GAP ?? 6500);
 

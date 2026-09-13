@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-09-13T18:41:11.947Z",
+  "builtAt": "2026-09-13T18:44:53.126Z",
   "chunks": [
     {
       "id": "about",
@@ -15,7 +15,7 @@
       "title": "AliBot",
       "url": "https://alirad.dev/#work",
       "onPage": true,
-      "text": "AliBot is a project by Ali Rad. Status: Live. The assistant in the corner of this page. It answers questions about my work by retrieving the site's own content rather than recalling it: questions are embedded with bge-base and searched against Cloudflare Vectorize alongside BM25, the two rankings are fused, and a cross-encoder reranker picks what the model may use. Answers stream from Llama 3.3 70B on a Cloudflare Worker and cite the card they came from. Below a confidence threshold it declines instead of guessing. Stack: TypeScript · Cloudflare Workers · Vectorize · Workers AI. Links: How it works: /alibot, Source: https://github.com/alirad1/alirad.dev/tree/master/alibot."
+      "text": "AliBot is a project by Ali Rad. Status: Live. The assistant in the corner of this page. It answers questions about my work by retrieving the site's own content rather than recalling it: questions are embedded with bge-base and searched against Cloudflare Vectorize alongside BM25, the two rankings are fused, and a cross-encoder reranker picks what the model may use. Answers stream from Llama 3.3 70B on a Cloudflare Worker and cite the card they came from. Below a confidence threshold it declines instead of guessing. Stack: TypeScript · Cloudflare Workers · Vectorize · Workers AI. Tags: Live, TypeScript, Cloudflare, RAG, Astro. Links: How it works: /alibot, Source: https://github.com/alirad1/alirad.dev/tree/master/alibot."
     },
     {
       "id": "proj-lapsecam",
@@ -23,7 +23,7 @@
       "title": "LapseCam",
       "url": "https://alirad.dev/#work",
       "onPage": true,
-      "text": "LapseCam is a project by Ali Rad. Status: Live. A free Windows desktop app that turns study sessions into time-lapse videos with no editing required. Record your screen, webcam, or both, choose a speed preset up to 600x, and LapseCam captures frames on a canvas before FFmpeg assembles the final clip. Built with Electron and JavaScript, everything runs locally with no account or upload. Stack: Electron · JavaScript · FFmpeg. Links: Open live: https://lapsecam.alirad.dev, Source: https://github.com/alirad1/LapseCam."
+      "text": "LapseCam is a project by Ali Rad. Status: Live. A free Windows desktop app that turns study sessions into time-lapse videos with no editing required. Record your screen, webcam, or both, choose a speed preset up to 600x, and LapseCam captures frames on a canvas before FFmpeg assembles the final clip. Built with Electron and JavaScript, everything runs locally with no account or upload. Stack: Electron · JavaScript · FFmpeg. Tags: Live, JavaScript, Electron, FFmpeg. Links: Open live: https://lapsecam.alirad.dev, Source: https://github.com/alirad1/LapseCam."
     },
     {
       "id": "proj-dynamic-wallpapers",
@@ -31,7 +31,7 @@
       "title": "Dynamic Wallpapers",
       "url": "https://alirad.dev/#work",
       "onPage": true,
-      "text": "Dynamic Wallpapers is a project by Ali Rad. Status: Live. A web app that generates daily-updating phone lock screen wallpapers straight from a URL, including a year calendar, life-in-weeks grid, goal countdown, and progress tracker. Built with Next.js, TypeScript, and Tailwind CSS, it renders SVG layouts to PNG on the server with sharp. Point iPhone Shortcuts or Android MacroDroid at the link once and the wallpaper refreshes itself every day, with no account or database. Stack: Next.js · TypeScript · Tailwind · sharp. Links: Open live: https://dynamicwallpapers.alirad.dev, Source: https://github.com/alirad1/dynamic-wallpapers."
+      "text": "Dynamic Wallpapers is a project by Ali Rad. Status: Live. A web app that generates daily-updating phone lock screen wallpapers straight from a URL, including a year calendar, life-in-weeks grid, goal countdown, and progress tracker. Built with Next.js, TypeScript, and Tailwind CSS, it renders SVG layouts to PNG on the server with sharp. Point iPhone Shortcuts or Android MacroDroid at the link once and the wallpaper refreshes itself every day, with no account or database. Stack: Next.js · TypeScript · Tailwind · sharp. Tags: Live, Next.js, TypeScript, Tailwind CSS, React. Links: Open live: https://dynamicwallpapers.alirad.dev, Source: https://github.com/alirad1/dynamic-wallpapers."
     },
     {
       "id": "proj-milo",
@@ -39,7 +39,7 @@
       "title": "Milo Motivational Buddy",
       "url": "https://alirad.dev/#work",
       "onPage": true,
-      "text": "Milo Motivational Buddy is a project by Ali Rad. Status: Live. A goal and habit-tracking app built to help people stay consistent with daily goals. It uses JavaScript and MySQL to store progress and streaks, and includes a small chatbot for journaling, reminders, and daily prompts that make the experience feel motivating rather than mechanical. Stack: JavaScript · MySQL. Links: Open live: https://milo.alirad.dev, Source: https://github.com/alirad1/Milo."
+      "text": "Milo Motivational Buddy is a project by Ali Rad. Status: Live. A goal and habit-tracking app built to help people stay consistent with daily goals. It uses JavaScript and MySQL to store progress and streaks, and includes a small chatbot for journaling, reminders, and daily prompts that make the experience feel motivating rather than mechanical. Stack: JavaScript · MySQL. Tags: Live, JavaScript, MySQL. Links: Open live: https://milo.alirad.dev, Source: https://github.com/alirad1/Milo."
     },
     {
       "id": "proj-alichart",
@@ -47,7 +47,7 @@
       "title": "AliChart",
       "url": "https://alirad.dev/#work",
       "onPage": true,
-      "text": "AliChart is a project by Ali Rad. Status: Live. A live web application designed around a PostgreSQL relational database, previously deployed on AWS. Implements JavaScript-driven workflows to model data relationships, authentication logic, and CRUD-style operations within a healthcare-style system. Stack: AWS · PostgreSQL · JavaScript. Links: Open live: https://chart.alirad.dev."
+      "text": "AliChart is a project by Ali Rad. Status: Live. A live web application designed around a PostgreSQL relational database, previously deployed on AWS. Implements JavaScript-driven workflows to model data relationships, authentication logic, and CRUD-style operations within a healthcare-style system. Stack: AWS · PostgreSQL · JavaScript. Tags: Live, AWS, PostgreSQL, JavaScript. Links: Open live: https://chart.alirad.dev."
     },
     {
       "id": "proj-this-website",
@@ -55,7 +55,7 @@
       "title": "This website",
       "url": "https://alirad.dev/#work",
       "onPage": true,
-      "text": "This website is a project by Ali Rad. Status: You are here. Where I keep my projects, experience, and whatever I'm building right now. Written in Astro with Tailwind and TypeScript — components for the repeated parts, one measured page, and a scroll that stays out of the way. Stack: Astro · Tailwind · TypeScript. Links: Source: https://github.com/alirad1/alirad.dev."
+      "text": "This website is a project by Ali Rad. Status: You are here. Where I keep my projects, experience, and whatever I'm building right now. Written in Astro with Tailwind and TypeScript — components for the repeated parts, one measured page, and a scroll that stays out of the way. Stack: Astro · Tailwind · TypeScript. Tags: Live, Astro, TypeScript, Tailwind CSS. Links: Source: https://github.com/alirad1/alirad.dev."
     },
     {
       "id": "proj-aggiequest",
@@ -63,7 +63,7 @@
       "title": "AggieQuest",
       "url": "https://alirad.dev/#work",
       "onPage": true,
-      "text": "AggieQuest (HowdyHack) is a project by Ali Rad. Status: Hackathon. A full-stack web app that generates daily challenges to encourage student engagement. I built a Flask backend with REST endpoints handling challenge creation, submissions, and user progress, focused on a clean end-to-end flow from frontend interaction to backend logic. Stack: Python · Flask · REST API. Links: Source: https://github.com/alirad1/AggieQuest-HowdyHack25."
+      "text": "AggieQuest (HowdyHack) is a project by Ali Rad. Status: Hackathon. A full-stack web app that generates daily challenges to encourage student engagement. I built a Flask backend with REST endpoints handling challenge creation, submissions, and user progress, focused on a clean end-to-end flow from frontend interaction to backend logic. Stack: Python · Flask · REST API. Tags: Python, Flask, REST API. Links: Source: https://github.com/alirad1/AggieQuest-HowdyHack25."
     },
     {
       "id": "proj-marketscope",
@@ -71,7 +71,7 @@
       "title": "MarketScope",
       "url": "https://alirad.dev/#work",
       "onPage": true,
-      "text": "MarketScope (FREEWORKS) is a project by Ali Rad. Status: 2nd place · FREEWORKS. An interactive stock analysis dashboard built with Python and Streamlit for comparing multiple stocks across time periods. It visualizes returns and price trends in a way you can actually explore, and placed 2nd in the FREEWORKS competition at Texas A&M. Stack: Python · Streamlit. Links: Source: https://github.com/alirad1/MarketScope-FREEworks."
+      "text": "MarketScope (FREEWORKS) is a project by Ali Rad. Status: 2nd place · FREEWORKS. An interactive stock analysis dashboard built with Python and Streamlit for comparing multiple stocks across time periods. It visualizes returns and price trends in a way you can actually explore, and placed 2nd in the FREEWORKS competition at Texas A&M. Stack: Python · Streamlit. Tags: Award Winner, Python, Streamlit. Links: Source: https://github.com/alirad1/MarketScope-FREEworks."
     },
     {
       "id": "proj-radgame",
@@ -79,7 +79,7 @@
       "title": "RadGame",
       "url": "https://alirad.dev/#work",
       "onPage": true,
-      "text": "RadGame is a project by Ali Rad. Status: Graphics. A 3D game written in Java to learn graphics programming and game engine fundamentals. Using LWJGL and ImGui, I implemented real-time rendering, player movement, collision detection, and basic enemy AI while experimenting with low-level game systems. Stack: Java · LWJGL · ImGui. Links: Source: https://github.com/alirad1/RadGame."
+      "text": "RadGame is a project by Ali Rad. Status: Graphics. A 3D game written in Java to learn graphics programming and game engine fundamentals. Using LWJGL and ImGui, I implemented real-time rendering, player movement, collision detection, and basic enemy AI while experimenting with low-level game systems. Stack: Java · LWJGL · ImGui. Tags: Java, LWJGL, ImGui. Links: Source: https://github.com/alirad1/RadGame."
     },
     {
       "id": "exp-neuman-lab",
