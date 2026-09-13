@@ -93,18 +93,27 @@ function siteChunks(): Chunk[] {
     });
   }
 
-  for (const e of [...research, ...clubs]) {
-    add(out, {
-      id: chunkId('exp', e.slug),
-      kind: 'experience',
-      title: `${plain(e.org)} — ${e.role}`,
-      url: `${SITE}/#experience`,
-      onPage: true,
-      text: plain(
-        `${e.org} — ${e.role} (${e.when}, ${e.where}). ${e.desc} ` +
-          `Topics: ${e.tags.join(', ')}.${e.link ? ` More: ${e.link.href}.` : ''}`,
-      ),
-    });
+  for (const [group, entries] of [
+    ['research and work', research],
+    ['clubs and organizations', clubs],
+  ] as const) {
+    for (const e of entries) {
+      add(out, {
+        id: chunkId('exp', e.slug),
+        kind: 'experience',
+        title: `${plain(e.org)} — ${e.role}`,
+        url: `${SITE}/#experience`,
+        onPage: true,
+        // Naming Ali matters: a cross-encoder scoring "where does Ali do
+        // research" against a chunk that never mentions him will lose to one
+        // that does, however relevant the subject matter.
+        text: plain(
+          `Ali Rad — ${e.role} at ${e.org}, ${e.when}, ${e.where}. ` +
+            `This is part of Ali's ${group} experience. ${e.desc} ` +
+            `Topics: ${e.tags.join(', ')}.${e.link ? ` More: ${e.link.href}.` : ''}`,
+        ),
+      });
+    }
   }
 
   for (const m of moments) {
@@ -114,7 +123,10 @@ function siteChunks(): Chunk[] {
       title: `Moment ${m.num}: ${m.label}`,
       url: `${SITE}/#moments`,
       onPage: true,
-      text: plain(`A photo from Ali's life, captioned "${m.label}". ${m.cap}`),
+      text: plain(
+        `A photo of Ali Rad, captioned "${m.label}". ${m.cap} ` +
+          'This is one of the moments Ali keeps on his site.',
+      ),
     });
   }
 
