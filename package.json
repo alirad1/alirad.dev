@@ -10,7 +10,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "alibot:corpus": "npm --prefix alibot run corpus",
+    "alibot:dev": "npm --prefix alibot run dev",
+    "alibot:deploy": "npm --prefix alibot run deploy",
+    "alibot:eval": "npm --prefix alibot run eval"
   },
   "dependencies": {
     "astro": "^7.3.2"

@@ -7,6 +7,8 @@ export type Link = { href: string; label: string; primary?: boolean };
 
 export type Project = {
   index: string;
+  slug: string;
+  repo?: string;
   title: string;
   titleSub?: string;
   state: { label: string; kind: 'live' | 'here' | 'award' | 'plain' };
@@ -19,6 +21,7 @@ export type Project = {
 };
 
 export type Experience = {
+  slug: string;
   org: string;
   role: string;
   when: string;
@@ -37,9 +40,17 @@ export type Moment = {
   cap: string;
 };
 
+/* Stable ids shared by the page (`data-chunk` attributes) and the AliBot
+   corpus builder, so a citation can point at the element it came from. */
+export function chunkId(kind: 'proj' | 'exp' | 'moment', slug: string): string {
+  return `${kind}-${slug}`;
+}
+
 export const projects: Project[] = [
   {
     index: '01',
+    slug: 'lapsecam',
+    repo: 'alirad1/LapseCam',
     title: 'LapseCam',
     state: { label: 'Live', kind: 'live' },
     live: true,
@@ -58,6 +69,8 @@ export const projects: Project[] = [
   },
   {
     index: '02',
+    slug: 'dynamic-wallpapers',
+    repo: 'alirad1/dynamic-wallpapers',
     title: 'Dynamic Wallpapers',
     state: { label: 'Live', kind: 'live' },
     live: true,
@@ -77,6 +90,8 @@ export const projects: Project[] = [
   },
   {
     index: '03',
+    slug: 'milo',
+    repo: 'alirad1/Milo',
     title: 'Milo Motivational Buddy',
     state: { label: 'Live', kind: 'live' },
     live: true,
@@ -95,6 +110,7 @@ export const projects: Project[] = [
   },
   {
     index: '04',
+    slug: 'alichart',
     title: 'AliChart',
     state: { label: 'Live', kind: 'live' },
     live: true,
@@ -110,6 +126,8 @@ export const projects: Project[] = [
   },
   {
     index: '05',
+    slug: 'this-website',
+    repo: 'alirad1/alirad.dev',
     title: 'This website',
     state: { label: 'You are here', kind: 'here' },
     live: true,
@@ -124,6 +142,8 @@ export const projects: Project[] = [
   },
   {
     index: '06',
+    slug: 'aggiequest',
+    repo: 'alirad1/AggieQuest-HowdyHack25',
     title: 'AggieQuest',
     titleSub: 'HowdyHack',
     state: { label: 'Hackathon', kind: 'plain' },
@@ -140,6 +160,8 @@ export const projects: Project[] = [
   },
   {
     index: '07',
+    slug: 'marketscope',
+    repo: 'alirad1/MarketScope-FREEworks',
     title: 'MarketScope',
     titleSub: 'FREEWORKS',
     state: { label: '2nd place · FREEWORKS', kind: 'award' },
@@ -155,6 +177,8 @@ export const projects: Project[] = [
   },
   {
     index: '08',
+    slug: 'radgame',
+    repo: 'alirad1/RadGame',
     title: 'RadGame',
     state: { label: 'Graphics', kind: 'plain' },
     live: false,
@@ -172,6 +196,7 @@ export const projects: Project[] = [
 
 export const research: Experience[] = [
   {
+    slug: 'neuman-lab',
     org: 'Neuman Lab',
     role: 'Bioinformatics-Based Virus Discovery',
     when: 'Ongoing',
@@ -186,6 +211,7 @@ export const research: Experience[] = [
     },
   },
   {
+    slug: 'music-teacher',
     org: 'Private instruction',
     role: 'Music teacher',
     when: 'Oct 2023 – Apr 2025',
@@ -194,6 +220,7 @@ export const research: Experience[] = [
     tags: ['Piano', 'Teaching', 'Music'],
   },
   {
+    slug: 'aws-academy',
     org: 'AWS Academy',
     role: 'Cloud Foundations — Graduate',
     when: 'Completed Apr 2025',
@@ -203,6 +230,7 @@ export const research: Experience[] = [
     link: { href: 'https://www.credly.com/badges/897bab94-9c65-44ef-ac9b-bbc286a62d82', label: 'View the badge' },
   },
   {
+    slug: 'lifeguard',
     org: 'A-Beautiful Pools & Sweetwater Pools',
     role: 'Lifeguard',
     when: 'May 2022 – Sep 2022',
@@ -216,6 +244,7 @@ export const research: Experience[] = [
 
 export const clubs: Experience[] = [
   {
+    slug: 'ewb',
     org: 'Engineers without Borders',
     role: 'Member',
     when: 'Ongoing',
@@ -226,6 +255,7 @@ export const clubs: Experience[] = [
     link: { href: 'https://www.ewb-tamu.org/', label: 'ewb-tamu.org' },
   },
   {
+    slug: 'aggiescreate',
     org: 'AggiesCreate',
     role: 'Member',
     when: 'Ongoing',
@@ -235,6 +265,7 @@ export const clubs: Experience[] = [
     link: { href: 'https://www.aggiescreate.com/', label: 'aggiescreate.com' },
   },
   {
+    slug: 'free',
     org: 'Freshman Reaching Excellence in Engineering',
     role: 'Member — Internal committee',
     when: 'Ongoing',
@@ -245,6 +276,7 @@ export const clubs: Experience[] = [
     link: { href: 'https://www.instagram.com/tamufree/', label: '@tamufree' },
   },
   {
+    slug: 'ieee',
     org: 'IEEE',
     role: 'Member',
     when: 'Ongoing',
@@ -254,6 +286,7 @@ export const clubs: Experience[] = [
     link: { href: 'https://ieeetamu.org/', label: 'ieeetamu.org' },
   },
   {
+    slug: 'quantam',
     org: 'QuantA&amp;M',
     role: 'Member',
     when: 'Ongoing',
@@ -263,6 +296,7 @@ export const clubs: Experience[] = [
     link: { href: 'https://quantamu.github.io/', label: 'quantamu.github.io' },
   },
   {
+    slug: 'psa',
     org: 'Persian Student Association',
     role: 'Member',
     when: 'Ongoing',
@@ -272,6 +306,7 @@ export const clubs: Experience[] = [
     link: { href: 'https://www.instagram.com/psatamu/', label: '@psatamu' },
   },
   {
+    slug: 'csnhs',
     org: 'CS National Honor Society',
     role: 'Officer',
     when: 'Ongoing',

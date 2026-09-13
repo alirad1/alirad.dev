@@ -1,10 +1,10 @@
 ---
-import type { Experience } from '../data/site';
+import { chunkId, type Experience } from '../data/site';
 interface Props { entry: Experience }
 const { entry: e } = Astro.props;
 ---
 
-<li class="exp reveal">
+<li class="exp reveal" data-chunk={chunkId('exp', e.slug)}>
   <div class="exp-lead">
     <h4 class="exp-org" set:html={e.org}></h4>
     <p class="exp-role">{e.role}</p>

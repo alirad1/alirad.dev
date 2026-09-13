@@ -1,0 +1,461 @@
+{
+  "builtAt": "2026-09-13T17:52:06.719Z",
+  "chunks": [
+    {
+      "id": "about",
+      "kind": "about",
+      "title": "About Ali Rad",
+      "url": "https://alirad.dev/",
+      "onPage": true,
+      "text": "Ali Rad is a Computer Engineering student at Texas A&M University in College Station, Texas. He builds desktop and web tools that people actually run: a time-lapse recorder for study sessions, a wallpaper that redraws itself every morning, and a habit tracker that argues back. He builds desktop apps, web apps and games, and works in Java, C++, Python, JavaScript and SQL. He is currently seeking summer internships."
+    },
+    {
+      "id": "proj-lapsecam",
+      "kind": "project",
+      "title": "LapseCam",
+      "url": "https://alirad.dev/#work",
+      "onPage": true,
+      "text": "LapseCam is a project by Ali Rad. Status: Live. A free Windows desktop app that turns study sessions into time-lapse videos with no editing required. Record your screen, webcam, or both, choose a speed preset up to 600x, and LapseCam captures frames on a canvas before FFmpeg assembles the final clip. Built with Electron and JavaScript, everything runs locally with no account or upload. Stack: Electron · JavaScript · FFmpeg. Links: Open live: https://lapsecam.alirad.dev, Source: https://github.com/alirad1/LapseCam."
+    },
+    {
+      "id": "proj-dynamic-wallpapers",
+      "kind": "project",
+      "title": "Dynamic Wallpapers",
+      "url": "https://alirad.dev/#work",
+      "onPage": true,
+      "text": "Dynamic Wallpapers is a project by Ali Rad. Status: Live. A web app that generates daily-updating phone lock screen wallpapers straight from a URL, including a year calendar, life-in-weeks grid, goal countdown, and progress tracker. Built with Next.js, TypeScript, and Tailwind CSS, it renders SVG layouts to PNG on the server with sharp. Point iPhone Shortcuts or Android MacroDroid at the link once and the wallpaper refreshes itself every day, with no account or database. Stack: Next.js · TypeScript · Tailwind · sharp. Links: Open live: https://dynamicwallpapers.alirad.dev, Source: https://github.com/alirad1/dynamic-wallpapers."
+    },
+    {
+      "id": "proj-milo",
+      "kind": "project",
+      "title": "Milo Motivational Buddy",
+      "url": "https://alirad.dev/#work",
+      "onPage": true,
+      "text": "Milo Motivational Buddy is a project by Ali Rad. Status: Live. A goal and habit-tracking app built to help people stay consistent with daily goals. It uses JavaScript and MySQL to store progress and streaks, and includes a small chatbot for journaling, reminders, and daily prompts that make the experience feel motivating rather than mechanical. Stack: JavaScript · MySQL. Links: Open live: https://milo.alirad.dev, Source: https://github.com/alirad1/Milo."
+    },
+    {
+      "id": "proj-alichart",
+      "kind": "project",
+      "title": "AliChart",
+      "url": "https://alirad.dev/#work",
+      "onPage": true,
+      "text": "AliChart is a project by Ali Rad. Status: Live. A live web application designed around a PostgreSQL relational database, previously deployed on AWS. Implements JavaScript-driven workflows to model data relationships, authentication logic, and CRUD-style operations within a healthcare-style system. Stack: AWS · PostgreSQL · JavaScript. Links: Open live: https://chart.alirad.dev."
+    },
+    {
+      "id": "proj-this-website",
+      "kind": "project",
+      "title": "This website",
+      "url": "https://alirad.dev/#work",
+      "onPage": true,
+      "text": "This website is a project by Ali Rad. Status: You are here. Where I keep my projects, experience, and whatever I'm building right now. Written in Astro with Tailwind and TypeScript — components for the repeated parts, one measured page, and a scroll that stays out of the way. Stack: Astro · Tailwind · TypeScript. Links: Source: https://github.com/alirad1/alirad.dev."
+    },
+    {
+      "id": "proj-aggiequest",
+      "kind": "project",
+      "title": "AggieQuest",
+      "url": "https://alirad.dev/#work",
+      "onPage": true,
+      "text": "AggieQuest (HowdyHack) is a project by Ali Rad. Status: Hackathon. A full-stack web app that generates daily challenges to encourage student engagement. I built a Flask backend with REST endpoints handling challenge creation, submissions, and user progress, focused on a clean end-to-end flow from frontend interaction to backend logic. Stack: Python · Flask · REST API. Links: Source: https://github.com/alirad1/AggieQuest-HowdyHack25."
+    },
+    {
+      "id": "proj-marketscope",
+      "kind": "project",
+      "title": "MarketScope",
+      "url": "https://alirad.dev/#work",
+      "onPage": true,
+      "text": "MarketScope (FREEWORKS) is a project by Ali Rad. Status: 2nd place · FREEWORKS. An interactive stock analysis dashboard built with Python and Streamlit for comparing multiple stocks across time periods. It visualizes returns and price trends in a way you can actually explore, and placed 2nd in the FREEWORKS competition at Texas A&M. Stack: Python · Streamlit. Links: Source: https://github.com/alirad1/MarketScope-FREEworks."
+    },
+    {
+      "id": "proj-radgame",
+      "kind": "project",
+      "title": "RadGame",
+      "url": "https://alirad.dev/#work",
+      "onPage": true,
+      "text": "RadGame is a project by Ali Rad. Status: Graphics. A 3D game written in Java to learn graphics programming and game engine fundamentals. Using LWJGL and ImGui, I implemented real-time rendering, player movement, collision detection, and basic enemy AI while experimenting with low-level game systems. Stack: Java · LWJGL · ImGui. Links: Source: https://github.com/alirad1/RadGame."
+    },
+    {
+      "id": "exp-neuman-lab",
+      "kind": "experience",
+      "title": "Neuman Lab — Bioinformatics-Based Virus Discovery",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "Neuman Lab — Bioinformatics-Based Virus Discovery (Ongoing, College Station, TX). Bioinformatics-based virus discovery at Texas A&M, contributing to citizen science efforts that uncover previously unknown viruses. Topics: Bioinformatics, Research, Virus discovery. More: https://artsci.tamu.edu/biology/updates/citizen-scientists-uncover-unknown-viruses.html."
+    },
+    {
+      "id": "exp-music-teacher",
+      "kind": "experience",
+      "title": "Private instruction — Music teacher",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "Private instruction — Music teacher (Oct 2023 – Apr 2025, Remote / local). Taught private music lessons, helping students build technique and musicality. Topics: Piano, Teaching, Music."
+    },
+    {
+      "id": "exp-aws-academy",
+      "kind": "experience",
+      "title": "AWS Academy — Cloud Foundations — Graduate",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "AWS Academy — Cloud Foundations — Graduate (Completed Apr 2025, Online). Completed AWS Academy Cloud Foundations and earned the Cloud Foundations graduate badge on Credly. Topics: AWS, Cloud. More: https://www.credly.com/badges/897bab94-9c65-44ef-ac9b-bbc286a62d82."
+    },
+    {
+      "id": "exp-lifeguard",
+      "kind": "experience",
+      "title": "A-Beautiful Pools & Sweetwater Pools — Lifeguard",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "A-Beautiful Pools & Sweetwater Pools — Lifeguard (May 2022 – Sep 2022, Local). Guarded at A-Beautiful Pools (June–September) and Sweetwater Pools (May–July), keeping swimmers safe and responding to emergencies. Topics: CPR, First aid, Safety."
+    },
+    {
+      "id": "exp-ewb",
+      "kind": "experience",
+      "title": "Engineers without Borders — Member",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "Engineers without Borders — Member (Ongoing, College Station, TX). Texas A&M chapter — designing and implementing sustainable engineering projects with communities worldwide. Topics: Engineering, Sustainability. More: https://www.ewb-tamu.org/."
+    },
+    {
+      "id": "exp-aggiescreate",
+      "kind": "experience",
+      "title": "AggiesCreate — Member",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "AggiesCreate — Member (Ongoing, College Station, TX). A student organization built around creativity, innovation, and shipping projects together. Topics: Creativity, Collaboration. More: https://www.aggiescreate.com/."
+    },
+    {
+      "id": "exp-free",
+      "kind": "experience",
+      "title": "Freshman Reaching Excellence in Engineering — Member — Internal committee",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "Freshman Reaching Excellence in Engineering — Member — Internal committee (Ongoing, College Station, TX). Freshman leadership organization in Texas A&M Engineering — building community and developing leadership skills. Topics: Leadership, Mentorship. More: https://www.instagram.com/tamufree/."
+    },
+    {
+      "id": "exp-ieee",
+      "kind": "experience",
+      "title": "IEEE — Member",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "IEEE — Member (Ongoing, College Station, TX). Texas A&M student branch — technical workshops, projects, and professional development. Topics: Electrical, Computing. More: https://ieeetamu.org/."
+    },
+    {
+      "id": "exp-quantam",
+      "kind": "experience",
+      "title": "QuantA&M — Member",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "QuantA&M — Member (Ongoing, College Station, TX). Quantitative finance and trading club — strategies, markets, and data-driven finance. Topics: Quant finance, Data. More: https://quantamu.github.io/."
+    },
+    {
+      "id": "exp-psa",
+      "kind": "experience",
+      "title": "Persian Student Association — Member",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "Persian Student Association — Member (Ongoing, College Station, TX). Celebrating Persian culture and building community on campus. Topics: Culture, Community. More: https://www.instagram.com/psatamu/."
+    },
+    {
+      "id": "exp-csnhs",
+      "kind": "experience",
+      "title": "CS National Honor Society — Officer",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "CS National Honor Society — Officer (Ongoing, Clements HS / Fort Bend ISD). Promoting scholarship, leadership, and service in computer science — tutoring students, running contests, and volunteering at local middle schools. Topics: Leadership, Tutoring, Service. More: https://clementscsnhs.org/index.html."
+    },
+    {
+      "id": "moment-01",
+      "kind": "moment",
+      "title": "Moment 01: Good Bull Pitch",
+      "url": "https://alirad.dev/#moments",
+      "onPage": true,
+      "text": "A photo from Ali's life, captioned \"Good Bull Pitch\". My team after we pitched IRIS, an autonomous surgical light, at the Good Bull Pitch Competition — first place, plus $500 to keep developing the prototype."
+    },
+    {
+      "id": "moment-02",
+      "kind": "moment",
+      "title": "Moment 02: FREE formal",
+      "url": "https://alirad.dev/#moments",
+      "onPage": true,
+      "text": "A photo from Ali's life, captioned \"FREE formal\". My freshman leadership organization's winter formal, with my committee, Internal."
+    },
+    {
+      "id": "moment-03",
+      "kind": "moment",
+      "title": "Moment 03: Fish Camp",
+      "url": "https://alirad.dev/#moments",
+      "onPage": true,
+      "text": "A photo from Ali's life, captioned \"Fish Camp\". The final day of Fish Camp, when I officially became an Aggie."
+    },
+    {
+      "id": "moment-04",
+      "kind": "moment",
+      "title": "Moment 04: Playoff win",
+      "url": "https://alirad.dev/#moments",
+      "onPage": true,
+      "text": "A photo from Ali's life, captioned \"Playoff win\". With my soccer teammates after winning our first playoff game in three years."
+    },
+    {
+      "id": "moment-05",
+      "kind": "moment",
+      "title": "Moment 05: Conducting",
+      "url": "https://alirad.dev/#moments",
+      "onPage": true,
+      "text": "A photo from Ali's life, captioned \"Conducting\". Conducting one of my high school's orchestras as an officer. I'm fairly sure this was Aladdin."
+    },
+    {
+      "id": "moment-06",
+      "kind": "moment",
+      "title": "Moment 06: Orchestra award",
+      "url": "https://alirad.dev/#moments",
+      "onPage": true,
+      "text": "A photo from Ali's life, captioned \"Orchestra award\". Nominated across the district as the embodiment of what it means to lead as an orchestra student."
+    },
+    {
+      "id": "moment-07",
+      "kind": "moment",
+      "title": "Moment 07: Chamber recital",
+      "url": "https://alirad.dev/#moments",
+      "onPage": true,
+      "text": "A photo from Ali's life, captioned \"Chamber recital\". My chamber group right after we survived a very daunting Dvořák Piano Quintet."
+    },
+    {
+      "id": "moment-08",
+      "kind": "moment",
+      "title": "Moment 08: Senior awards",
+      "url": "https://alirad.dev/#moments",
+      "onPage": true,
+      "text": "A photo from Ali's life, captioned \"Senior awards\". Senior year: nominated for most school spirit, and somehow also prom king."
+    },
+    {
+      "id": "moment-09",
+      "kind": "moment",
+      "title": "Moment 09: First piano",
+      "url": "https://alirad.dev/#moments",
+      "onPage": true,
+      "text": "A photo from Ali's life, captioned \"First piano\". The oldest photo I have of myself at a piano. Everything else on this strip starts here."
+    },
+    {
+      "id": "contact",
+      "kind": "contact",
+      "title": "Contact Ali",
+      "url": "https://alirad.dev/#contact",
+      "onPage": true,
+      "text": "Ali answers every email, about a role, a project on the site, or something you are building. Email: alizrad99@gmail.com. GitHub: github.com/alirad1. LinkedIn: linkedin.com/in/alirad07. Location: College Station, Texas. He is open to summer 2026 internships."
+    },
+    {
+      "id": "alibot-what",
+      "kind": "alibot",
+      "title": "AliBot — What it is",
+      "url": "https://alirad.dev/alibot",
+      "onPage": false,
+      "text": "AliBot is a small chat assistant docked in the corner of this site. It answers questions about Ali's projects and experience using only the content on alirad.dev and the README of each project repository. Every answer carries citations, and clicking one scrolls to the exact card or entry the sentence came from. If the retrieved sources do not answer a question, AliBot says so instead of guessing. It was built to practise retrieval-augmented generation end to end rather than to wire up a chat box around a general-purpose model."
+    },
+    {
+      "id": "alibot-retrieval",
+      "kind": "alibot",
+      "title": "AliBot — How retrieval works",
+      "url": "https://alirad.dev/alibot",
+      "onPage": false,
+      "text": "The corpus is generated from the same data file the site renders, so a chunk id always matches an element on the page. A question is embedded with bge-base-en-v1.5 into a 768-dimension vector and searched against Cloudflare Vectorize for the twelve nearest chunks. In parallel the Worker runs BM25 keyword scoring over the bundled corpus for its own top twelve. The two ranked lists are combined with reciprocal rank fusion, which rewards chunks that both methods rank highly without needing the two score scales to be comparable. The fused top eight then go through a cross-encoder reranker, bge-reranker-base, which reads the question and each chunk together and scores real relevance rather than vector proximity. The best four become the sources for the answer."
+    },
+    {
+      "id": "alibot-generation",
+      "kind": "alibot",
+      "title": "AliBot — How answers are generated",
+      "url": "https://alirad.dev/alibot",
+      "onPage": false,
+      "text": "The four reranked chunks are numbered and placed in the system prompt, and the model is instructed to answer only from them and to mark each sentence with the number of the source it used. Generation runs on Llama 3.3 70B through Workers AI with streaming enabled, so tokens reach the browser over server-sent events as they are produced. The bracketed numbers in the finished answer are swapped for citation chips in the widget. Answers are capped at 400 tokens and run at a low temperature, because the job is to report what the sources say, not to write freely."
+    },
+    {
+      "id": "alibot-guardrails",
+      "kind": "alibot",
+      "title": "AliBot — Guardrails",
+      "url": "https://alirad.dev/alibot",
+      "onPage": false,
+      "text": "A grounding gate sits between retrieval and generation: if the best reranker score falls below a threshold tuned against the eval set, AliBot declines without calling the model at all, which makes an off-topic question both safer and free. The question is capped at 500 characters and the history at six turns. Visitor text only ever appears in the user turn of the prompt, never spliced into the system instructions, and the sources are Ali’s own content rather than arbitrary web pages. Model output is rendered as text nodes, never as HTML, so nothing it produces can execute in the page. A rate-limit binding allows ten questions per minute per address."
+    },
+    {
+      "id": "alibot-evals",
+      "kind": "alibot",
+      "title": "AliBot — Evaluation",
+      "url": "https://alirad.dev/alibot",
+      "onPage": false,
+      "text": "A thirty-question golden set runs against the deployed Worker: twenty questions that the site can answer, each labelled with the chunk that should be retrieved, six that it should refuse as out of scope, and four prompt-injection attempts. The harness records recall at four, the share of answers that cite a real source, how reliably out-of-scope questions are declined, resistance to injection, and the latency and neuron cost of every turn. Choosing between the 70B and 8B models was settled by running the same set against both rather than by preference."
+    },
+    {
+      "id": "alibot-cost",
+      "kind": "alibot",
+      "title": "AliBot — What it costs",
+      "url": "https://alirad.dev/alibot",
+      "onPage": false,
+      "text": "Nothing, structurally. The Worker, the Vectorize index and the inference all sit on Cloudflare free tiers, and there is no payment method on the account, so exceeding the daily allowance of ten thousand neurons returns an error rather than a bill. When that happens AliBot falls back to returning the retrieved sections verbatim with their citations, which needs no model call. The widget still reports what each answer would have cost at the paid rate, because an assistant whose price you cannot see is an assistant you cannot reason about."
+    },
+    {
+      "id": "readme-lapsecam-1",
+      "kind": "readme",
+      "title": "LapseCam README: Overview",
+      "text": "LapseCam README — Overview. # LapseCam Windows app I built to turn study sessions into time-lapses. Record your screen, webcam, or both, hit stop, and you get a sped-up video. No editing step after. Website: lapsecam.alirad.dev",
+      "url": "https://github.com/alirad1/LapseCam#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-lapsecam-2",
+      "kind": "readme",
+      "title": "LapseCam README: Download",
+      "text": "LapseCam README — Download. Get the installer or portable exe from the releases page. Works on Windows 10/11. The exe isn't code signed (those certs are expensive), so SmartScreen will complain the first time. Click \"More info\" then \"Run anyway\", or build from source below.",
+      "url": "https://github.com/alirad1/LapseCam#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-lapsecam-3",
+      "kind": "readme",
+      "title": "LapseCam README: How it works",
+      "text": "LapseCam README — How it works. Instead of recording full video and speeding it up later, LapseCam grabs one photo every few seconds and writes it to disk. When you stop, ffmpeg stitches the frames into a video at whatever speed you picked. Only one frame sits in memory at a time, so long sessions stay lightweight. Features: - Screen only, webcam only, or screen with a draggable webcam overlay - Draggable blur regions to hide sensitive on-screen content - Speed presets from 30x to 600x, or custom interval + fps - Elapsed time stamped into the video, optional floating timer (excluded from capture) - Pause/resume without splitting the session - Auto-stop after a set number of hours - Exports MP4, WebM, MOV, or GIF - Check for updates on launch - Everything stays local",
+      "url": "https://github.com/alirad1/LapseCam#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-lapsecam-4",
+      "kind": "readme",
+      "title": "LapseCam README: Build",
+      "text": "LapseCam README — Build. npm run dist Output lands in dist/ (installer + portable exe). Run npm run icon to regenerate build/icon.ico. It's a tiny script that draws the icon pixel by pixel so I didn't have to mess with an image editor.",
+      "url": "https://github.com/alirad1/LapseCam#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-lapsecam-5",
+      "kind": "readme",
+      "title": "LapseCam README: Layout",
+      "text": "LapseCam README — Layout. src/main/ electron main process, IPC, ffmpeg src/renderer/ UI and capture loop scripts/ gen-icon.js + set-exe-icon.js (post-build branding) site/ landing page",
+      "url": "https://github.com/alirad1/LapseCam#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-dynamic-wallpapers-1",
+      "kind": "readme",
+      "title": "Dynamic Wallpapers README: Overview",
+      "text": "Dynamic Wallpapers README — Overview. # Dynamic Wallpapers Lock screen wallpapers that update themselves every day. Pick something to track (the current year, your life in weeks, a countdown to a goal, or progress through any date range), point your phone at a URL, and the image quietly refreshes every morning. No app to install, no account, no database. Live site: https://dynamicwallpapers.alirad.dev",
+      "url": "https://github.com/alirad1/dynamic-wallpapers#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-dynamic-wallpapers-2",
+      "kind": "readme",
+      "title": "Dynamic Wallpapers README: The idea",
+      "text": "Dynamic Wallpapers README — The idea. Most people glance at their lock screen dozens of times a day. I wanted that glance to carry a small bit of meaning, like a reminder that the year is 60% gone or that a deadline is 12 days away, without piling on another notification or app. It all runs on one simple trick. An image URL renders a fresh PNG every time it is requested, so you set up a daily automation once (Shortcuts on iPhone, MacroDroid on Android) and then forget about it. The wallpaper keeps itself current.",
+      "url": "https://github.com/alirad1/dynamic-wallpapers#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-dynamic-wallpapers-3",
+      "kind": "readme",
+      "title": "Dynamic Wallpapers README: What it does",
+      "text": "Dynamic Wallpapers README — What it does. - Year: a grid of every day in the year, with the days so far filled in and today highlighted - Life: one square for every week you have lived, counted from your date of birth - Goal: a countdown ring to a date that matters, showing the days left - Progress: a percent bar through any start and end date Each style comes with light and dark themes, five accent colors, and resolution presets for common iPhone, iPad, and Android screens so nothing gets cropped.",
+      "url": "https://github.com/alirad1/dynamic-wallpapers#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-dynamic-wallpapers-4",
+      "kind": "readme",
+      "title": "Dynamic Wallpapers README: How it works",
+      "text": "Dynamic Wallpapers README — How it works. Every endpoint (/api/year, /api/life, /api/goal, /api/progress) takes a handful of query params and returns a PNG: /api/goal?goal=Ship+the+app&goaldate=2026-12-31&theme=dark The layout is drawn as an SVG on the server and rasterized to a PNG with sharp. The browser preview builds the exact same SVG on the client, so what you see while setting things up is what actually lands on your phone. The hard part was text. When you rasterize SVG text on a server, the output depends on whatever fonts happen to be installed, which changes from one machine to the next. To get around that, I convert every label into vector path outlines from the real font file before rasterizing. The text then comes out pixel for pixel identical everywhere, with no font dependency at runtime.",
+      "url": "https://github.com/alirad1/dynamic-wallpapers#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-dynamic-wallpapers-5",
+      "kind": "readme",
+      "title": "Dynamic Wallpapers README: Tech stack",
+      "text": "Dynamic Wallpapers README — Tech stack. - Next.js (App Router) and TypeScript - Tailwind CSS for the UI - Framer Motion for the setup wizard - sharp for SVG to PNG rasterizing - opentype.js for converting text into font outlines - Hosted on Netlify",
+      "url": "https://github.com/alirad1/dynamic-wallpapers#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-dynamic-wallpapers-6",
+      "kind": "readme",
+      "title": "Dynamic Wallpapers README: What I learned",
+      "text": "Dynamic Wallpapers README — What I learned. - Rendering text reliably on a server is far trickier than it sounds. Outlining glyphs myself forced me to actually understand font units, glyph advances, and how a typeface turns into pixels. - One source of truth is worth the effort. The same SVG builder feeds both the live preview and the final image, so the two can never fall out of sync. - Fewer moving parts is a feature. Dropping accounts and a database kept the app cheap to run and pushed the real logic into small, pure functions that are easy to test. - The last mile of UX is all details. Figuring out how to stop iOS from cropping the image took plenty of trial and error, and writing that up clearly saves every user the same frustration.",
+      "url": "https://github.com/alirad1/dynamic-wallpapers#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-this-website-1",
+      "kind": "readme",
+      "title": "This website README: Overview",
+      "text": "This website README — Overview. # alirad.dev Source for my personal portfolio site. Live: https://alirad.dev Built with Astro, Tailwind CSS, and TypeScript.",
+      "url": "https://github.com/alirad1/alirad.dev#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-this-website-2",
+      "kind": "readme",
+      "title": "This website README: Develop",
+      "text": "This website README — Develop. bash npm install npm run dev # http://localhost:4321 npm run build # static output to dist/ npm run preview # serve the build locally Content lives in src/data/site.ts; sections are composed in src/pages/index.astro from small components in src/components/. Styling is in src/styles/. Static assets (images, favicon, robots, sitemap) are in public/.",
+      "url": "https://github.com/alirad1/alirad.dev#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-aggiequest-1",
+      "kind": "readme",
+      "title": "AggieQuest README: Overview",
+      "text": "AggieQuest README — Overview. Thank you so much for taking time to view our project from Texas A&M's 2025 Hackathon! To get the project running correctly, please install the required dependencies and run the .bat file. Thank you again, and we hope you enjoy! - The AggieQuest Team",
+      "url": "https://github.com/alirad1/AggieQuest-HowdyHack25#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-marketscope-1",
+      "kind": "readme",
+      "title": "MarketScope README: Overview",
+      "text": "MarketScope README — Overview. # Stock Performance Dashboard A web app to track and compare stock performance using Python and Streamlit.",
+      "url": "https://github.com/alirad1/MarketScope-FREEworks#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-marketscope-2",
+      "kind": "readme",
+      "title": "MarketScope README: What it does",
+      "text": "MarketScope README — What it does. - Enter multiple stock tickers (like AAPL, MSFT, TSLA) - Select a date range (30 days, 90 days, 6 months, or 1 year) - View performance metrics and charts comparing the stocks",
+      "url": "https://github.com/alirad1/MarketScope-FREEworks#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-marketscope-3",
+      "kind": "readme",
+      "title": "MarketScope README: Technologies",
+      "text": "MarketScope README — Technologies. - yfinance - Gets stock data from Yahoo Finance - pandas - Processes the data - matplotlib - Creates charts - Streamlit - Web interface",
+      "url": "https://github.com/alirad1/MarketScope-FREEworks#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-marketscope-4",
+      "kind": "readme",
+      "title": "MarketScope README: How to run",
+      "text": "MarketScope README — How to run. bash streamlit run app.py Or if that doesn't work: bash python -m streamlit run app.py The app should open in your browser at http://localhost:8501",
+      "url": "https://github.com/alirad1/MarketScope-FREEworks#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-marketscope-5",
+      "kind": "readme",
+      "title": "MarketScope README: Features",
+      "text": "MarketScope README — Features. - Compare multiple stocks at once - See latest prices, daily changes, and total percent change - View price trends over time - See which stock performed best (highlighted in green) - Sortable metrics table",
+      "url": "https://github.com/alirad1/MarketScope-FREEworks#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-marketscope-6",
+      "kind": "readme",
+      "title": "MarketScope README: Project files",
+      "text": "MarketScope README — Project files. - app.py - Main Streamlit app - stockdata.py - Functions to fetch data and calculate metrics - stockcharts.py - Functions to create charts - requirements.txt - Required packages to run the program",
+      "url": "https://github.com/alirad1/MarketScope-FREEworks#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-marketscope-7",
+      "kind": "readme",
+      "title": "MarketScope README: Usage",
+      "text": "MarketScope README — Usage. 1. Enter ticker symbols separated by commas (e.g., \"AAPL, MSFT, GOOGL\") 2. Choose a date range 3. Click \"Analyze Stocks\" 4. View the results!",
+      "url": "https://github.com/alirad1/MarketScope-FREEworks#readme",
+      "onPage": false
+    }
+  ]
+}

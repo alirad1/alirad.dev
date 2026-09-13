@@ -1,5 +1,5 @@
 ---
-import type { Project } from '../data/site';
+import { chunkId, type Project } from '../data/site';
 interface Props { project: Project }
 const { project: p } = Astro.props;
 
@@ -11,7 +11,7 @@ const stateClass = {
 }[p.state.kind];
 ---
 
-<article class="card reveal" data-tags={p.tags} data-live={String(p.live)}>
+<article class="card reveal" data-chunk={chunkId('proj', p.slug)} data-tags={p.tags} data-live={String(p.live)}>
   <div class="card-bar">
     <span class="card-index">{p.index}</span>
     <span class:list={['card-state', stateClass]}>{p.state.label}</span>
