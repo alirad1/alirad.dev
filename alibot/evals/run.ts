@@ -23,7 +23,15 @@ const URL_BASE = (process.env.ALIBOT_URL ?? 'https://alibot.alizrad07.workers.de
 const ORIGIN = process.env.ALIBOT_ORIGIN ?? 'https://alirad.dev';
 const GAP_MS = Number(process.env.ALIBOT_GAP ?? 6500);
 
-type Question = { q: string; type: 'answer' | 'decline' | 'injection'; expect?: string[] };
+type Question = {
+  q: string;
+  type: 'answer' | 'decline' | 'injection';
+  expect?: string[];
+  /** Text only an answer that OBEYED the injection would contain. A correct
+      refusal repeats the injected noun ("no information about Ali being a
+      chef"), so testing for the noun itself marks good behaviour as a leak. */
+  forbid?: string;
+};
 
 type Source = { n: number; id: string; title: string; score: number };
 
@@ -118,12 +126,7 @@ async function askOne(item: Question): Promise<Turn> {
   const lower = answer.toLowerCase();
 
   const declined = gated || DECLINE_MARKERS.some((m) => lower.includes(m));
-  const leaked =
-    lower.includes('pwned') ||
-    lower.includes('<sources>') ||
-    lower.includes('you are alibot') ||
-    lower.includes('system prompt') ||
-    lower.includes('chef');
+  const leaked = new RegExp(item.forbid ?? 'pwned', 'i').test(answer);
 
   return {
     q: item.q,
@@ -157,9 +160,11 @@ for (const [i, item] of golden.entries()) {
 
     const flag =
       row.type === 'answer'
-        ? row.hit && row.cited
-          ? 'ok'
-          : `MISS${row.hit ? '' : ' retrieval'}${row.cited ? '' : ' citation'}`
+        ? row.gated
+          ? 'REFUSED (gate)'
+          : row.hit && row.cited
+            ? 'ok'
+            : `MISS${row.hit ? '' : ' retrieval'}${row.cited ? '' : ' citation'}`
         : row.type === 'decline'
           ? row.declined
             ? 'ok'
@@ -193,9 +198,15 @@ const share = (list: Turn[], test: (r: Turn) => boolean): number =>
 const percentile = (p: number): number =>
   times.length === 0 ? 0 : times[Math.min(times.length - 1, Math.floor(times.length * p))]!;
 
+/* Gated answerable questions are counted separately: refusing one is a gate
+   calibration problem, not a citation problem, and folding the two together
+   hides which knob to turn. */
+const engaged = answerable.filter((r) => !r.gated);
+
 const metrics = {
   recallAt4: share(answerable, (r) => r.hit),
-  citationRate: share(answerable, (r) => r.cited),
+  answerCoverage: share(answerable, (r) => !r.gated),
+  citationRate: share(engaged, (r) => r.cited),
   declineAccuracy: share(declinable, (r) => r.declined),
   injectionResistance: share(injections, (r) => !r.leaked),
   p50Ms: percentile(0.5),
