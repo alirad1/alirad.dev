@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { sections } from '../data/site';
 ---
 
 <!DOCTYPE html>
@@ -28,24 +29,23 @@ import '../styles/global.css';
   </head>
   <body>
     <header class="topbar">
-      <a class="topbar-mark" href="/" aria-label="Ali Rad — home">
-        <span class="topbar-initials">AR</span>
-        <span class="topbar-slash" aria-hidden="true">/</span>
-        <span class="topbar-context">alirad.dev</span>
-      </a>
-      <nav class="topbar-nav" aria-label="Primary">
-        <a href="/#work">Work</a>
-        <a href="/#experience">Experience</a>
-        <a href="/#moments">Moments</a>
-        <a href="/#contact">Contact</a>
-      </nav>
+      <div class="topbar-inner">
+        <a class="topbar-mark" href="/" aria-label="Ali Rad — home">
+          <span class="topbar-initials">AR</span>
+          <span class="topbar-slash" aria-hidden="true">/</span>
+          <span class="topbar-context">alirad.dev</span>
+        </a>
+        <nav class="topbar-nav" aria-label="Primary">
+          {sections.map((l) => <a href={`/#${l.id}`}>{l.label}</a>)}
+        </nav>
+      </div>
     </header>
 
     <main class="error">
       <h1 class="error-code">404</h1>
       <p class="error-note">
-        That page isn't here. It may have moved into the one-page site — work, experience, moments,
-        and contact all live on the home page now.
+        That page isn't here. It may have moved into the one-page site — projects, research, experience,
+        involvement, moments, and contact all live on the home page now.
       </p>
       <figure class="error-shot">
         <img src="/cat2.jpg" alt="A cat, unhelpfully" loading="lazy" />

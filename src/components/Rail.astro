@@ -1,10 +1,7 @@
 ---
-const marks = [
-  { id: 'work', num: '01', name: 'Work' },
-  { id: 'experience', num: '02', name: 'Experience' },
-  { id: 'moments', num: '03', name: 'Moments' },
-  { id: 'contact', num: '04', name: 'Contact' },
-];
+import { sections } from '../data/site';
+
+const marks = sections.map((s, i) => ({ id: s.id, num: String(i + 1).padStart(2, '0'), name: s.label }));
 ---
 
 <!-- Measuring rail: table of contents, scroll position, and progress in one instrument. -->

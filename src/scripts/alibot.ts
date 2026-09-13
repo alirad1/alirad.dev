@@ -78,10 +78,10 @@ if (launcher && panel && log && form && input && send) {
     return node;
   };
 
-  function setDots(state: 'ready' | 'busy' | 'idle'): void {
+  function setDots(state: 'ready' | 'busy' | 'down'): void {
     for (const dot of dots) {
       if (!dot) continue;
-      dot.classList.toggle('bot-dot-idle', state === 'idle');
+      dot.classList.toggle('bot-dot-down', state === 'down');
       dot.classList.toggle('bot-dot-busy', state === 'busy');
     }
   }
@@ -93,6 +93,15 @@ if (launcher && panel && log && form && input && send) {
   function scrollLog(): void {
     log!.scrollTop = log!.scrollHeight;
   }
+
+  /* The model marks sentences with [n]. The source buttons under the answer
+     carry that information, so the markers are dropped from the prose — including
+     a half-streamed "[2" at the end of the text so far. */
+  function stripMarkers(text: string): string {
+    return text.replace(/\s*\[\d+\]/g, '').replace(/\s*\[\d*$/, '');
+  }
+
+  const DECLINED = /only know what(?:'s| is) on alirad\.dev/i;
 
   function ms(n: number | undefined): string {
     return typeof n === 'number' ? `${Math.round(n)} ms` : '—';
@@ -122,9 +131,10 @@ if (launcher && panel && log && form && input && send) {
       else {
         // Restored text only: a past answer is finished, so no caret, and its
         // citation chips are not rebuilt.
-        const { text } = addAnswer();
+        const { wrap, text } = addAnswer();
         text.classList.remove('bot-caret');
-        text.textContent = turn.content;
+        text.textContent = stripMarkers(turn.content);
+        if (DECLINED.test(turn.content)) addDeclineActions(wrap);
       }
     }
     history = saved.slice(-MAX_HISTORY);
@@ -153,6 +163,28 @@ if (launcher && panel && log && form && input && send) {
     wrap.append(el('p', className, message));
     log!.append(wrap);
     scrollLog();
+  }
+
+  function goToSection(id: string): void {
+    const target = document.getElementById(id);
+    if (!target) return;
+    if (window.matchMedia('(max-width: 640px)').matches) closePanel();
+    target.scrollIntoView({ block: 'start', behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+  }
+
+  /** When AliBot can't answer, point at the two places that can. */
+  function addDeclineActions(wrap: HTMLElement): void {
+    const row = el('div', 'bot-cites');
+    for (const [label, id] of [
+      ['View projects', 'projects'],
+      ['Contact me', 'contact'],
+    ]) {
+      const button = el('button', 'bot-cite bot-action', label);
+      button.type = 'button';
+      button.addEventListener('click', () => goToSection(id));
+      row.append(button);
+    }
+    wrap.append(row);
   }
 
   /** Sends the reader to the element a citation came from. */
@@ -195,7 +227,6 @@ if (launcher && panel && log && form && input && send) {
     for (const source of cited) {
       const chip = el('button', 'bot-cite');
       chip.type = 'button';
-      chip.append(el('span', 'bot-cite-n', String(source.n)));
       chip.append(el('span', 'bot-cite-title', source.title));
       chip.title = source.onPage ? `Show "${source.title}" on the page` : `Open ${source.url}`;
       chip.addEventListener('click', () => jumpTo(source));
@@ -214,12 +245,15 @@ if (launcher && panel && log && form && input && send) {
     return row;
   }
 
-  /** The observability readout: what was retrieved, how long it took, what it cost. */
-  function addDetails(wrap: HTMLElement, meta: Meta, done: Done): void {
-    const details = el('details', 'bot-details');
-    details.append(el('summary', undefined, 'Details'));
+  let detailsCount = 0;
 
+  /** The observability readout: what was retrieved, how long it took, what it cost.
+      Its toggle trails the last line of the answer; the readout opens below it. */
+  function addDetails(wrap: HTMLElement, text: HTMLElement, meta: Meta, done: Done): void {
     const dl = el('dl', 'bot-spec');
+    dl.id = `botDetails${++detailsCount}`;
+    dl.hidden = true;
+
     dl.append(specRow('Model', meta.gated ? 'not called (below gate)' : (meta.model ?? '—')));
 
     const sources = el('span');
@@ -243,8 +277,17 @@ if (launcher && panel && log && form && input && send) {
       specRow('Cost', `${done.neurons.toFixed(2)} neurons · $${done.costUsd.toFixed(6)} at paid rate`),
     );
 
-    details.append(dl);
-    wrap.append(details);
+    const toggle = el('button', 'bot-details-toggle', 'details');
+    toggle.type = 'button';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', dl.id);
+    toggle.addEventListener('click', () => {
+      dl.hidden = !dl.hidden;
+      toggle.setAttribute('aria-expanded', String(!dl.hidden));
+    });
+
+    text.append(' ', toggle);
+    wrap.append(dl);
   }
 
   /* ── Networking ──────────────────────────────────────────────────────── */
@@ -257,7 +300,7 @@ if (launcher && panel && log && form && input && send) {
     } catch {
       online = false;
     }
-    setDots(online ? 'ready' : 'idle');
+    setDots(online ? 'ready' : 'down');
     if (!online) setStatus('offline');
   }
 
@@ -275,7 +318,7 @@ if (launcher && panel && log && form && input && send) {
     const { wrap, text } = addAnswer();
     let meta: Meta | null = null;
     let answer = '';
-    let fellBack = false;
+    let fallbackSources: Source[] | null = null;
 
     controller = new AbortController();
 
@@ -324,11 +367,11 @@ if (launcher && panel && log && form && input && send) {
             meta = payload as Meta;
           } else if (event === 'token') {
             answer += (payload as { t: string }).t;
-            text.textContent = answer;
+            text.textContent = stripMarkers(answer);
             scrollLog();
           } else if (event === 'fallback') {
-            fellBack = true;
             const fb = payload as { sources: Source[] };
+            fallbackSources = fb.sources;
             text.classList.remove('bot-caret');
             text.textContent =
               "AliBot's free quota is used up for today. Here is what the site says:";
@@ -336,14 +379,14 @@ if (launcher && panel && log && form && input && send) {
               const quote = el('p', 'bot-quote', source.text ?? '');
               wrap.append(quote);
             }
-            addCitations(wrap, fb.sources, []);
           } else if (event === 'done') {
             const doneData = payload as Done;
             text.classList.remove('bot-caret');
-            if (meta) {
-              if (!fellBack) addCitations(wrap, meta.sources, doneData.citations);
-              addDetails(wrap, meta, doneData);
-            }
+            // Details sit quietly under the text; the buttons come last.
+            if (meta) addDetails(wrap, text, meta, doneData);
+            if (meta?.gated || doneData.gated || DECLINED.test(answer)) addDeclineActions(wrap);
+            else if (fallbackSources) addCitations(wrap, fallbackSources, []);
+            else if (meta) addCitations(wrap, meta.sources, doneData.citations);
             if (answer) {
               history.push({ role: 'assistant', content: answer });
               history = history.slice(-MAX_HISTORY);
@@ -379,8 +422,8 @@ if (launcher && panel && log && form && input && send) {
       streaming = false;
       controller = null;
       send!.disabled = input!.value.trim().length === 0;
-      setDots(online === false ? 'idle' : 'ready');
-      setStatus(online === false ? 'offline' : 'answers from this site only');
+      setDots(online === false ? 'down' : 'ready');
+      setStatus(online === false ? 'offline' : '');
       scrollLog();
     }
   }

@@ -4,8 +4,7 @@ The backend for the assistant docked on [alirad.dev](https://alirad.dev). A sing
 Cloudflare Worker that answers questions about the site using the site's own content:
 hybrid retrieval, cross-encoder reranking, a grounding gate, and streamed generation.
 
-Read the write-up at [alirad.dev/alibot](https://alirad.dev/alibot). The widget itself
-lives in the site source, at `src/components/AliBot.astro` and `src/scripts/alibot.ts`.
+The widget itself lives in the site source, at `src/components/AliBot.astro` and `src/scripts/alibot.ts`.
 
 ## How a question is answered
 
@@ -101,7 +100,7 @@ ALIBOT_URL=http://localhost:8787 npm run eval     # against wrangler dev
 33 questions: ones the site can answer (each labelled with the chunk that should be
 retrieved), ones it should refuse, and prompt-injection attempts. The harness records
 recall@4, citation rate, decline accuracy, injection resistance, p50/p95 latency, and
-mean neurons, then writes `evals/results.json`, which the `/alibot` page renders.
+mean neurons, then writes `evals/results.json`.
 
 A full run costs roughly 4,000 neurons on the 70B model, so run it deliberately rather
 than in a loop. To compare models, deploy with `--var MODEL:@cf/meta/llama-3.1-8b-instruct-fp8-fast`,

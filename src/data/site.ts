@@ -3,6 +3,20 @@
    block of markup to copy. `desc` fields carry inline <strong> emphasis and
    are rendered with set:html. */
 
+/* AliBot's write-up lives in its README; /alibot redirects there too. */
+export const ALIBOT_README = 'https://github.com/alirad1/alirad.dev/blob/master/alibot/README.md';
+
+/* The home page's sections, in page order. The topbar, the rail, and the
+   scroll tracker all read this. */
+export const sections = [
+  { id: 'projects', label: 'Projects' },
+  { id: 'research', label: 'Research' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'involvement', label: 'Involvement' },
+  { id: 'moments', label: 'Moments' },
+  { id: 'contact', label: 'Contact' },
+] as const;
+
 export type Link = { href: string; label: string; primary?: boolean };
 
 export type Project = {
@@ -64,7 +78,7 @@ export const projects: Project[] = [
       'from. Below a confidence threshold it declines instead of guessing.',
     stack: 'TypeScript · Cloudflare Workers · Vectorize · Workers AI',
     links: [
-      { href: '/alibot', label: 'How it works', primary: true },
+      { href: ALIBOT_README, label: 'How it works', primary: true },
       { href: 'https://github.com/alirad1/alirad.dev/tree/master/alibot', label: 'Source' },
     ],
   },
@@ -231,6 +245,9 @@ export const research: Experience[] = [
       label: 'Read about the lab',
     },
   },
+];
+
+export const experience: Experience[] = [
   {
     slug: 'music-teacher',
     org: 'Private instruction',
@@ -263,7 +280,7 @@ export const research: Experience[] = [
   },
 ];
 
-export const clubs: Experience[] = [
+export const involvement: Experience[] = [
   {
     slug: 'ewb',
     org: 'Engineers without Borders',

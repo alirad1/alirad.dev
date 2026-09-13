@@ -4,3 +4,10 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# The AliBot write-up moved to its README.
+[[redirects]]
+  from = "/alibot"
+  to = "https://github.com/alirad1/alirad.dev/blob/master/alibot/README.md"
+  status = 302
+  force = true

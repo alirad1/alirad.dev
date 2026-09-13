@@ -6,7 +6,7 @@ const { entry: e } = Astro.props;
 
 <li class="exp reveal" data-chunk={chunkId('exp', e.slug)}>
   <div class="exp-lead">
-    <h4 class="exp-org" set:html={e.org}></h4>
+    <h3 class="exp-org" set:html={e.org}></h3>
     <p class="exp-role">{e.role}</p>
   </div>
   <div class="exp-detail">

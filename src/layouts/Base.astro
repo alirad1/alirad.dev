@@ -17,7 +17,7 @@ interface Props {
 }
 
 const {
-  title = 'Ali Rad | Computer Engineering Student at Texas A&M | Portfolio',
+  title = "Ali Rad's Portfolio",
   description = 'Ali Rad — Computer Engineering student at Texas A&M University. Portfolio with projects LapseCam, AliChart, Milo, Dynamic Wallpapers, RadGame, AggieQuest, and MarketScope, plus research and leadership experience. GitHub: alirad1. LinkedIn: alirad07.',
   jsonLd = false,
   home = false,
@@ -122,8 +122,8 @@ const graph = {
     />
   </head>
   <body>
-    <a class="skip-link" href={home ? '#work' : '#top'}>
-      {home ? 'Skip to the work' : 'Skip to the content'}
+    <a class="skip-link" href={home ? '#projects' : '#top'}>
+      {home ? 'Skip to the projects' : 'Skip to the content'}
     </a>
     {home && <Rail />}
     <Topbar home={home} />

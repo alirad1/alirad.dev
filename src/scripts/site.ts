@@ -51,8 +51,8 @@ function setupTheme(): void {
 /* ── Scroll position: rail, topbar, progress ───────────────────────────── */
 
 function setupScrollState(): void {
-  const sections = ['work', 'experience', 'moments', 'contact']
-    .map((id) => document.getElementById(id))
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('.topbar-nav a[data-nav]'))
+    .map((link) => document.getElementById(link.dataset.nav ?? ''))
     .filter((el): el is HTMLElement => el !== null);
 
   const railMarks = document.querySelectorAll<HTMLElement>('.rail-mark');
@@ -99,6 +99,57 @@ function setupScrollState(): void {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
   update();
+}
+
+/* ── In-page links ──────────────────────────────────────────────────────
+   The home page is one page, so its links scroll instead of navigating.
+   Handling them here keeps "#projects" and friends out of the address bar. */
+
+function scrollToId(id: string): boolean {
+  const behavior: ScrollBehavior = prefersReducedMotion() ? 'auto' : 'smooth';
+
+  if (id === 'top') {
+    window.scrollTo({ top: 0, behavior });
+    return true;
+  }
+
+  const target = document.getElementById(id);
+  if (!target) return false;
+  target.scrollIntoView({ behavior, block: 'start' });
+  return true;
+}
+
+function setupInPageLinks(): void {
+  document.addEventListener('click', (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+    const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+    if (!link) return;
+
+    const id = link.getAttribute('href')!.slice(1);
+    if (!id || !scrollToId(id)) return;
+    e.preventDefault();
+
+    // Keyboard users following the skip link expect focus to move with them.
+    if (link.classList.contains('skip-link')) {
+      const target = document.getElementById(id);
+      if (target) {
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+      }
+    }
+  });
+
+  // Arriving from another page with a hash (or an old #work link): land on
+  // the section, then drop the hash from the address bar.
+  const hash = window.location.hash.slice(1);
+  if (hash) {
+    const id = hash === 'work' ? 'projects' : hash;
+    if (document.getElementById(id)) {
+      if (id !== hash) scrollToId(id);
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }
 }
 
 /* ── Project filters ───────────────────────────────────────────────────── */
@@ -377,6 +428,7 @@ function setupStrip(): void {
 
 function init(): void {
   setupTheme();
+  setupInPageLinks();
   setupScrollState();
   setupFilters();
   setupStrip();

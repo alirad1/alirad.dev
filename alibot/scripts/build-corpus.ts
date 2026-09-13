@@ -10,7 +10,7 @@ import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
-import { projects, research, clubs, moments, chunkId } from '../../src/data/site.ts';
+import { projects, research, experience, involvement, moments, chunkId } from '../../src/data/site.ts';
 import { alibotSections } from '../../src/data/alibot.ts';
 import type { Chunk, ChunkKind, Corpus } from '../src/corpus.ts';
 
@@ -84,7 +84,7 @@ function siteChunks(): Chunk[] {
       id: chunkId('proj', p.slug),
       kind: 'project',
       title: p.title,
-      url: `${SITE}/#work`,
+      url: `${SITE}/#projects`,
       onPage: true,
       text: plain(
         `${p.title}${p.titleSub ? ` (${p.titleSub})` : ''} is a project by Ali Rad. ` +
@@ -95,8 +95,8 @@ function siteChunks(): Chunk[] {
   }
 
   for (const [group, entries] of [
-    ['research and work', research],
-    ['clubs and organizations', clubs],
+    ['research and work', [...research, ...experience]],
+    ['clubs and organizations', involvement],
   ] as const) {
     for (const e of entries) {
       add(out, {
