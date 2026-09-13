@@ -458,7 +458,11 @@ if (launcher && panel && log && form && input && send) {
   setDots('ready');
 
   /* Ask the worker whether it is up once the page is idle, so the launcher
-     tells the truth about its state before anyone clicks it. */
-  const idle = window.requestIdleCallback ?? ((fn: () => void) => window.setTimeout(fn, 1200));
-  idle(() => void checkHealth());
+     tells the truth about its state before anyone clicks it. The timeout
+     matters: a background tab may never report an idle period at all. */
+  if (window.requestIdleCallback) {
+    window.requestIdleCallback(() => void checkHealth(), { timeout: 2000 });
+  } else {
+    window.setTimeout(() => void checkHealth(), 1200);
+  }
 }
