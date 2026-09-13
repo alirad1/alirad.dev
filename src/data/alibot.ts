@@ -9,7 +9,7 @@
 const buildEnv = (import.meta as unknown as { env?: Record<string, string | undefined> }).env;
 
 export const ALIBOT_URL: string =
-  buildEnv?.PUBLIC_ALIBOT_URL ?? 'https://alibot.alirad1.workers.dev';
+  buildEnv?.PUBLIC_ALIBOT_URL ?? 'https://alibot.alizrad07.workers.dev';
 
 export const SUGGESTED_QUESTIONS: string[] = [
   'What has Ali built?',
