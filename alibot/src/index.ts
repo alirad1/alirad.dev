@@ -4,6 +4,7 @@
    GET  /search?q=     retrieval only, as JSON: the tuning and debugging view
    POST /chat          the widget's endpoint, streamed as server-sent events
    POST /ingest        embed the bundled corpus into Vectorize (shared secret)
+   cron                the same ingest, weekly, so the index cannot go stale
 
    Runs on the Workers free plan with no payment method on the account, so
    exhausting the daily inference allowance returns an error rather than a bill.
@@ -135,5 +136,15 @@ export default {
     }
 
     return json({ error: 'not_found' }, 404, origin);
+  },
+
+  /* The corpus is bundled with the Worker, so a deploy already carries new
+     text; this is what refreshes the embeddings that go with it. */
+  async scheduled(_event: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
+    ctx.waitUntil(
+      ingest(env)
+        .then((result) => console.log(JSON.stringify({ type: 'cron_ingest', ...result })))
+        .catch((err) => console.log(JSON.stringify({ type: 'cron_ingest_failed', error: String(err) }))),
+    );
   },
 } satisfies ExportedHandler<Env>;

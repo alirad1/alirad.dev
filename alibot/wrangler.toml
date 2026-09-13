@@ -22,6 +22,11 @@ namespace_id = "1001"
   limit = 10
   period = 60
 
+# Re-embeds the corpus weekly, so a content change on the site reaches the
+# index without anyone remembering to call /ingest by hand.
+[triggers]
+crons = ["0 5 * * 1"]
+
 [vars]
 MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
 EMBED_MODEL = "@cf/baai/bge-base-en-v1.5"
