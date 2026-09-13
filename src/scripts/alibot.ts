@@ -120,7 +120,10 @@ if (launcher && panel && log && form && input && send) {
     for (const turn of saved) {
       if (turn.role === 'user') addAsk(turn.content);
       else {
+        // Restored text only: a past answer is finished, so no caret, and its
+        // citation chips are not rebuilt.
         const { text } = addAnswer();
+        text.classList.remove('bot-caret');
         text.textContent = turn.content;
       }
     }

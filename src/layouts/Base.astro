@@ -122,7 +122,9 @@ const graph = {
     />
   </head>
   <body>
-    <a class="skip-link" href="#work">Skip to the work</a>
+    <a class="skip-link" href={home ? '#work' : '#top'}>
+      {home ? 'Skip to the work' : 'Skip to the content'}
+    </a>
     {home && <Rail />}
     <Topbar home={home} />
     <slot />
