@@ -3,17 +3,26 @@ import '../styles/global.css';
 import Rail from '../components/Rail.astro';
 import Topbar from '../components/Topbar.astro';
 import Footer from '../components/Footer.astro';
+import AliBot from '../components/AliBot.astro';
 
 interface Props {
   title?: string;
   description?: string;
   jsonLd?: boolean;
+  /** Render the measuring rail: only the one-page home has sections to track. */
+  home?: boolean;
+  /** Dock the AliBot widget on this page. */
+  chat?: boolean;
+  canonical?: string;
 }
 
 const {
   title = 'Ali Rad | Computer Engineering Student at Texas A&M | Portfolio',
   description = 'Ali Rad — Computer Engineering student at Texas A&M University. Portfolio with projects LapseCam, AliChart, Milo, Dynamic Wallpapers, RadGame, AggieQuest, and MarketScope, plus research and leadership experience. GitHub: alirad1. LinkedIn: alirad07.',
   jsonLd = false,
+  home = false,
+  chat = false,
+  canonical = 'https://alirad.dev/',
 } = Astro.props;
 
 const person = {
@@ -74,7 +83,7 @@ const graph = {
     <meta name="author" content="Ali Rad" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#0F0D0E" />
-    <link rel="canonical" href="https://alirad.dev/" />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="me" href="https://github.com/alirad1" />
     <link rel="me" href="https://www.linkedin.com/in/alirad07/" />
@@ -114,10 +123,11 @@ const graph = {
   </head>
   <body>
     <a class="skip-link" href="#work">Skip to the work</a>
-    <Rail />
-    <Topbar />
+    {home && <Rail />}
+    <Topbar home={home} />
     <slot />
     <Footer />
+    {chat && <AliBot />}
     <script>
       import '../scripts/site';
     </script>

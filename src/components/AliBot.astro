@@ -1,0 +1,75 @@
+---
+/* The docked assistant. Markup only — everything that moves lives in
+   ../scripts/alibot.ts. The page works completely without it: if the worker
+   is unreachable the launcher says so and nothing else on the site changes. */
+
+import { ALIBOT_URL, SUGGESTED_QUESTIONS } from '../data/alibot';
+---
+
+<button
+  class="bot-launcher"
+  id="botLauncher"
+  type="button"
+  aria-expanded="false"
+  aria-controls="botPanel"
+  data-endpoint={ALIBOT_URL}
+>
+  <span class="bot-dot" id="botDot" aria-hidden="true"></span>
+  <span class="bot-launcher-label">AliBot</span>
+  <span class="bot-launcher-hint">ask about my work</span>
+</button>
+
+<section class="bot-panel" id="botPanel" role="dialog" aria-label="AliBot" hidden>
+  <header class="bot-head">
+    <span class="bot-dot" id="botHeadDot" aria-hidden="true"></span>
+    <h2 class="bot-name">AliBot</h2>
+    <span class="bot-status" id="botStatus">answers from this site only</span>
+    <button class="bot-close" id="botClose" type="button" aria-label="Close AliBot">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+      </svg>
+    </button>
+  </header>
+
+  <div class="bot-log" id="botLog">
+    <div class="bot-intro" id="botIntro">
+      <p>
+        I built this to practise retrieval-augmented generation, embeddings and LLM APIs. I only
+        know what's on this site, and I show you where each answer came from.{' '}
+        <a class="bot-intro-link" href="/alibot">How it works</a>
+      </p>
+      <div class="bot-suggestions">
+        {SUGGESTED_QUESTIONS.map((q) => (
+          <button class="bot-suggestion" type="button" data-ask={q}>{q}</button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Announced once per answer, so screen readers hear the result rather
+       than every streamed fragment. -->
+  <p class="sr-only" id="botAnnounce" aria-live="polite"></p>
+
+  <form class="bot-form" id="botForm">
+    <label class="sr-only" for="botInput">Ask AliBot a question</label>
+    <textarea
+      class="bot-input"
+      id="botInput"
+      name="message"
+      rows="1"
+      maxlength="500"
+      placeholder="Ask about a project…"
+      autocomplete="off"
+    ></textarea>
+    <span class="bot-count" id="botCount" aria-hidden="true"></span>
+    <button class="bot-send" id="botSend" type="submit" aria-label="Send question" disabled>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </form>
+</section>
+
+<script>
+  import '../scripts/alibot';
+</script>

@@ -16,9 +16,11 @@ const stateClass = {
     <span class="card-index">{p.index}</span>
     <span class:list={['card-state', stateClass]}>{p.state.label}</span>
   </div>
-  <div class="card-shot">
-    <img loading="lazy" decoding="async" src={p.img.src} alt={p.img.alt} class="card-img" />
-  </div>
+  {p.img && (
+    <div class="card-shot">
+      <img loading="lazy" decoding="async" src={p.img.src} alt={p.img.alt} class="card-img" />
+    </div>
+  )}
   <div class="card-body">
     <h3 class="card-title">
       {p.title}{p.titleSub && <span class="card-title-sub">{p.titleSub}</span>}
@@ -30,15 +32,18 @@ const stateClass = {
     </div>
   </div>
   <div class="card-actions">
-    {p.links.map((link) => (
-      <a
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        class:list={['card-link', { 'card-link-primary': link.primary }]}
-      >
-        {link.label}
-      </a>
-    ))}
+    {p.links.map((link) => {
+      const external = !link.href.startsWith('/');
+      return (
+        <a
+          href={link.href}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
+          class:list={['card-link', { 'card-link-primary': link.primary }]}
+        >
+          {link.label}
+        </a>
+      );
+    })}
   </div>
 </article>

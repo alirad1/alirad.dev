@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-09-13T17:52:06.719Z",
+  "builtAt": "2026-09-13T18:09:07.995Z",
   "chunks": [
     {
       "id": "about",
@@ -8,6 +8,14 @@
       "url": "https://alirad.dev/",
       "onPage": true,
       "text": "Ali Rad is a Computer Engineering student at Texas A&M University in College Station, Texas. He builds desktop and web tools that people actually run: a time-lapse recorder for study sessions, a wallpaper that redraws itself every morning, and a habit tracker that argues back. He builds desktop apps, web apps and games, and works in Java, C++, Python, JavaScript and SQL. He is currently seeking summer internships."
+    },
+    {
+      "id": "proj-alibot",
+      "kind": "project",
+      "title": "AliBot",
+      "url": "https://alirad.dev/#work",
+      "onPage": true,
+      "text": "AliBot is a project by Ali Rad. Status: Live. The assistant in the corner of this page. It answers questions about my work by retrieving the site's own content rather than recalling it: questions are embedded with bge-base and searched against Cloudflare Vectorize alongside BM25, the two rankings are fused, and a cross-encoder reranker picks what the model may use. Answers stream from Llama 3.3 70B on a Cloudflare Worker and cite the card they came from. Below a confidence threshold it declines instead of guessing. Stack: TypeScript · Cloudflare Workers · Vectorize · Workers AI. Links: How it works: /alibot, Source: https://github.com/alirad1/alirad.dev/tree/master/alibot."
     },
     {
       "id": "proj-lapsecam",
@@ -290,10 +298,26 @@
       "text": "Nothing, structurally. The Worker, the Vectorize index and the inference all sit on Cloudflare free tiers, and there is no payment method on the account, so exceeding the daily allowance of ten thousand neurons returns an error rather than a bill. When that happens AliBot falls back to returning the retrieved sections verbatim with their citations, which needs no model call. The widget still reports what each answer would have cost at the paid rate, because an assistant whose price you cannot see is an assistant you cannot reason about."
     },
     {
+      "id": "readme-alibot-1",
+      "kind": "readme",
+      "title": "AliBot README: alirad.dev",
+      "text": "AliBot README — alirad.dev. Source for my personal portfolio site. Live: https://alirad.dev Built with Astro, Tailwind CSS, and TypeScript.",
+      "url": "https://github.com/alirad1/alirad.dev#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-alibot-2",
+      "kind": "readme",
+      "title": "AliBot README: Develop",
+      "text": "AliBot README — Develop. bash npm install npm run dev # http://localhost:4321 npm run build # static output to dist/ npm run preview # serve the build locally Content lives in src/data/site.ts; sections are composed in src/pages/index.astro from small components in src/components/. Styling is in src/styles/. Static assets (images, favicon, robots, sitemap) are in public/.",
+      "url": "https://github.com/alirad1/alirad.dev#readme",
+      "onPage": false
+    },
+    {
       "id": "readme-lapsecam-1",
       "kind": "readme",
-      "title": "LapseCam README: Overview",
-      "text": "LapseCam README — Overview. # LapseCam Windows app I built to turn study sessions into time-lapses. Record your screen, webcam, or both, hit stop, and you get a sped-up video. No editing step after. Website: lapsecam.alirad.dev",
+      "title": "LapseCam README: LapseCam",
+      "text": "LapseCam README — LapseCam. Windows app I built to turn study sessions into time-lapses. Record your screen, webcam, or both, hit stop, and you get a sped-up video. No editing step after. Website: lapsecam.alirad.dev",
       "url": "https://github.com/alirad1/LapseCam#readme",
       "onPage": false
     },
@@ -332,8 +356,8 @@
     {
       "id": "readme-dynamic-wallpapers-1",
       "kind": "readme",
-      "title": "Dynamic Wallpapers README: Overview",
-      "text": "Dynamic Wallpapers README — Overview. # Dynamic Wallpapers Lock screen wallpapers that update themselves every day. Pick something to track (the current year, your life in weeks, a countdown to a goal, or progress through any date range), point your phone at a URL, and the image quietly refreshes every morning. No app to install, no account, no database. Live site: https://dynamicwallpapers.alirad.dev",
+      "title": "Dynamic Wallpapers README: Dynamic Wallpapers",
+      "text": "Dynamic Wallpapers README — Dynamic Wallpapers. Lock screen wallpapers that update themselves every day. Pick something to track (the current year, your life in weeks, a countdown to a goal, or progress through any date range), point your phone at a URL, and the image quietly refreshes every morning. No app to install, no account, no database. Live site: https://dynamicwallpapers.alirad.dev",
       "url": "https://github.com/alirad1/dynamic-wallpapers#readme",
       "onPage": false
     },
@@ -378,22 +402,6 @@
       "onPage": false
     },
     {
-      "id": "readme-this-website-1",
-      "kind": "readme",
-      "title": "This website README: Overview",
-      "text": "This website README — Overview. # alirad.dev Source for my personal portfolio site. Live: https://alirad.dev Built with Astro, Tailwind CSS, and TypeScript.",
-      "url": "https://github.com/alirad1/alirad.dev#readme",
-      "onPage": false
-    },
-    {
-      "id": "readme-this-website-2",
-      "kind": "readme",
-      "title": "This website README: Develop",
-      "text": "This website README — Develop. bash npm install npm run dev # http://localhost:4321 npm run build # static output to dist/ npm run preview # serve the build locally Content lives in src/data/site.ts; sections are composed in src/pages/index.astro from small components in src/components/. Styling is in src/styles/. Static assets (images, favicon, robots, sitemap) are in public/.",
-      "url": "https://github.com/alirad1/alirad.dev#readme",
-      "onPage": false
-    },
-    {
       "id": "readme-aggiequest-1",
       "kind": "readme",
       "title": "AggieQuest README: Overview",
@@ -404,8 +412,8 @@
     {
       "id": "readme-marketscope-1",
       "kind": "readme",
-      "title": "MarketScope README: Overview",
-      "text": "MarketScope README — Overview. # Stock Performance Dashboard A web app to track and compare stock performance using Python and Streamlit.",
+      "title": "MarketScope README: Stock Performance Dashboard",
+      "text": "MarketScope README — Stock Performance Dashboard. A web app to track and compare stock performance using Python and Streamlit.",
       "url": "https://github.com/alirad1/MarketScope-FREEworks#readme",
       "onPage": false
     },

@@ -175,10 +175,10 @@ function cleanMarkdown(md: string): string {
     .trim();
 }
 
-/** Splits on `## ` headings, then on blank lines when a section is too long. */
+/** Splits on headings, then on blank lines when a section is still too long. */
 function splitReadme(md: string): { heading: string; body: string }[] {
   const out: { heading: string; body: string }[] = [];
-  const sections = md.split(/^##+\s+/m);
+  const sections = md.split(/^#{1,6}\s+/m);
 
   for (const [i, section] of sections.entries()) {
     const lines = section.split('\n');
@@ -207,9 +207,13 @@ function splitReadme(md: string): { heading: string; body: string }[] {
 
 async function readmeChunks(): Promise<Chunk[]> {
   const out: Chunk[] = [];
+  const fetched = new Set<string>();
 
   for (const p of projects) {
-    if (!p.repo) continue;
+    // Two cards can share a repository; its README is worth ingesting once.
+    if (!p.repo || fetched.has(p.repo)) continue;
+    fetched.add(p.repo);
+
     const raw = await fetchReadme(p.repo);
     if (!raw) {
       console.warn(`  no README found for ${p.repo}`);

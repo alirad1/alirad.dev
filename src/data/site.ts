@@ -14,7 +14,7 @@ export type Project = {
   state: { label: string; kind: 'live' | 'here' | 'award' | 'plain' };
   live: boolean;
   tags: string; // data-tags, read by the filter
-  img: { src: string; alt: string };
+  img?: { src: string; alt: string };
   desc: string;
   stack: string;
   links: Link[];
@@ -49,6 +49,27 @@ export function chunkId(kind: 'proj' | 'exp' | 'moment', slug: string): string {
 export const projects: Project[] = [
   {
     index: '01',
+    slug: 'alibot',
+    repo: 'alirad1/alirad.dev',
+    title: 'AliBot',
+    state: { label: 'Live', kind: 'live' },
+    live: true,
+    tags: 'Live,TypeScript,Cloudflare,RAG,Astro',
+    desc:
+      'The assistant in the corner of this page. It answers questions about my work by ' +
+      "<strong>retrieving the site's own content</strong> rather than recalling it: questions are embedded " +
+      'with <strong>bge-base</strong> and searched against <strong>Cloudflare Vectorize</strong> alongside BM25, ' +
+      'the two rankings are fused, and a <strong>cross-encoder reranker</strong> picks what the model may use. ' +
+      'Answers stream from <strong>Llama 3.3 70B</strong> on a Cloudflare Worker and cite the card they came ' +
+      'from. Below a confidence threshold it declines instead of guessing.',
+    stack: 'TypeScript · Cloudflare Workers · Vectorize · Workers AI',
+    links: [
+      { href: '/alibot', label: 'How it works', primary: true },
+      { href: 'https://github.com/alirad1/alirad.dev/tree/master/alibot', label: 'Source' },
+    ],
+  },
+  {
+    index: '02',
     slug: 'lapsecam',
     repo: 'alirad1/LapseCam',
     title: 'LapseCam',
@@ -68,7 +89,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    index: '02',
+    index: '03',
     slug: 'dynamic-wallpapers',
     repo: 'alirad1/dynamic-wallpapers',
     title: 'Dynamic Wallpapers',
@@ -89,7 +110,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    index: '03',
+    index: '04',
     slug: 'milo',
     repo: 'alirad1/Milo',
     title: 'Milo Motivational Buddy',
@@ -109,7 +130,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    index: '04',
+    index: '05',
     slug: 'alichart',
     title: 'AliChart',
     state: { label: 'Live', kind: 'live' },
@@ -125,7 +146,7 @@ export const projects: Project[] = [
     links: [{ href: 'https://chart.alirad.dev', label: 'Open live', primary: true }],
   },
   {
-    index: '05',
+    index: '06',
     slug: 'this-website',
     repo: 'alirad1/alirad.dev',
     title: 'This website',
@@ -141,7 +162,7 @@ export const projects: Project[] = [
     links: [{ href: 'https://github.com/alirad1/alirad.dev', label: 'Source', primary: true }],
   },
   {
-    index: '06',
+    index: '07',
     slug: 'aggiequest',
     repo: 'alirad1/AggieQuest-HowdyHack25',
     title: 'AggieQuest',
@@ -159,7 +180,7 @@ export const projects: Project[] = [
     links: [{ href: 'https://github.com/alirad1/AggieQuest-HowdyHack25', label: 'Source', primary: true }],
   },
   {
-    index: '07',
+    index: '08',
     slug: 'marketscope',
     repo: 'alirad1/MarketScope-FREEworks',
     title: 'MarketScope',
@@ -176,7 +197,7 @@ export const projects: Project[] = [
     links: [{ href: 'https://github.com/alirad1/MarketScope-FREEworks', label: 'Source', primary: true }],
   },
   {
-    index: '08',
+    index: '09',
     slug: 'radgame',
     repo: 'alirad1/RadGame',
     title: 'RadGame',
