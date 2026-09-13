@@ -1,0 +1,36 @@
+name = "alibot"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+# Inference: embeddings, reranking and chat generation all run through this
+# binding, so no Cloudflare API token exists anywhere in the system.
+[ai]
+binding = "AI"
+
+# Create once with:
+#   npx wrangler vectorize create alibot --dimensions=768 --metric=cosine
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "alibot"
+
+[[ratelimits]]
+name = "RATE"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 10
+  period = 60
+
+[vars]
+MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+EMBED_MODEL = "@cf/baai/bge-base-en-v1.5"
+RERANK_MODEL = "@cf/baai/bge-reranker-base"
+GATE = "0.2"
+ALLOWED_ORIGINS = "https://alirad.dev,https://www.alirad.dev,http://localhost:4321,http://localhost:4322"
+
+[observability]
+enabled = true
+
+# INGEST_SECRET is set out of band:
+#   npx wrangler secret put INGEST_SECRET

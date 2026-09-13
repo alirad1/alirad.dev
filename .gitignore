@@ -13,3 +13,6 @@ Thumbs.db
 # tooling
 .claude/
 _reference/
+
+# generated worker types (npm --prefix alibot run types)
+alibot/worker-configuration.d.ts
