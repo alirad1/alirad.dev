@@ -456,4 +456,9 @@ if (launcher && panel && log && form && input && send) {
 
   restore();
   setDots('ready');
+
+  /* Ask the worker whether it is up once the page is idle, so the launcher
+     tells the truth about its state before anyone clicks it. */
+  const idle = window.requestIdleCallback ?? ((fn: () => void) => window.setTimeout(fn, 1200));
+  idle(() => void checkHealth());
 }
