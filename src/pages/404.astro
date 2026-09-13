@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found — Ali Rad</title>
+    <meta name="description" content="This page doesn't exist. Head back to Ali Rad's portfolio at alirad.dev." />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#0F0D0E" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <script is:inline>
+      (function () {
+        var theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta && theme === 'light') meta.content = '#FAF9F7';
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="topbar-mark" href="/" aria-label="Ali Rad — home">
+        <span class="topbar-initials">AR</span>
+        <span class="topbar-slash" aria-hidden="true">/</span>
+        <span class="topbar-context">alirad.dev</span>
+      </a>
+      <nav class="topbar-nav" aria-label="Primary">
+        <a href="/#work">Work</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#moments">Moments</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="error">
+      <h1 class="error-code">404</h1>
+      <p class="error-note">
+        That page isn't here. It may have moved into the one-page site — work, experience, moments,
+        and contact all live on the home page now.
+      </p>
+      <figure class="error-shot">
+        <img src="/cat2.jpg" alt="A cat, unhelpfully" loading="lazy" />
+        <figcaption class="error-cap">Fig. 1 — the cat, offering nothing</figcaption>
+      </figure>
+      <a class="btn btn-primary" href="/">
+        Back to the home page
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </main>
+
+    <footer class="footer">
+      <span class="footer-name">Ali Rad</span>
+      <span class="footer-meta">Built with Astro, Tailwind, and TypeScript.</span>
+      <a class="footer-top" href="mailto:alizrad99@gmail.com">Email me</a>
+    </footer>
+  </body>
+</html>

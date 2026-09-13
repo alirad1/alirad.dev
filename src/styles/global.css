@@ -1,0 +1,7 @@
+/* Tailwind v4 — theme + utilities only, no preflight, so the hand-authored
+   base styles in site.css keep their exact behaviour. Tailwind is here for
+   new work (the AliBot widget); the existing design lives in site.css. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@import "./site.css";

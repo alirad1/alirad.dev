@@ -1,0 +1,44 @@
+---
+import type { Project } from '../data/site';
+interface Props { project: Project }
+const { project: p } = Astro.props;
+
+const stateClass = {
+  live: 'card-state-live',
+  here: 'card-state-here',
+  award: 'card-state-award',
+  plain: '',
+}[p.state.kind];
+---
+
+<article class="card reveal" data-tags={p.tags} data-live={String(p.live)}>
+  <div class="card-bar">
+    <span class="card-index">{p.index}</span>
+    <span class:list={['card-state', stateClass]}>{p.state.label}</span>
+  </div>
+  <div class="card-shot">
+    <img loading="lazy" decoding="async" src={p.img.src} alt={p.img.alt} class="card-img" />
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">
+      {p.title}{p.titleSub && <span class="card-title-sub">{p.titleSub}</span>}
+    </h3>
+    <p class="card-desc" set:html={p.desc}></p>
+    <div class="card-spec">
+      <span class="card-spec-key">Stack</span>
+      <span class="card-spec-val">{p.stack}</span>
+    </div>
+  </div>
+  <div class="card-actions">
+    {p.links.map((link) => (
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class:list={['card-link', { 'card-link-primary': link.primary }]}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</article>

@@ -1,0 +1,26 @@
+---
+const marks = [
+  { id: 'work', num: '01', name: 'Work' },
+  { id: 'experience', num: '02', name: 'Experience' },
+  { id: 'moments', num: '03', name: 'Moments' },
+  { id: 'contact', num: '04', name: 'Contact' },
+];
+---
+
+<!-- Measuring rail: table of contents, scroll position, and progress in one instrument. -->
+<nav class="rail" aria-label="Section navigation">
+  <div class="rail-track">
+    <div class="rail-progress" id="railProgress"></div>
+  </div>
+  <ul class="rail-marks">
+    {marks.map((m) => (
+      <li>
+        <a class="rail-mark" href={`#${m.id}`} data-rail={m.id}>
+          <span class="rail-tick"></span>
+          <span class="rail-num">{m.num}</span>
+          <span class="rail-name">{m.name}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

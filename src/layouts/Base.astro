@@ -1,0 +1,125 @@
+---
+import '../styles/global.css';
+import Rail from '../components/Rail.astro';
+import Topbar from '../components/Topbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  jsonLd?: boolean;
+}
+
+const {
+  title = 'Ali Rad | Computer Engineering Student at Texas A&M | Portfolio',
+  description = 'Ali Rad — Computer Engineering student at Texas A&M University. Portfolio with projects LapseCam, AliChart, Milo, Dynamic Wallpapers, RadGame, AggieQuest, and MarketScope, plus research and leadership experience. GitHub: alirad1. LinkedIn: alirad07.',
+  jsonLd = false,
+} = Astro.props;
+
+const person = {
+  '@type': 'Person',
+  '@id': 'https://alirad.dev/#person',
+  name: 'Ali Rad',
+  givenName: 'Ali',
+  familyName: 'Rad',
+  url: 'https://alirad.dev/',
+  image: 'https://alirad.dev/Projects/Website.png',
+  email: 'alizrad99@gmail.com',
+  description:
+    'Computer Engineering student at Texas A&M University who builds software projects including LapseCam, AliChart, Milo, Dynamic Wallpapers, and RadGame.',
+  jobTitle: 'Computer Engineering Student',
+  worksFor: { '@type': 'CollegeOrUniversity', name: 'Texas A&M University', url: 'https://www.tamu.edu/' },
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'Texas A&M University', url: 'https://www.tamu.edu/' },
+  knowsAbout: ['Computer Engineering', 'Software Development', 'Web Development', 'Java', 'C++', 'Python', 'JavaScript', 'AWS', 'Game Development'],
+  sameAs: ['https://github.com/alirad1', 'https://www.linkedin.com/in/alirad07/'],
+};
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    person,
+    {
+      '@type': 'WebSite',
+      '@id': 'https://alirad.dev/#website',
+      name: 'Ali Rad Portfolio',
+      alternateName: ['Ali Rad Projects', 'alirad.dev'],
+      url: 'https://alirad.dev/',
+      description: 'Official portfolio of Ali Rad — Texas A&M Computer Engineering student. Projects, experience, and contact.',
+      author: { '@id': 'https://alirad.dev/#person' },
+      publisher: { '@id': 'https://alirad.dev/#person' },
+      inLanguage: 'en-US',
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': 'https://alirad.dev/#profilepage',
+      url: 'https://alirad.dev/',
+      name: 'Ali Rad — Portfolio',
+      isPartOf: { '@id': 'https://alirad.dev/#website' },
+      about: { '@id': 'https://alirad.dev/#person' },
+      mainEntity: { '@id': 'https://alirad.dev/#person' },
+      inLanguage: 'en-US',
+    },
+  ],
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="ktVgOh9jj4MSE-nvfrRHBYUw81fNglJ3vuvzsZ_F1OU" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Ali Rad" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#0F0D0E" />
+    <link rel="canonical" href="https://alirad.dev/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="me" href="https://github.com/alirad1" />
+    <link rel="me" href="https://www.linkedin.com/in/alirad07/" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://alirad.dev/" />
+    <meta property="og:site_name" content="Ali Rad" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Ali Rad | Computer Engineering Portfolio | Texas A&M" />
+    <meta property="og:description" content="Ali Rad — Computer Engineering student at Texas A&M. Software projects, engineering experience, and open-source work on GitHub." />
+    <meta property="og:image" content="https://alirad.dev/Projects/Website.png" />
+    <meta property="og:image:alt" content="Ali Rad personal portfolio website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ali Rad | Computer Engineering Portfolio | Texas A&M" />
+    <meta name="twitter:description" content="Ali Rad — Computer Engineering student at Texas A&M. Projects in web dev, data, games, and hardware." />
+    <meta name="twitter:image" content="https://alirad.dev/Projects/Website.png" />
+    <meta name="twitter:image:alt" content="Ali Rad personal portfolio website" />
+
+    {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />}
+
+    <script is:inline>
+      // Set the theme before first paint so there is no flash of the wrong palette.
+      (function () {
+        var theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta && theme === 'light') meta.content = '#FAF9F7';
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#work">Skip to the work</a>
+    <Rail />
+    <Topbar />
+    <slot />
+    <Footer />
+    <script>
+      import '../scripts/site';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+---
+import type { Moment } from '../data/site';
+interface Props { moment: Moment }
+const { moment: m } = Astro.props;
+---
+
+<figure class="frame" style={`--ar: ${m.ar}`}>
+  <div class="frame-bar"><span class="frame-num">{m.num}</span><span class="frame-label">{m.label}</span></div>
+  <div class="frame-window">
+    <img loading="lazy" decoding="async" src={m.src} alt={m.alt} class="frame-img" />
+  </div>
+  <figcaption class="frame-cap">{m.cap}</figcaption>
+</figure>
