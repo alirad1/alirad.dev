@@ -1,6 +1,5 @@
 /* AliBot's configuration and its own write-up. The prose in `alibotSections`
-   renders on /alibot and is also ingested as corpus chunks, so asking the bot
-   how it works retrieves the same text a reader would see on the page. */
+   is ingested as corpus chunks, so asking the bot how it works retrieves it. */
 
 /* The deployed Worker. Override at build time with PUBLIC_ALIBOT_URL when
    pointing the widget at a local `wrangler dev` instance. Read defensively so

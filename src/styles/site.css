@@ -867,13 +867,6 @@ button { font: inherit; }
 
 .card-link-primary { color: var(--text); }
 
-.card-link-arrow {
-    font-size: 0.95em;
-    transition: transform 0.2s var(--ease);
-}
-
-.card-link:hover .card-link-arrow { transform: translate(2px, -2px); }
-
 .card-hidden { display: none; }
 
 /* ── Experience ────────────────────────────────────────────────────────── */
@@ -970,8 +963,6 @@ button { font: inherit; }
 }
 
 .exp-more:hover { color: var(--accent); }
-
-.exp-more:hover .card-link-arrow { transform: translate(2px, -2px); }
 
 /* ── Moments filmstrip ─────────────────────────────────────────────────── */
 

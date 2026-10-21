@@ -2,7 +2,7 @@
    Run with `npm run corpus` (from alibot/) or `npm run alibot:corpus` (root).
 
    Sources: src/data/site.ts (projects, experience, moments, hero, contact),
-   src/data/alibot.ts (the /alibot write-up), and the README of every project
+   src/data/alibot.ts (the AliBot write-up), and the README of every project
    repository. Output: alibot/src/corpus.json, which is committed and bundled
    into the Worker. */
 

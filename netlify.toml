@@ -11,3 +11,19 @@
   to = "https://github.com/alirad1/alirad.dev/blob/master/alibot/README.md"
   status = 302
   force = true
+
+# Pages from the old multi-page site.
+[[redirects]]
+  from = "/projects.html"
+  to = "/#projects"
+  status = 301
+
+[[redirects]]
+  from = "/experiences.html"
+  to = "/#experience"
+  status = 301
+
+[[redirects]]
+  from = "/moments.html"
+  to = "/#moments"
+  status = 301
