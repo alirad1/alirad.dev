@@ -70,11 +70,11 @@ function siteChunks(): Chunk[] {
     url: `${SITE}/`,
     onPage: true,
     text: plain(
-      'Ali Rad is a Computer Engineering student at Texas A&M University in College Station, Texas. ' +
-        'He builds desktop and web tools that people actually run: a time-lapse recorder for study sessions, ' +
-        'a wallpaper that redraws itself every morning, and a habit tracker that argues back. ' +
-        'He builds desktop apps, web apps and games, and works in Java, C++, Python, JavaScript and SQL. ' +
-        'He is currently seeking summer internships.',
+      'Ali Rad is a Computer Engineering student at Texas A&M University in College Station, Texas, ' +
+        'graduating in December 2028. He researches TMS neuronavigation in the Khavari Lab at Houston Methodist ' +
+        'and viral genome annotation in the Neuman Lab, and builds embedded systems, computer vision, and ' +
+        'full-stack software. He works in C++, Python, TypeScript, JavaScript, Java and SQL. ' +
+        'He is seeking summer 2027 internships.',
     ),
   });
 

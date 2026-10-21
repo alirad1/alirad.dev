@@ -69,13 +69,12 @@ export const projects: Project[] = [
     state: { label: 'Live', kind: 'live' },
     live: true,
     tags: 'Live,TypeScript,Cloudflare,RAG,Astro',
+    img: { src: '/Projects/AliBot.png', alt: 'The AliBot chat panel with suggested questions' },
     desc:
-      'The assistant in the corner of this page. It answers questions about my work by ' +
-      "<strong>retrieving the site's own content</strong> rather than recalling it: questions are embedded " +
-      'with <strong>bge-base</strong> and searched against <strong>Cloudflare Vectorize</strong> alongside BM25, ' +
-      'the two rankings are fused, and a <strong>cross-encoder reranker</strong> picks what the model may use. ' +
-      'Answers stream from <strong>Llama 3.3 70B</strong> on a Cloudflare Worker and cite the card they came ' +
-      'from. Below a confidence threshold it declines instead of guessing.',
+      'A <strong>RAG chatbot</strong> for this site, running as a TypeScript Cloudflare Worker. It combines ' +
+      'vector search with BM25, reranks the results with a cross-encoder, and has Llama 3.3 70B answer only ' +
+      'from the retrieved sources, with citations. A 33-question eval set measures retrieval recall, citation ' +
+      'accuracy, and prompt-injection resistance: <strong>100% recall@4 at 1.9 s median latency</strong>.',
     stack: 'TypeScript · Cloudflare Workers · Vectorize · Workers AI',
     links: [
       { href: ALIBOT_README, label: 'How it works', primary: true },
@@ -84,6 +83,28 @@ export const projects: Project[] = [
   },
   {
     index: '02',
+    slug: 'tms-nav',
+    repo: 'TMS-Nav/TMS-Nav',
+    title: 'TMS-Nav',
+    titleSub: 'Khavari Lab',
+    state: { label: 'Live', kind: 'live' },
+    live: true,
+    tags: 'Live,Python,JavaScript,Three.js',
+    img: { src: '/Projects/TMSNav.png', alt: 'The TMS-Nav viewer showing a head model with 10–20 electrode sites, coil, and placement metrics' },
+    desc:
+      'Research software for comparing <strong>EEG 10–20 cap targeting</strong> with MRI-guided TMS ' +
+      'neuronavigation. A Python pipeline builds scalp meshes from T1 MRI, places 10–20 electrode sites by arc ' +
+      'length, and runs <strong>Monte Carlo sampling</strong> of coil placement error. Recorded Brainsight poses ' +
+      'feed the placement statistics, a SimNIBS workflow models the induced electric field, and a Three.js viewer ' +
+      'shows the results in 3D.',
+    stack: 'Python · NiBabel · SimNIBS · Three.js',
+    links: [
+      { href: 'https://tms-nav.github.io/TMS-Nav/', label: 'Open viewer', primary: true },
+      { href: 'https://github.com/TMS-Nav/TMS-Nav', label: 'Source' },
+    ],
+  },
+  {
+    index: '03',
     slug: 'lapsecam',
     repo: 'alirad1/LapseCam',
     title: 'LapseCam',
@@ -92,10 +113,8 @@ export const projects: Project[] = [
     tags: 'Live,JavaScript,Electron,FFmpeg',
     img: { src: '/Projects/LapseCam.png', alt: 'The LapseCam recording window with capture-source and speed controls' },
     desc:
-      'A free Windows desktop app that turns study sessions into time-lapse videos with no editing ' +
-      'required. Record your <strong>screen, webcam, or both</strong>, choose a speed preset up to 600x, ' +
-      'and LapseCam captures frames on a canvas before <strong>FFmpeg</strong> assembles the final clip. ' +
-      'Built with <strong>Electron and JavaScript</strong>, everything runs locally with no account or upload.',
+      'A Windows desktop app that records the screen, webcam, or both and exports a <strong>time-lapse at up ' +
+      'to 600x</strong>. Frames are captured locally and assembled with FFmpeg; nothing is uploaded.',
     stack: 'Electron · JavaScript · FFmpeg',
     links: [
       { href: 'https://lapsecam.alirad.dev', label: 'Open live', primary: true },
@@ -103,7 +122,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    index: '03',
+    index: '04',
     slug: 'dynamic-wallpapers',
     repo: 'alirad1/dynamic-wallpapers',
     title: 'Dynamic Wallpapers',
@@ -112,11 +131,9 @@ export const projects: Project[] = [
     tags: 'Live,Next.js,TypeScript,Tailwind CSS,React',
     img: { src: '/Projects/DynamicWallpapers.png', alt: 'Generated lock-screen wallpapers showing a year calendar and a life-in-weeks grid' },
     desc:
-      'A web app that generates <strong>daily-updating phone lock screen wallpapers</strong> straight from ' +
-      'a URL, including a year calendar, life-in-weeks grid, goal countdown, and progress tracker. Built with ' +
-      '<strong>Next.js, TypeScript, and Tailwind CSS</strong>, it renders SVG layouts to PNG on the server with ' +
-      '<strong>sharp</strong>. Point iPhone Shortcuts or Android MacroDroid at the link once and the wallpaper ' +
-      'refreshes itself every day, with no account or database.',
+      'Generates phone lock-screen wallpapers from a URL: a year calendar, life-in-weeks grid, or goal ' +
+      'countdown. The server renders SVG layouts to PNG with sharp, and an iPhone Shortcut or MacroDroid task ' +
+      '<strong>refreshes the wallpaper daily</strong>.',
     stack: 'Next.js · TypeScript · Tailwind · sharp',
     links: [
       { href: 'https://dynamicwallpapers.alirad.dev', label: 'Open live', primary: true },
@@ -124,7 +141,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    index: '04',
+    index: '05',
     slug: 'milo',
     repo: 'alirad1/Milo',
     title: 'Milo Motivational Buddy',
@@ -133,10 +150,8 @@ export const projects: Project[] = [
     tags: 'Live,JavaScript,MySQL',
     img: { src: '/Projects/Milo.png', alt: 'The Milo dashboard showing daily goals and a streak counter' },
     desc:
-      'A goal and habit-tracking app built to help people stay consistent with daily goals. It uses ' +
-      '<strong>JavaScript and MySQL</strong> to store <strong>progress and streaks</strong>, and includes a small ' +
-      '<strong>chatbot</strong> for journaling, reminders, and daily prompts that make the experience feel ' +
-      'motivating rather than mechanical.',
+      'A goal and habit tracker that stores <strong>progress and streaks in MySQL</strong>, with a chatbot for ' +
+      'journaling, reminders, and daily prompts.',
     stack: 'JavaScript · MySQL',
     links: [
       { href: 'https://milo.alirad.dev', label: 'Open live', primary: true },
@@ -144,7 +159,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    index: '05',
+    index: '06',
     slug: 'alichart',
     title: 'AliChart',
     state: { label: 'Live', kind: 'live' },
@@ -152,15 +167,14 @@ export const projects: Project[] = [
     tags: 'Live,AWS,PostgreSQL,JavaScript',
     img: { src: '/Projects/AliChart.jpg', alt: 'The AliChart patient-records screen with role-based navigation' },
     desc:
-      'A live web application designed around a <strong>PostgreSQL relational database</strong>, previously ' +
-      'deployed on <strong>AWS</strong>. Implements <strong>JavaScript-driven workflows</strong> to model data ' +
-      'relationships, authentication logic, and <strong>CRUD-style operations</strong> within a ' +
-      'healthcare-style system.',
-    stack: 'AWS · PostgreSQL · JavaScript',
+      'A healthcare records web app on a <strong>PostgreSQL schema</strong> of 5+ relational tables (patients, ' +
+      'records, users), originally deployed on AWS. <strong>Role-based access control</strong> separates three ' +
+      'user types, and a REST API handles CRUD on clinical data.',
+    stack: 'JavaScript · PostgreSQL · AWS',
     links: [{ href: 'https://chart.alirad.dev', label: 'Open live', primary: true }],
   },
   {
-    index: '06',
+    index: '07',
     slug: 'this-website',
     repo: 'alirad1/alirad.dev',
     title: 'This website',
@@ -169,14 +183,13 @@ export const projects: Project[] = [
     tags: 'Live,Astro,TypeScript,Tailwind CSS',
     img: { src: '/Projects/Website.png', alt: 'The alirad.dev home page' },
     desc:
-      "Where I keep my projects, experience, and whatever I'm building right now. Written in " +
-      '<strong>Astro with Tailwind and TypeScript</strong> — components for the repeated parts, one ' +
-      'measured page, and a scroll that stays out of the way.',
+      'My portfolio, built with <strong>Astro, Tailwind, and TypeScript</strong>. All content lives in one data ' +
+      "file that both the page and AliBot's corpus are generated from.",
     stack: 'Astro · Tailwind · TypeScript',
     links: [{ href: 'https://github.com/alirad1/alirad.dev', label: 'Source', primary: true }],
   },
   {
-    index: '07',
+    index: '08',
     slug: 'aggiequest',
     repo: 'alirad1/AggieQuest-HowdyHack25',
     title: 'AggieQuest',
@@ -186,15 +199,13 @@ export const projects: Project[] = [
     tags: 'Python,Flask,REST API',
     img: { src: '/Projects/AggieQuest.png', alt: 'The AggieQuest daily-challenge screen' },
     desc:
-      'A full-stack web app that generates daily challenges to encourage student engagement. I built a ' +
-      '<strong>Flask backend</strong> with <strong>REST endpoints</strong> handling challenge creation, ' +
-      'submissions, and user progress, focused on a clean <strong>end-to-end flow</strong> from frontend ' +
-      'interaction to backend logic.',
+      'A HowdyHack web app that issues daily challenges to students. I built the <strong>Flask backend</strong> ' +
+      'and REST endpoints for challenges, submissions, and user progress.',
     stack: 'Python · Flask · REST API',
     links: [{ href: 'https://github.com/alirad1/AggieQuest-HowdyHack25', label: 'Source', primary: true }],
   },
   {
-    index: '08',
+    index: '09',
     slug: 'marketscope',
     repo: 'alirad1/MarketScope-FREEworks',
     title: 'MarketScope',
@@ -204,14 +215,13 @@ export const projects: Project[] = [
     tags: 'Award Winner,Python,Streamlit',
     img: { src: '/Projects/MarketScope.png', alt: 'The MarketScope dashboard comparing several stocks over time' },
     desc:
-      'An interactive stock analysis dashboard built with <strong>Python and Streamlit</strong> for comparing ' +
-      'multiple stocks across time periods. It <strong>visualizes returns and price trends</strong> in a way you ' +
-      'can actually explore, and <strong>placed 2nd in the FREEWORKS competition at Texas A&amp;M</strong>.',
-    stack: 'Python · Streamlit',
+      'A Streamlit dashboard for comparing <strong>25+ stocks</strong> with live data from yfinance. pandas ' +
+      'computes daily change, total return, and volatility. <strong>2nd place at FREEWORKS</strong>, Texas A&amp;M.',
+    stack: 'Python · Streamlit · pandas',
     links: [{ href: 'https://github.com/alirad1/MarketScope-FREEworks', label: 'Source', primary: true }],
   },
   {
-    index: '09',
+    index: '10',
     slug: 'radgame',
     repo: 'alirad1/RadGame',
     title: 'RadGame',
@@ -220,10 +230,8 @@ export const projects: Project[] = [
     tags: 'Java,LWJGL,ImGui',
     img: { src: '/Projects/RadGame.png', alt: 'A 3D scene from RadGame with a debug overlay' },
     desc:
-      'A 3D game written in <strong>Java</strong> to learn graphics programming and game engine fundamentals. ' +
-      'Using <strong>LWJGL and ImGui</strong>, I implemented <strong>real-time rendering</strong>, player movement, ' +
-      '<strong>collision detection</strong>, and <strong>basic enemy AI</strong> while experimenting with low-level ' +
-      'game systems.',
+      'A 3D game in <strong>Java</strong>, written to learn graphics programming. LWJGL handles rendering and ' +
+      'ImGui the debug tools; it has player movement, collision detection, and basic enemy AI.',
     stack: 'Java · LWJGL · ImGui',
     links: [{ href: 'https://github.com/alirad1/RadGame', label: 'Source', primary: true }],
   },
@@ -231,15 +239,32 @@ export const projects: Project[] = [
 
 export const research: Experience[] = [
   {
+    slug: 'khavari-lab',
+    org: 'Khavari Lab',
+    role: 'Researcher, TMS neuronavigation',
+    when: 'May 2026 – Present',
+    where: 'Houston Methodist, Houston, TX',
+    desc:
+      'Independent project under a Rice University PhD student comparing EEG 10–20 cap positioning with ' +
+      'MRI-guided neuronavigation for figure-8 TMS coil placement in rTMS treatment of neurogenic overactive ' +
+      'bladder. I quantify placement accuracy with Monte Carlo sampling and paired equivalence testing, and built ' +
+      'a SimNIBS model of the electric field each method delivers to the cortical target from subject MRI. The ' +
+      'question is whether the lower-cost cap method is clinically equivalent and could widen access to rTMS.',
+    tags: ['TMS', 'Neuroimaging', 'SimNIBS', 'Statistics'],
+    link: { href: 'https://tms-nav.github.io/TMS-Nav/', label: 'Open the TMS-Nav viewer' },
+  },
+  {
     slug: 'neuman-lab',
     org: 'Neuman Lab',
-    role: 'Bioinformatics-Based Virus Discovery',
-    when: 'Ongoing',
+    role: 'Bioinformatics Research Assistant & Peer Mentor',
+    when: 'Jan 2026 – Present',
     where: 'College Station, TX',
     desc:
-      'Bioinformatics-based virus discovery at Texas A&amp;M, contributing to citizen science efforts that ' +
-      'uncover previously unknown viruses.',
-    tags: ['Bioinformatics', 'Research', 'Virus discovery'],
+      'Annotated 25+ viral genomes using tBLASTn, ORFfinder, and HHpred, and mentor 30 undergraduate researchers ' +
+      'on annotation methods, reviewing their genome maps before submission. Building a web platform and Python ' +
+      'tooling on a PostgreSQL data model to centralize the annotation workflow for 180 undergraduate researchers. ' +
+      'Presented posters at the EIS Symposium and the SACNAS TAMU Diversity in Science Symposium (April 2026).',
+    tags: ['Bioinformatics', 'Virus discovery', 'Python', 'PostgreSQL'],
     link: {
       href: 'https://artsci.tamu.edu/biology/updates/citizen-scientists-uncover-unknown-viruses.html',
       label: 'Read about the lab',
@@ -249,21 +274,32 @@ export const research: Experience[] = [
 
 export const experience: Experience[] = [
   {
+    slug: 'pc-builder',
+    org: 'Independent',
+    role: 'Custom PC Builder',
+    when: 'Feb 2023 – Jul 2025',
+    where: 'Houston, TX',
+    desc:
+      'Commissioned to build custom computers at a range of price points. Chose parts to fit each client\'s ' +
+      'budget and use, then assembled, tested, and set up each machine.',
+    tags: ['Hardware', 'PC building', 'Clients'],
+  },
+  {
     slug: 'music-teacher',
-    org: 'Private instruction',
-    role: 'Music teacher',
+    org: 'Independent',
+    role: 'Music Instructor',
     when: 'Oct 2023 – Apr 2025',
-    where: 'Remote / local',
-    desc: 'Taught private music lessons, helping students build technique and musicality.',
-    tags: ['Piano', 'Teaching', 'Music'],
+    where: 'Houston, TX',
+    desc: 'Taught weekly piano and guitar lessons to students of varying levels.',
+    tags: ['Piano', 'Guitar', 'Teaching'],
   },
   {
     slug: 'aws-academy',
     org: 'AWS Academy',
-    role: 'Cloud Foundations — Graduate',
+    role: 'Cloud Foundations',
     when: 'Completed Apr 2025',
     where: 'Online',
-    desc: 'Completed AWS Academy Cloud Foundations and earned the Cloud Foundations graduate badge on Credly.',
+    desc: 'Completed AWS Academy Cloud Foundations.',
     tags: ['AWS', 'Cloud'],
     link: { href: 'https://www.credly.com/badges/897bab94-9c65-44ef-ac9b-bbc286a62d82', label: 'View the badge' },
   },
@@ -272,44 +308,59 @@ export const experience: Experience[] = [
     org: 'A-Beautiful Pools & Sweetwater Pools',
     role: 'Lifeguard',
     when: 'May 2022 – Sep 2022',
-    where: 'Local',
-    desc:
-      'Guarded at A-Beautiful Pools (June–September) and Sweetwater Pools (May–July), keeping swimmers safe ' +
-      'and responding to emergencies.',
+    where: 'Houston, TX',
+    desc: 'Lifeguarded at two community pools.',
     tags: ['CPR', 'First aid', 'Safety'],
   },
 ];
 
 export const involvement: Experience[] = [
   {
-    slug: 'ewb',
-    org: 'Engineers without Borders',
-    role: 'Member',
-    when: 'Ongoing',
+    slug: 'aggiescreate',
+    org: 'Aggies Create',
+    role: 'Media Manager',
+    when: 'Jan 2026 – Present',
     where: 'College Station, TX',
     desc:
-      'Texas A&amp;M chapter — designing and implementing sustainable engineering projects with communities worldwide.',
-    tags: ['Engineering', 'Sustainability'],
+      'Lead the electrical and computer vision subsystems of IRIS, an autonomous surgical light built by a ' +
+      '7-member team: a custom PCB and Raspberry Pi controller driving servos on 3+ axes, and OpenCV hand ' +
+      'tracking with sub-100 ms response. IRIS won 1st place at Good Bull Pitch, the Meloy Innovators Award, and ' +
+      '2nd place at the Aggies Create Innovation Expo.',
+    tags: ['Embedded', 'Computer vision', 'PCB design'],
+    link: { href: 'https://www.linkedin.com/company/aggies-create/', label: 'Aggies Create on LinkedIn' },
+  },
+  {
+    slug: 'student-senate',
+    org: 'Texas A&amp;M Student Senate',
+    role: 'Student Senator, Engineering Caucus Leader',
+    when: 'Mar 2026 – Present',
+    where: 'College Station, TX',
+    desc:
+      'Elected with 600+ votes, the most in the caucus, to represent 25,000+ engineering students. I lead the ' +
+      'Engineering Caucus, directing 9 senators on legislative priorities, and have authored and passed multiple ' +
+      'senate bills working with deans, faculty, and administrators on curriculum and academic resources.',
+    tags: ['Leadership', 'Policy', 'Legislation'],
+    link: { href: 'https://senate.tamu.edu/', label: 'senate.tamu.edu' },
+  },
+  {
+    slug: 'ewb',
+    org: 'Engineers Without Borders',
+    role: 'Member',
+    when: 'Aug 2025 – Feb 2026',
+    where: 'College Station, TX',
+    desc:
+      'Designed a deployable, FEMA-compliant solar power system for off-grid agricultural use, selecting ' +
+      'batteries and inverters and validating performance for field deployment.',
+    tags: ['Solar power', 'Power systems'],
     link: { href: 'https://www.ewb-tamu.org/', label: 'ewb-tamu.org' },
   },
   {
-    slug: 'aggiescreate',
-    org: 'AggiesCreate',
-    role: 'Member',
-    when: 'Ongoing',
-    where: 'College Station, TX',
-    desc: 'A student organization built around creativity, innovation, and shipping projects together.',
-    tags: ['Creativity', 'Collaboration'],
-    link: { href: 'https://www.aggiescreate.com/', label: 'aggiescreate.com' },
-  },
-  {
     slug: 'free',
-    org: 'Freshman Reaching Excellence in Engineering',
-    role: 'Member — Internal committee',
+    org: 'Freshman Reaching Excellence in Engineering (FREE)',
+    role: 'Member, Internal Committee',
     when: 'Ongoing',
     where: 'College Station, TX',
-    desc:
-      'Freshman leadership organization in Texas A&amp;M Engineering — building community and developing leadership skills.',
+    desc: 'Freshman leadership organization in Texas A&amp;M Engineering.',
     tags: ['Leadership', 'Mentorship'],
     link: { href: 'https://www.instagram.com/tamufree/', label: '@tamufree' },
   },
@@ -319,7 +370,7 @@ export const involvement: Experience[] = [
     role: 'Member',
     when: 'Ongoing',
     where: 'College Station, TX',
-    desc: 'Texas A&amp;M student branch — technical workshops, projects, and professional development.',
+    desc: 'Texas A&amp;M student branch: technical workshops, projects, and professional development.',
     tags: ['Electrical', 'Computing'],
     link: { href: 'https://ieeetamu.org/', label: 'ieeetamu.org' },
   },
@@ -329,29 +380,17 @@ export const involvement: Experience[] = [
     role: 'Member',
     when: 'Ongoing',
     where: 'College Station, TX',
-    desc: 'Quantitative finance and trading club — strategies, markets, and data-driven finance.',
+    desc: 'Quantitative finance and trading club at Texas A&amp;M.',
     tags: ['Quant finance', 'Data'],
     link: { href: 'https://quantamu.github.io/', label: 'quantamu.github.io' },
-  },
-  {
-    slug: 'psa',
-    org: 'Persian Student Association',
-    role: 'Member',
-    when: 'Ongoing',
-    where: 'College Station, TX',
-    desc: 'Celebrating Persian culture and building community on campus.',
-    tags: ['Culture', 'Community'],
-    link: { href: 'https://www.instagram.com/psatamu/', label: '@psatamu' },
   },
   {
     slug: 'csnhs',
     org: 'CS National Honor Society',
     role: 'Officer',
-    when: 'Ongoing',
-    where: 'Clements HS / Fort Bend ISD',
-    desc:
-      'Promoting scholarship, leadership, and service in computer science — tutoring students, running contests, ' +
-      'and volunteering at local middle schools.',
+    when: 'High school',
+    where: 'Clements HS, Fort Bend ISD',
+    desc: 'Tutored students, ran programming contests, and volunteered at local middle schools.',
     tags: ['Leadership', 'Tutoring', 'Service'],
     link: { href: 'https://clementscsnhs.org/index.html', label: 'clementscsnhs.org' },
   },

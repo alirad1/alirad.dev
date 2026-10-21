@@ -1,5 +1,5 @@
 {
-  "builtAt": "2026-09-13T18:44:53.126Z",
+  "builtAt": "2026-10-21T22:18:20.817Z",
   "chunks": [
     {
       "id": "about",
@@ -7,103 +7,127 @@
       "title": "About Ali Rad",
       "url": "https://alirad.dev/",
       "onPage": true,
-      "text": "Ali Rad is a Computer Engineering student at Texas A&M University in College Station, Texas. He builds desktop and web tools that people actually run: a time-lapse recorder for study sessions, a wallpaper that redraws itself every morning, and a habit tracker that argues back. He builds desktop apps, web apps and games, and works in Java, C++, Python, JavaScript and SQL. He is currently seeking summer internships."
+      "text": "Ali Rad is a Computer Engineering student at Texas A&M University in College Station, Texas, graduating in December 2028. He researches TMS neuronavigation in the Khavari Lab at Houston Methodist and viral genome annotation in the Neuman Lab, and builds embedded systems, computer vision, and full-stack software. He works in C++, Python, TypeScript, JavaScript, Java and SQL. He is seeking summer 2027 internships."
     },
     {
       "id": "proj-alibot",
       "kind": "project",
       "title": "AliBot",
-      "url": "https://alirad.dev/#work",
+      "url": "https://alirad.dev/#projects",
       "onPage": true,
-      "text": "AliBot is a project by Ali Rad. Status: Live. The assistant in the corner of this page. It answers questions about my work by retrieving the site's own content rather than recalling it: questions are embedded with bge-base and searched against Cloudflare Vectorize alongside BM25, the two rankings are fused, and a cross-encoder reranker picks what the model may use. Answers stream from Llama 3.3 70B on a Cloudflare Worker and cite the card they came from. Below a confidence threshold it declines instead of guessing. Stack: TypeScript · Cloudflare Workers · Vectorize · Workers AI. Tags: Live, TypeScript, Cloudflare, RAG, Astro. Links: How it works: /alibot, Source: https://github.com/alirad1/alirad.dev/tree/master/alibot."
+      "text": "AliBot is a project by Ali Rad. Status: Live. A RAG chatbot for this site, running as a TypeScript Cloudflare Worker. It combines vector search with BM25, reranks the results with a cross-encoder, and has Llama 3.3 70B answer only from the retrieved sources, with citations. A 33-question eval set measures retrieval recall, citation accuracy, and prompt-injection resistance: 100% recall@4 at 1.9 s median latency. Stack: TypeScript · Cloudflare Workers · Vectorize · Workers AI. Tags: Live, TypeScript, Cloudflare, RAG, Astro. Links: How it works: https://github.com/alirad1/alirad.dev/blob/master/alibot/README.md, Source: https://github.com/alirad1/alirad.dev/tree/master/alibot."
+    },
+    {
+      "id": "proj-tms-nav",
+      "kind": "project",
+      "title": "TMS-Nav",
+      "url": "https://alirad.dev/#projects",
+      "onPage": true,
+      "text": "TMS-Nav (Khavari Lab) is a project by Ali Rad. Status: Live. Research software for comparing EEG 10–20 cap targeting with MRI-guided TMS neuronavigation. A Python pipeline builds scalp meshes from T1 MRI, places 10–20 electrode sites by arc length, and runs Monte Carlo sampling of coil placement error. Recorded Brainsight poses feed the placement statistics, a SimNIBS workflow models the induced electric field, and a Three.js viewer shows the results in 3D. Stack: Python · NiBabel · SimNIBS · Three.js. Tags: Live, Python, JavaScript, Three.js. Links: Open viewer: https://tms-nav.github.io/TMS-Nav/, Source: https://github.com/TMS-Nav/TMS-Nav."
     },
     {
       "id": "proj-lapsecam",
       "kind": "project",
       "title": "LapseCam",
-      "url": "https://alirad.dev/#work",
+      "url": "https://alirad.dev/#projects",
       "onPage": true,
-      "text": "LapseCam is a project by Ali Rad. Status: Live. A free Windows desktop app that turns study sessions into time-lapse videos with no editing required. Record your screen, webcam, or both, choose a speed preset up to 600x, and LapseCam captures frames on a canvas before FFmpeg assembles the final clip. Built with Electron and JavaScript, everything runs locally with no account or upload. Stack: Electron · JavaScript · FFmpeg. Tags: Live, JavaScript, Electron, FFmpeg. Links: Open live: https://lapsecam.alirad.dev, Source: https://github.com/alirad1/LapseCam."
+      "text": "LapseCam is a project by Ali Rad. Status: Live. A Windows desktop app that records the screen, webcam, or both and exports a time-lapse at up to 600x. Frames are captured locally and assembled with FFmpeg; nothing is uploaded. Stack: Electron · JavaScript · FFmpeg. Tags: Live, JavaScript, Electron, FFmpeg. Links: Open live: https://lapsecam.alirad.dev, Source: https://github.com/alirad1/LapseCam."
     },
     {
       "id": "proj-dynamic-wallpapers",
       "kind": "project",
       "title": "Dynamic Wallpapers",
-      "url": "https://alirad.dev/#work",
+      "url": "https://alirad.dev/#projects",
       "onPage": true,
-      "text": "Dynamic Wallpapers is a project by Ali Rad. Status: Live. A web app that generates daily-updating phone lock screen wallpapers straight from a URL, including a year calendar, life-in-weeks grid, goal countdown, and progress tracker. Built with Next.js, TypeScript, and Tailwind CSS, it renders SVG layouts to PNG on the server with sharp. Point iPhone Shortcuts or Android MacroDroid at the link once and the wallpaper refreshes itself every day, with no account or database. Stack: Next.js · TypeScript · Tailwind · sharp. Tags: Live, Next.js, TypeScript, Tailwind CSS, React. Links: Open live: https://dynamicwallpapers.alirad.dev, Source: https://github.com/alirad1/dynamic-wallpapers."
+      "text": "Dynamic Wallpapers is a project by Ali Rad. Status: Live. Generates phone lock-screen wallpapers from a URL: a year calendar, life-in-weeks grid, or goal countdown. The server renders SVG layouts to PNG with sharp, and an iPhone Shortcut or MacroDroid task refreshes the wallpaper daily. Stack: Next.js · TypeScript · Tailwind · sharp. Tags: Live, Next.js, TypeScript, Tailwind CSS, React. Links: Open live: https://dynamicwallpapers.alirad.dev, Source: https://github.com/alirad1/dynamic-wallpapers."
     },
     {
       "id": "proj-milo",
       "kind": "project",
       "title": "Milo Motivational Buddy",
-      "url": "https://alirad.dev/#work",
+      "url": "https://alirad.dev/#projects",
       "onPage": true,
-      "text": "Milo Motivational Buddy is a project by Ali Rad. Status: Live. A goal and habit-tracking app built to help people stay consistent with daily goals. It uses JavaScript and MySQL to store progress and streaks, and includes a small chatbot for journaling, reminders, and daily prompts that make the experience feel motivating rather than mechanical. Stack: JavaScript · MySQL. Tags: Live, JavaScript, MySQL. Links: Open live: https://milo.alirad.dev, Source: https://github.com/alirad1/Milo."
+      "text": "Milo Motivational Buddy is a project by Ali Rad. Status: Live. A goal and habit tracker that stores progress and streaks in MySQL, with a chatbot for journaling, reminders, and daily prompts. Stack: JavaScript · MySQL. Tags: Live, JavaScript, MySQL. Links: Open live: https://milo.alirad.dev, Source: https://github.com/alirad1/Milo."
     },
     {
       "id": "proj-alichart",
       "kind": "project",
       "title": "AliChart",
-      "url": "https://alirad.dev/#work",
+      "url": "https://alirad.dev/#projects",
       "onPage": true,
-      "text": "AliChart is a project by Ali Rad. Status: Live. A live web application designed around a PostgreSQL relational database, previously deployed on AWS. Implements JavaScript-driven workflows to model data relationships, authentication logic, and CRUD-style operations within a healthcare-style system. Stack: AWS · PostgreSQL · JavaScript. Tags: Live, AWS, PostgreSQL, JavaScript. Links: Open live: https://chart.alirad.dev."
+      "text": "AliChart is a project by Ali Rad. Status: Live. A healthcare records web app on a PostgreSQL schema of 5+ relational tables (patients, records, users), originally deployed on AWS. Role-based access control separates three user types, and a REST API handles CRUD on clinical data. Stack: JavaScript · PostgreSQL · AWS. Tags: Live, AWS, PostgreSQL, JavaScript. Links: Open live: https://chart.alirad.dev."
     },
     {
       "id": "proj-this-website",
       "kind": "project",
       "title": "This website",
-      "url": "https://alirad.dev/#work",
+      "url": "https://alirad.dev/#projects",
       "onPage": true,
-      "text": "This website is a project by Ali Rad. Status: You are here. Where I keep my projects, experience, and whatever I'm building right now. Written in Astro with Tailwind and TypeScript — components for the repeated parts, one measured page, and a scroll that stays out of the way. Stack: Astro · Tailwind · TypeScript. Tags: Live, Astro, TypeScript, Tailwind CSS. Links: Source: https://github.com/alirad1/alirad.dev."
+      "text": "This website is a project by Ali Rad. Status: You are here. My portfolio, built with Astro, Tailwind, and TypeScript. All content lives in one data file that both the page and AliBot's corpus are generated from. Stack: Astro · Tailwind · TypeScript. Tags: Live, Astro, TypeScript, Tailwind CSS. Links: Source: https://github.com/alirad1/alirad.dev."
     },
     {
       "id": "proj-aggiequest",
       "kind": "project",
       "title": "AggieQuest",
-      "url": "https://alirad.dev/#work",
+      "url": "https://alirad.dev/#projects",
       "onPage": true,
-      "text": "AggieQuest (HowdyHack) is a project by Ali Rad. Status: Hackathon. A full-stack web app that generates daily challenges to encourage student engagement. I built a Flask backend with REST endpoints handling challenge creation, submissions, and user progress, focused on a clean end-to-end flow from frontend interaction to backend logic. Stack: Python · Flask · REST API. Tags: Python, Flask, REST API. Links: Source: https://github.com/alirad1/AggieQuest-HowdyHack25."
+      "text": "AggieQuest (HowdyHack) is a project by Ali Rad. Status: Hackathon. A HowdyHack web app that issues daily challenges to students. I built the Flask backend and REST endpoints for challenges, submissions, and user progress. Stack: Python · Flask · REST API. Tags: Python, Flask, REST API. Links: Source: https://github.com/alirad1/AggieQuest-HowdyHack25."
     },
     {
       "id": "proj-marketscope",
       "kind": "project",
       "title": "MarketScope",
-      "url": "https://alirad.dev/#work",
+      "url": "https://alirad.dev/#projects",
       "onPage": true,
-      "text": "MarketScope (FREEWORKS) is a project by Ali Rad. Status: 2nd place · FREEWORKS. An interactive stock analysis dashboard built with Python and Streamlit for comparing multiple stocks across time periods. It visualizes returns and price trends in a way you can actually explore, and placed 2nd in the FREEWORKS competition at Texas A&M. Stack: Python · Streamlit. Tags: Award Winner, Python, Streamlit. Links: Source: https://github.com/alirad1/MarketScope-FREEworks."
+      "text": "MarketScope (FREEWORKS) is a project by Ali Rad. Status: 2nd place · FREEWORKS. A Streamlit dashboard for comparing 25+ stocks with live data from yfinance. pandas computes daily change, total return, and volatility. 2nd place at FREEWORKS, Texas A&M. Stack: Python · Streamlit · pandas. Tags: Award Winner, Python, Streamlit. Links: Source: https://github.com/alirad1/MarketScope-FREEworks."
     },
     {
       "id": "proj-radgame",
       "kind": "project",
       "title": "RadGame",
-      "url": "https://alirad.dev/#work",
+      "url": "https://alirad.dev/#projects",
       "onPage": true,
-      "text": "RadGame is a project by Ali Rad. Status: Graphics. A 3D game written in Java to learn graphics programming and game engine fundamentals. Using LWJGL and ImGui, I implemented real-time rendering, player movement, collision detection, and basic enemy AI while experimenting with low-level game systems. Stack: Java · LWJGL · ImGui. Tags: Java, LWJGL, ImGui. Links: Source: https://github.com/alirad1/RadGame."
+      "text": "RadGame is a project by Ali Rad. Status: Graphics. A 3D game in Java, written to learn graphics programming. LWJGL handles rendering and ImGui the debug tools; it has player movement, collision detection, and basic enemy AI. Stack: Java · LWJGL · ImGui. Tags: Java, LWJGL, ImGui. Links: Source: https://github.com/alirad1/RadGame."
+    },
+    {
+      "id": "exp-khavari-lab",
+      "kind": "experience",
+      "title": "Khavari Lab — Researcher, TMS neuronavigation",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "Ali Rad — Researcher, TMS neuronavigation at Khavari Lab, May 2026 – Present, Houston Methodist, Houston, TX. This is part of Ali's research and work experience. Independent project under a Rice University PhD student comparing EEG 10–20 cap positioning with MRI-guided neuronavigation for figure-8 TMS coil placement in rTMS treatment of neurogenic overactive bladder. I quantify placement accuracy with Monte Carlo sampling and paired equivalence testing, and built a SimNIBS model of the electric field each method delivers to the cortical target from subject MRI. The question is whether the lower-cost cap method is clinically equivalent and could widen access to rTMS. Topics: TMS, Neuroimaging, SimNIBS, Statistics. More: https://tms-nav.github.io/TMS-Nav/."
     },
     {
       "id": "exp-neuman-lab",
       "kind": "experience",
-      "title": "Neuman Lab — Bioinformatics-Based Virus Discovery",
+      "title": "Neuman Lab — Bioinformatics Research Assistant & Peer Mentor",
       "url": "https://alirad.dev/#experience",
       "onPage": true,
-      "text": "Ali Rad — Bioinformatics-Based Virus Discovery at Neuman Lab, Ongoing, College Station, TX. This is part of Ali's research and work experience. Bioinformatics-based virus discovery at Texas A&M, contributing to citizen science efforts that uncover previously unknown viruses. Topics: Bioinformatics, Research, Virus discovery. More: https://artsci.tamu.edu/biology/updates/citizen-scientists-uncover-unknown-viruses.html."
+      "text": "Ali Rad — Bioinformatics Research Assistant & Peer Mentor at Neuman Lab, Jan 2026 – Present, College Station, TX. This is part of Ali's research and work experience. Annotated 25+ viral genomes using tBLASTn, ORFfinder, and HHpred, and mentor 30 undergraduate researchers on annotation methods, reviewing their genome maps before submission. Building a web platform and Python tooling on a PostgreSQL data model to centralize the annotation workflow for 180 undergraduate researchers. Presented posters at the EIS Symposium and the SACNAS TAMU Diversity in Science Symposium (April 2026). Topics: Bioinformatics, Virus discovery, Python, PostgreSQL. More: https://artsci.tamu.edu/biology/updates/citizen-scientists-uncover-unknown-viruses.html."
+    },
+    {
+      "id": "exp-pc-builder",
+      "kind": "experience",
+      "title": "Independent — Custom PC Builder",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "Ali Rad — Custom PC Builder at Independent, Feb 2023 – Jul 2025, Houston, TX. This is part of Ali's research and work experience. Commissioned to build custom computers at a range of price points. Chose parts to fit each client's budget and use, then assembled, tested, and set up each machine. Topics: Hardware, PC building, Clients."
     },
     {
       "id": "exp-music-teacher",
       "kind": "experience",
-      "title": "Private instruction — Music teacher",
+      "title": "Independent — Music Instructor",
       "url": "https://alirad.dev/#experience",
       "onPage": true,
-      "text": "Ali Rad — Music teacher at Private instruction, Oct 2023 – Apr 2025, Remote / local. This is part of Ali's research and work experience. Taught private music lessons, helping students build technique and musicality. Topics: Piano, Teaching, Music."
+      "text": "Ali Rad — Music Instructor at Independent, Oct 2023 – Apr 2025, Houston, TX. This is part of Ali's research and work experience. Taught weekly piano and guitar lessons to students of varying levels. Topics: Piano, Guitar, Teaching."
     },
     {
       "id": "exp-aws-academy",
       "kind": "experience",
-      "title": "AWS Academy — Cloud Foundations — Graduate",
+      "title": "AWS Academy — Cloud Foundations",
       "url": "https://alirad.dev/#experience",
       "onPage": true,
-      "text": "Ali Rad — Cloud Foundations — Graduate at AWS Academy, Completed Apr 2025, Online. This is part of Ali's research and work experience. Completed AWS Academy Cloud Foundations and earned the Cloud Foundations graduate badge on Credly. Topics: AWS, Cloud. More: https://www.credly.com/badges/897bab94-9c65-44ef-ac9b-bbc286a62d82."
+      "text": "Ali Rad — Cloud Foundations at AWS Academy, Completed Apr 2025, Online. This is part of Ali's research and work experience. Completed AWS Academy Cloud Foundations. Topics: AWS, Cloud. More: https://www.credly.com/badges/897bab94-9c65-44ef-ac9b-bbc286a62d82."
     },
     {
       "id": "exp-lifeguard",
@@ -111,31 +135,39 @@
       "title": "A-Beautiful Pools & Sweetwater Pools — Lifeguard",
       "url": "https://alirad.dev/#experience",
       "onPage": true,
-      "text": "Ali Rad — Lifeguard at A-Beautiful Pools & Sweetwater Pools, May 2022 – Sep 2022, Local. This is part of Ali's research and work experience. Guarded at A-Beautiful Pools (June–September) and Sweetwater Pools (May–July), keeping swimmers safe and responding to emergencies. Topics: CPR, First aid, Safety."
-    },
-    {
-      "id": "exp-ewb",
-      "kind": "experience",
-      "title": "Engineers without Borders — Member",
-      "url": "https://alirad.dev/#experience",
-      "onPage": true,
-      "text": "Ali Rad — Member at Engineers without Borders, Ongoing, College Station, TX. This is part of Ali's clubs and organizations experience. Texas A&M chapter — designing and implementing sustainable engineering projects with communities worldwide. Topics: Engineering, Sustainability. More: https://www.ewb-tamu.org/."
+      "text": "Ali Rad — Lifeguard at A-Beautiful Pools & Sweetwater Pools, May 2022 – Sep 2022, Houston, TX. This is part of Ali's research and work experience. Lifeguarded at two community pools. Topics: CPR, First aid, Safety."
     },
     {
       "id": "exp-aggiescreate",
       "kind": "experience",
-      "title": "AggiesCreate — Member",
+      "title": "Aggies Create — Media Manager",
       "url": "https://alirad.dev/#experience",
       "onPage": true,
-      "text": "Ali Rad — Member at AggiesCreate, Ongoing, College Station, TX. This is part of Ali's clubs and organizations experience. A student organization built around creativity, innovation, and shipping projects together. Topics: Creativity, Collaboration. More: https://www.aggiescreate.com/."
+      "text": "Ali Rad — Media Manager at Aggies Create, Jan 2026 – Present, College Station, TX. This is part of Ali's clubs and organizations experience. Lead the electrical and computer vision subsystems of IRIS, an autonomous surgical light built by a 7-member team: a custom PCB and Raspberry Pi controller driving servos on 3+ axes, and OpenCV hand tracking with sub-100 ms response. IRIS won 1st place at Good Bull Pitch, the Meloy Innovators Award, and 2nd place at the Aggies Create Innovation Expo. Topics: Embedded, Computer vision, PCB design. More: https://www.linkedin.com/company/aggies-create/."
+    },
+    {
+      "id": "exp-student-senate",
+      "kind": "experience",
+      "title": "Texas A&M Student Senate — Student Senator, Engineering Caucus Leader",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "Ali Rad — Student Senator, Engineering Caucus Leader at Texas A&M Student Senate, Mar 2026 – Present, College Station, TX. This is part of Ali's clubs and organizations experience. Elected with 600+ votes, the most in the caucus, to represent 25,000+ engineering students. I lead the Engineering Caucus, directing 9 senators on legislative priorities, and have authored and passed multiple senate bills working with deans, faculty, and administrators on curriculum and academic resources. Topics: Leadership, Policy, Legislation. More: https://senate.tamu.edu/."
+    },
+    {
+      "id": "exp-ewb",
+      "kind": "experience",
+      "title": "Engineers Without Borders — Member",
+      "url": "https://alirad.dev/#experience",
+      "onPage": true,
+      "text": "Ali Rad — Member at Engineers Without Borders, Aug 2025 – Feb 2026, College Station, TX. This is part of Ali's clubs and organizations experience. Designed a deployable, FEMA-compliant solar power system for off-grid agricultural use, selecting batteries and inverters and validating performance for field deployment. Topics: Solar power, Power systems. More: https://www.ewb-tamu.org/."
     },
     {
       "id": "exp-free",
       "kind": "experience",
-      "title": "Freshman Reaching Excellence in Engineering — Member — Internal committee",
+      "title": "Freshman Reaching Excellence in Engineering (FREE) — Member, Internal Committee",
       "url": "https://alirad.dev/#experience",
       "onPage": true,
-      "text": "Ali Rad — Member — Internal committee at Freshman Reaching Excellence in Engineering, Ongoing, College Station, TX. This is part of Ali's clubs and organizations experience. Freshman leadership organization in Texas A&M Engineering — building community and developing leadership skills. Topics: Leadership, Mentorship. More: https://www.instagram.com/tamufree/."
+      "text": "Ali Rad — Member, Internal Committee at Freshman Reaching Excellence in Engineering (FREE), Ongoing, College Station, TX. This is part of Ali's clubs and organizations experience. Freshman leadership organization in Texas A&M Engineering. Topics: Leadership, Mentorship. More: https://www.instagram.com/tamufree/."
     },
     {
       "id": "exp-ieee",
@@ -143,7 +175,7 @@
       "title": "IEEE — Member",
       "url": "https://alirad.dev/#experience",
       "onPage": true,
-      "text": "Ali Rad — Member at IEEE, Ongoing, College Station, TX. This is part of Ali's clubs and organizations experience. Texas A&M student branch — technical workshops, projects, and professional development. Topics: Electrical, Computing. More: https://ieeetamu.org/."
+      "text": "Ali Rad — Member at IEEE, Ongoing, College Station, TX. This is part of Ali's clubs and organizations experience. Texas A&M student branch: technical workshops, projects, and professional development. Topics: Electrical, Computing. More: https://ieeetamu.org/."
     },
     {
       "id": "exp-quantam",
@@ -151,15 +183,7 @@
       "title": "QuantA&M — Member",
       "url": "https://alirad.dev/#experience",
       "onPage": true,
-      "text": "Ali Rad — Member at QuantA&M, Ongoing, College Station, TX. This is part of Ali's clubs and organizations experience. Quantitative finance and trading club — strategies, markets, and data-driven finance. Topics: Quant finance, Data. More: https://quantamu.github.io/."
-    },
-    {
-      "id": "exp-psa",
-      "kind": "experience",
-      "title": "Persian Student Association — Member",
-      "url": "https://alirad.dev/#experience",
-      "onPage": true,
-      "text": "Ali Rad — Member at Persian Student Association, Ongoing, College Station, TX. This is part of Ali's clubs and organizations experience. Celebrating Persian culture and building community on campus. Topics: Culture, Community. More: https://www.instagram.com/psatamu/."
+      "text": "Ali Rad — Member at QuantA&M, Ongoing, College Station, TX. This is part of Ali's clubs and organizations experience. Quantitative finance and trading club at Texas A&M. Topics: Quant finance, Data. More: https://quantamu.github.io/."
     },
     {
       "id": "exp-csnhs",
@@ -167,7 +191,7 @@
       "title": "CS National Honor Society — Officer",
       "url": "https://alirad.dev/#experience",
       "onPage": true,
-      "text": "Ali Rad — Officer at CS National Honor Society, Ongoing, Clements HS / Fort Bend ISD. This is part of Ali's clubs and organizations experience. Promoting scholarship, leadership, and service in computer science — tutoring students, running contests, and volunteering at local middle schools. Topics: Leadership, Tutoring, Service. More: https://clementscsnhs.org/index.html."
+      "text": "Ali Rad — Officer at CS National Honor Society, High school, Clements HS, Fort Bend ISD. This is part of Ali's clubs and organizations experience. Tutored students, ran programming contests, and volunteered at local middle schools. Topics: Leadership, Tutoring, Service. More: https://clementscsnhs.org/index.html."
     },
     {
       "id": "moment-01",
@@ -301,15 +325,15 @@
       "id": "readme-alibot-1",
       "kind": "readme",
       "title": "AliBot README: alirad.dev",
-      "text": "AliBot README — alirad.dev. Source for my personal portfolio site. Live: https://alirad.dev Built with Astro, Tailwind CSS, and TypeScript.",
+      "text": "AliBot README — alirad.dev. The source for my personal portfolio. It is a static Astro site built with Tailwind CSS and TypeScript, and it is where I keep my projects, my experience, and whatever I happen to be building at the moment. Live: https://alirad.dev",
       "url": "https://github.com/alirad1/alirad.dev#readme",
       "onPage": false
     },
     {
       "id": "readme-alibot-2",
       "kind": "readme",
-      "title": "AliBot README: Develop",
-      "text": "AliBot README — Develop. bash npm install npm run dev # http://localhost:4321 npm run build # static output to dist/ npm run preview # serve the build locally Content lives in src/data/site.ts; sections are composed in src/pages/index.astro from small components in src/components/. Styling is in src/styles/. Static assets (images, favicon, robots, sitemap) are in public/.",
+      "title": "AliBot README: How it fits together",
+      "text": "AliBot README — How it fits together. All of the content lives as data in src/data/site.ts. The page in src/pages/index.astro maps over those arrays and renders them through small components in src/components/, so adding a project or an experience entry is an edit to one file rather than a block of markup to copy out by hand. Styling is written by hand in src/styles/, and everything static (the images, the favicon, robots, sitemap) sits in public/. Keeping the content apart from the presentation like this is really the whole idea. The site reads as one measured page, and the parts that repeat are described once and reused.",
       "url": "https://github.com/alirad1/alirad.dev#readme",
       "onPage": false
     },
@@ -317,8 +341,152 @@
       "id": "readme-alibot-3",
       "kind": "readme",
       "title": "AliBot README: AliBot",
-      "text": "AliBot README — AliBot. The assistant docked in the corner answers questions about my work by retrieving the site's own content. Its Cloudflare Worker lives in alibot/ and has its own README; the widget is src/components/AliBot.astro and src/scripts/alibot.ts, and the write-up is at alirad.dev/alibot. bash npm run alibot:corpus # rebuild the retrieval corpus from src/data/ npm run alibot:dev # run the worker locally npm run alibot:deploy npm run alibot:eval",
+      "text": "AliBot README — AliBot. The assistant docked in the corner answers questions about my work by retrieving the site's own content rather than making anything up. The Cloudflare Worker behind it lives in alibot/ and has its own README that walks through the retrieval and generation logic. The widget you see on the page is src/components/AliBot.astro together with src/scripts/alibot.ts.",
       "url": "https://github.com/alirad1/alirad.dev#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-1",
+      "kind": "readme",
+      "title": "TMS-Nav README: TMS-Nav",
+      "text": "TMS-Nav README — TMS-Nav. Compare EEG cap targeting with MRI-guided TMS neuronavigation. Build scalp meshes, place approximate study targets and coils, and explore Monte Carlo placement variability in a Three.js viewer. Recorded Brainsight poses support the Aim 1 geometric comparison; a separate SimNIBS workflow supports Aim 2 electric-field modeling. The MNI demo and simulated placements are for development and illustration. Template targets are anatomical approximations, not individualized fMRI targets. Individual subjects use a separate cached reconstruction pipeline with reviewable MRI fiducial candidates, native scalp meshes, manual landmark confirmation and subject-specific EEG estimates. See the complete subject workflow and verification report.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-2",
+      "kind": "readme",
+      "title": "TMS-Nav README: Quick start",
+      "text": "TMS-Nav README — Quick start. Use Python 3.12 (the verified local version) and Node.js 22 LTS or newer with npm. Run these commands from the repository root after cloning it.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-3",
+      "kind": "readme",
+      "title": "TMS-Nav README: Preferred micromamba environment",
+      "text": "TMS-Nav README — Preferred micromamba environment. Python 3.12 and Node 22 were verified in tms312. The environment file includes a Linux library for browser tests; omit alsa-lib on other platforms. The alternative venv instructions below remain available. MNI assets are generated once; subjects then require only native T1w, with no fMRI or registration prerequisite.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-4",
+      "kind": "readme",
+      "title": "TMS-Nav README: Windows PowerShell",
+      "text": "TMS-Nav README — Windows PowerShell. powershell py -3.12 -m venv venv .\\venv\\Scripts\\python.exe -m pip install --upgrade pip .\\venv\\Scripts\\python.exe -m pip install -r requirements.txt .\\venv\\Scripts\\python.exe runpipeline.py cd viewer npm.cmd ci npm.cmd run dev",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-5",
+      "kind": "readme",
+      "title": "TMS-Nav README: macOS and Linux",
+      "text": "TMS-Nav README — macOS and Linux. bash python3.12 -m venv venv ./venv/bin/python -m pip install --upgrade pip ./venv/bin/python -m pip install -r requirements.txt ./venv/bin/python runpipeline.py cd viewer npm ci npm run dev Open the local viewer. These commands use the venv directly, so activation and PowerShell execution-policy changes are unnecessary. After activating a venv yourself, python can replace the interpreter paths below. Linux distributions may require their Python venv package. Headless rendering requires a working VTK graphics backend (EGL/OSMesa or an X display, depending on the VTK build); off-screen mode alone does not provide that backend.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-6",
+      "kind": "readme",
+      "title": "TMS-Nav README: MRI inputs and template fallback",
+      "text": "TMS-Nav README — MRI inputs and template fallback. bash python runpipeline.py # saves/ scans, otherwise MNI152 python runpipeline.py --template # force the MNI152 demo python runpipeline.py saves/cohorts/ms # one cohort, searched recursively python runpipeline.py saves/cohorts/ms saves/cohorts/control python runpipeline.py \"/path/to/subjectT1w.nii.gz\" With no arguments, the pipeline searches saves/ for structural scans, including nested cohorts. If none are found, or the supplied folders contain no eligible scans, it downloads and uses the full-head ICBM152 2009a T1 template. The first template run needs internet access; later runs reuse saves/templates/. The fetcher downloads an approximately 63 MB archive with several template images; only the unmasked T1 is processed. The cache is excluded from patient discovery. A nonexistent path or unsupported explicit file produces an error. NiBabel loads NIfTI data and the affine but has no MNI downloader. Downloads use nilearn.datasets.fetchicbm1522009. The bundled loadmni152template is skull-stripped and does not supply the scalp needed here. For patient scans:",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-7",
+      "kind": "readme",
+      "title": "TMS-Nav README: MRI inputs and template fallback",
+      "text": "TMS-Nav README — MRI inputs and template fallback. - Supply a T1-weighted structural NIfTI (.nii or .nii.gz) with scalp and external head anatomy. Convert DICOM to NIfTI beforehand. - Prefer intact facial anatomy and ears. Defaced scans are supported and flagged, but missing anatomy cannot be recovered and landmarks become approximate. - Preserve a valid spatial affine in millimeters. Landmark heuristics assume a head approximately aligned with anatomical RAS directions; all proposed landmarks require review. - Approximately 1 mm resolution is preferred; anisotropic spacing is supported and no exact voxel size is enforced. - Native subjects require 3D volumes, explicit spatial units and consistent coded qform/sform metadata. Ambiguous headers and 4D inputs are rejected. - Store only intended structural inputs in discovery folders. The pipeline does not identify contrast: T2, fMRI, mask and segmentation NIfTIs would also be selected.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-8",
+      "kind": "readme",
+      "title": "TMS-Nav README: Local data layout",
+      "text": "TMS-Nav README — Local data layout. Legacy saves/.nii and saves/.nii.gz inputs remain supported. For multiple cohorts, use one structural scan per subject, or distinct filenames for visits: Discovery skips templates, previews, brainsight, aim1, efield, m2m, derivatives, m2m folders and hidden directories. Explicit paths are resolved from the current working directory. Default inputs and all outputs are anchored to the repository, so the script can also run from another directory.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-9",
+      "kind": "readme",
+      "title": "TMS-Nav README: Outputs and viewer compatibility",
+      "text": "TMS-Nav README — Outputs and viewer compatibility. The MNI demo produces front/side PNGs and a distance histogram in saves/previews/. Subjects produce slice QC, reusable native derivatives and confidence reports in saves/derivatives/subjects//. The viewer retains its per-dataset structure: Legacy T1.nii.gz still maps to data/T1/. Cohort paths map to names such as mssub-001T1w and controlsub-001T1w, keeping shared subject IDs separate. Characters outside letters, digits, , - and . become underscores. Resulting name collisions are rejected before processing. Explicit inputs outside saves/ use their filenames as dataset names. viewer/src/datasetRegistry.js is regenerated from all existing processed dataset folders, giving Parcel static imports. Reruns overwrite matching outputs and keep other datasets. Removing or renaming an input does not delete old viewer output: remove its generated dataset folder, then rerun to update the dropdown. saves/ and viewer/src/data/ are Git-ignored. Patient scans and derived meshes stay local. Cohort discovery currently applies to runpipeline.py; the separate statistics and electric-field drivers retain their documented input layouts.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-10",
+      "kind": "readme",
+      "title": "TMS-Nav README: Editing registration landmarks",
+      "text": "TMS-Nav README — Editing registration landmarks. Select Nasion, Inion, LPA or RPA in the viewer's edit landmarks panel, or click its yellow cube. MRI fiducial diamonds are editable too. Enter X/Y/Z in millimeters and Apply coordinates. Entries are constrained to the displayed scalp by default; uncheck the constraint for an exact off-surface coordinate. Snap to scalp projects the current point. Pick on scalp places it at your next click on the head; Escape cancels. Rotate first to expose the desired side. Direction buttons take a step in the local tangent plane and project back onto the scalp triangles. The step is a tangent displacement, not a geodesic distance. Reset selected restores the pipeline position. Edits are kept per dataset in browser storage when available; Export JSON downloads them with frame metadata. For reconstructed subjects, save the exported file as saves/subjects//corrections.json and rerun python ingestsubject.py to apply corrections and recompute EEG positions. Original input files stay unchanged. Template edits do not recompute Monte Carlo registration/statistics. Changed source landmark exports invalidate saved browser edits. Regenerate the MNI demo with python runpipeline.py --template for explicit MNI152NLin2009aSym metadata. Primary patient coordinates remain native subject RAS even when secondary MNI coordinates are available. See the MNI migration plan for the source audit and rollout.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-11",
+      "kind": "readme",
+      "title": "TMS-Nav README: Aim 1 statistics",
+      "text": "TMS-Nav README — Aim 1 statistics. Put Brainsight session exports in saves/brainsight/ named sub-coilposesamples.txt, with samples named sub-EEGCAPPOSEREP and sub-MRIPOSEREP. bash python analysis/aim1stats.py This prints per-site statistics and writes saves/aim1/measurements.csv (one row per compared placement), saves/aim1/aim1stats.csv (one number per row), and viewer/src/data/aim1stats.json. Methods live in src/stats.py and use statsmodels.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-12",
+      "kind": "readme",
+      "title": "TMS-Nav README: Aim 2 electric-field modeling",
+      "text": "TMS-Nav README — Aim 2 electric-field modeling. See the electric-field workflow for SimNIBS setup, head models, coil poses, individualized target coordinates and dry-run commands. SimNIBS uses its own interpreter; it is not installed into this venv. runpipeline.py does not run tissue segmentation or electric-field simulations.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-13",
+      "kind": "readme",
+      "title": "TMS-Nav README: Tests",
+      "text": "TMS-Nav README — Tests. The viewer's scalp projection and movement tests run with Node.js: bash cd viewer node --test tests/landmarkGeometry.test.mjs cd .. Use the same venv, from the repository root: bash python -m pip install -r requirements-dev.txt python -m pytest tests/ Input tests use temporary files and mocked downloads. They cover fallback, cohort discovery, exclusions, duplicates, collisions and mesh orientation for both affine handednesses.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-14",
+      "kind": "readme",
+      "title": "TMS-Nav README: GitHub Pages",
+      "text": "TMS-Nav README — GitHub Pages. bash cd viewer npm run deploy Deployment checks every processed head against viewer/public-subjects.json, builds viewer/dist/ and pushes it to gh-pages. Patient datasets must never be added to that allowlist. The six legacy entries reference SimNIBS example data (Ernie: CC BY-NC 4.0; group dataset: ODC-PDDL). The MNI demo has its own attribution. Before public deployment, remove patient dataset folders from viewer/src/data/ and regenerate the registry with python runpipeline.py --template. Moving input scans alone does not remove generated meshes. Review whether the aggregate aim1stats.json should be included too. In repository settings choose Pages → Deploy from a branch → gh-pages → / (root). The site appears at https://.github.io/TMS-Nav/; build paths are relative.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-15",
+      "kind": "readme",
+      "title": "TMS-Nav README: Embedding",
+      "text": "TMS-Nav README — Embedding. html .github.io/TMS-Nav/?embed=1\" width=\"100%\" height=\"640\" style=\"border:0\" loading=\"lazy\" title=\"TMS-Nav viewer\" ?embed=1 folds both side panels and adds a link to the full page. Frames narrower than 760 px or shorter than 520 px also fold the panels.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-16",
+      "kind": "readme",
+      "title": "TMS-Nav README: Template attribution",
+      "text": "TMS-Nav README — Template attribution. The MNI demo uses the ICBM152 nonlinear 2009 atlas distributed through Nilearn. See McGill's atlas description and license for references and full redistribution terms. Copyright (C) 1993–2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University. Redistribution requires retaining the copyright notice; the linked license includes the complete warranty statement.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-17",
+      "kind": "readme",
+      "title": "TMS-Nav README: EEG 10–20 scalp marking",
+      "text": "TMS-Nav README — EEG 10–20 scalp marking. Run python runpipeline.py --template for the demo, or ingest a subject and confirm its four anatomical anchors as described in the subject workflow, then rebuild the viewer with npm run build in viewer/. The 10–20 electrodes and 10–20 dashed arcs layer switches independently control the cyan scalp sites and tape constructions. Click a site to read its physical coordinates: MNI RAS mm on the template, native subject RAS mm on an unregistered patient scan. The pipeline measures connected plane/scalp intersections by arc length: Nz–Iz at 10/30/50/70/90% gives Fpz/Fz/Cz/Pz/Oz; LPA–Cz–RPA gives T3/C3/C4/T4 at 10/30/70/90%. The full Fpz–Oz circumference supplies Fp1/F7/T5/O1 or Fp2/F8/T6/O2 at 5/15/35/45% measured from Fpz along the respective side. Transverse midpoints on F7–Fz–F8 and T5–Pz–T6 provide initial F3/F4 and P3/P4 estimates. The final sites are the intersections of those transverse arcs with the longitudinal Fp1–C3–O1 and Fp2–C4–O2 arcs, so each marker lies on both displayed guides. SMA is halfway along Fz–Cz, at 40% of Nz–Iz, rather than a fixed centimeter offset. SMA and Fpz/Oz are included with the 19 conventional scalp electrodes; A1/A2 recording references are not inferred from LPA/RPA. T3/T4/T5/T6 correspond to modern T7/T8/P7/P8 labels.",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-tms-nav-18",
+      "kind": "readme",
+      "title": "TMS-Nav README: EEG 10–20 scalp marking",
+      "text": "TMS-Nav README — EEG 10–20 scalp marking. The dashed guides also include Fp1–C3–O1 and Fp2–C4–O2 longitudinal scalp arcs. They share the dashed-arcs layer switch. Intersection reconciliation replaces the independent transverse midpoint rule for F3/F4/P3/P4; eegqc.transversemidpointshiftmm reports each resulting displacement. The workbook calculator retains its separate Fz–F8 midpoint recipe. markers.json stores electrodes, eegarcs and eegqc. The viewer reports the sagittal-versus-coronal Cz gap; QC also records temporal-versus-ring midpoint gaps. Plane cuts approximate snug tape paths on the reconstructed scalp, and independent constructions can disagree on an irregular head. Landmark heuristics still need review, particularly on defaced scans. Old exports without EEG fields continue to load. The cyan EEG cap is separate from the existing approximate MRI target markers and Monte Carlo results. These five targets are fixed-direction scalp placeholders, not anatomically selected Brainsight targets; see the target-definition audit. Browser point edits hide the cap until saved corrections are applied by subject ingestion. Unconfirmed subject anchors withhold the cap rather than assign precise positions. Subject views do not display Monte Carlo dots or template target placeholders. Marking reference: Seeck et al., IFCN standardized electrode array (2017).",
+      "url": "https://github.com/TMS-Nav/TMS-Nav#readme",
       "onPage": false
     },
     {
@@ -333,7 +501,7 @@
       "id": "readme-lapsecam-2",
       "kind": "readme",
       "title": "LapseCam README: Download",
-      "text": "LapseCam README — Download. Get the installer or portable exe from the releases page. Works on Windows 10/11. The exe isn't code signed (those certs are expensive), so SmartScreen will complain the first time. Click \"More info\" then \"Run anyway\", or build from source below.",
+      "text": "LapseCam README — Download. Get the installer or portable exe from the releases page. Works on Windows 10/11. The exe isn't code signed (those certs are expensive), so SmartScreen will complain the first time. Click \"More info\" then \"Run anyway\", or build from source below. To confirm your download is intact, compare its SHA-256 against SHA256SUMS.txt on the release: Get-FileHash .\\LapseCam-1.2.0-setup.exe",
       "url": "https://github.com/alirad1/LapseCam#readme",
       "onPage": false
     },
@@ -349,15 +517,23 @@
       "id": "readme-lapsecam-4",
       "kind": "readme",
       "title": "LapseCam README: Build",
-      "text": "LapseCam README — Build. npm run dist Output lands in dist/ (installer + portable exe). Run npm run icon to regenerate build/icon.ico. It's a tiny script that draws the icon pixel by pixel so I didn't have to mess with an image editor.",
+      "text": "LapseCam README — Build. npm run dist Output lands in dist/ (installer, portable exe, and SHA256SUMS.txt). Upload all three to the GitHub release so the checksums on the site and README stay verifiable. Run npm run icon to regenerate build/icon.ico. It's a tiny script that draws the icon pixel by pixel (matching site/favicon.svg) so I didn't have to mess with an image editor.",
       "url": "https://github.com/alirad1/LapseCam#readme",
       "onPage": false
     },
     {
       "id": "readme-lapsecam-5",
       "kind": "readme",
+      "title": "LapseCam README: Code signing",
+      "text": "LapseCam README — Code signing. The download works fine, but SmartScreen warns because the exe is unsigned. Signing is the only thing that removes the warning. Options, cheapest first: - SignPath Foundation — free code signing for eligible open-source projects. - Certum Open Source Code Signing — around $70/year. - Azure Trusted Signing — around $10/month if you qualify. Once you have a certificate, add it to build.win in package.json. For a local .pfx (Certum etc.): json \"win\": { \"signtoolOptions\": { \"certificateFile\": \"path/to/cert.pfx\", \"certificatePassword\": \"...\" } } For Azure Trusted Signing, set AZURE env vars and add an azureSignOptions block per the electron-builder docs. Keep the certificate and password out of git.",
+      "url": "https://github.com/alirad1/LapseCam#readme",
+      "onPage": false
+    },
+    {
+      "id": "readme-lapsecam-6",
+      "kind": "readme",
       "title": "LapseCam README: Layout",
-      "text": "LapseCam README — Layout. src/main/ electron main process, IPC, ffmpeg src/renderer/ UI and capture loop scripts/ gen-icon.js + set-exe-icon.js (post-build branding) site/ landing page",
+      "text": "LapseCam README — Layout. src/main/ electron main process, IPC, ffmpeg src/renderer/ UI and capture loop scripts/ gen-icon.js, set-exe-icon.js, gen-checksums.js (post-build) site/ landing page",
       "url": "https://github.com/alirad1/LapseCam#readme",
       "onPage": false
     },
