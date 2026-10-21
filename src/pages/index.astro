@@ -31,21 +31,21 @@ const filters = [
       <h1 class="hero-name reveal" id="heroName">Ali Rad</h1>
 
       <p class="hero-lede reveal">
-        I'm happiest where software meets the real world: <strong>embedded systems, computer vision,
-        and the apps people run every day</strong>. Whatever I build, I want it to help someone, and to
-        leave things a little better than I found them.
+        Computer Engineering student at Texas A&amp;M. I research <strong>TMS neuronavigation</strong> at
+        Houston Methodist and <strong>viral genome annotation</strong> in the Neuman Lab, and build embedded
+        systems, computer vision, and full-stack software.
       </p>
 
       <dl class="spec reveal">
-        <div class="spec-row"><dt class="spec-key">Builds</dt><dd class="spec-val">Desktop apps, web apps, games</dd></div>
-        <div class="spec-row"><dt class="spec-key">Stack</dt><dd class="spec-val">Java · C++ · Python · JavaScript · SQL</dd></div>
+        <div class="spec-row"><dt class="spec-key">Builds</dt><dd class="spec-val">Embedded systems, computer vision, web apps</dd></div>
+        <div class="spec-row"><dt class="spec-key">Stack</dt><dd class="spec-val">C++ · Python · TypeScript · JavaScript · Java · SQL</dd></div>
         <div class="spec-row"><dt class="spec-key">Based</dt><dd class="spec-val">College Station, Texas</dd></div>
-        <div class="spec-row"><dt class="spec-key">Status</dt><dd class="spec-val"><span class="spec-chip">Seeking summer internships</span></dd></div>
+        <div class="spec-row"><dt class="spec-key">Status</dt><dd class="spec-val"><span class="spec-chip">Seeking summer 2027 internships</span></dd></div>
       </dl>
 
       <div class="hero-actions reveal">
         <a class="btn btn-primary" href="#projects">
-          See the projects
+          View my projects
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M8 3v10M3.5 8.5 8 13l4.5-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -72,8 +72,7 @@ const filters = [
       </div>
 
       <p class="section-note reveal">
-        Everything here is mine end to end. Six are live right now — open them and click around.
-        One of them is answering questions in the corner of this page.
+        Projects marked Live are running now. AliBot is the assistant in the corner of this page.
       </p>
 
       <div class="filters reveal" role="group" aria-label="Filter projects by tag">
@@ -113,7 +112,7 @@ const filters = [
         <span class="section-count">{entries(experience.length)}</span>
       </div>
       <ul class="exp-list">
-        {experience.map((entry) => <ExpEntry entry={entry} />)}
+        {experience.map((entry) => <ExpEntry entry={entry} roleFirst />)}
       </ul>
     </section>
 
@@ -141,7 +140,7 @@ const filters = [
 
       <div class="strip-top reveal">
         <p class="section-note">
-          Pitch wins, podiums, and a lot of music. Scroll the strip sideways — drag it, flick it, or use the arrows.
+          Pitch wins, podiums, and a lot of music. Drag the strip or use the arrows.
         </p>
         <div class="strip-controls">
           <span class="strip-counter" id="stripCounter" aria-live="polite">01 / {String(moments.length).padStart(2, '0')}</span>
@@ -165,13 +164,12 @@ const filters = [
         <span class="section-index">06</span>
         <h2 class="section-title" id="contactHeading">Contact</h2>
         <span class="section-rule" aria-hidden="true"></span>
-        <span class="section-count">Open to summer 2026</span>
+        <span class="section-count">Open to summer 2027</span>
       </div>
 
       <div class="contact reveal">
         <p class="contact-lede">
-          Thanks for reading this far. I'm looking for a summer internship, and I answer every email —
-          about a role, a project on this page, or something you're building.
+          I'm looking for a summer 2027 internship. Email is the best way to reach me.
         </p>
         <a class="contact-email" href="mailto:alizrad99@gmail.com">alizrad99@gmail.com</a>
         <dl class="contact-spec">

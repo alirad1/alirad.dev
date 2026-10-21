@@ -1,26 +1,29 @@
 ---
 import { chunkId, type Experience } from '../data/site';
-interface Props { entry: Experience }
-const { entry: e } = Astro.props;
+interface Props {
+  entry: Experience;
+  /** Lead with the role, with the org as the subline (jobs where the org is generic). */
+  roleFirst?: boolean;
+}
+const { entry: e, roleFirst = false } = Astro.props;
+const title = roleFirst ? e.role : e.org;
+const sub = roleFirst ? e.org : e.role;
 ---
 
 <li class="exp reveal" data-chunk={chunkId('exp', e.slug)}>
-  <div class="exp-lead">
-    <h3 class="exp-org" set:html={e.org}></h3>
-    <p class="exp-role">{e.role}</p>
+  <div class="exp-time">
+    <p class="exp-when">{e.when}</p>
+    <p class="exp-where">{e.where}</p>
   </div>
-  <div class="exp-detail">
-    <p class="exp-meta">
-      <span class="exp-when">{e.when}</span>
-      <span class="exp-sep" aria-hidden="true">·</span>
-      <span>{e.where}</span>
-    </p>
+  <div class="exp-body">
+    <h3 class="exp-title" set:html={title}></h3>
+    <p class="exp-sub" set:html={sub}></p>
     <p class="exp-desc" set:html={e.desc}></p>
     <p class="exp-tags">
       {e.tags.map((tag) => <span class="tag">{tag}</span>)}
     </p>
     {e.link && (
-      <a class="exp-more" href={e.link.href} target="_blank" rel="noopener noreferrer">
+      <a class="exp-link" href={e.link.href} target="_blank" rel="noopener noreferrer">
         {e.link.label}
       </a>
     )}

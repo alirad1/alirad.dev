@@ -189,7 +189,6 @@ button { font: inherit; }
 .rail-num,
 .rail-name,
 .strip-counter,
-.exp-when,
 .topbar-initials,
 .topbar-context {
     font-family: var(--font-mono);
@@ -583,12 +582,10 @@ button { font: inherit; }
     display: inline-flex;
     align-items: center;
     gap: 9px;
-    padding: 12px 21px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    padding: 12px 20px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: var(--r-sm);
@@ -782,8 +779,12 @@ button { font: inherit; }
 
 .card:hover .card-img { transform: scale(1.035); }
 
+/* Cards in a row share a height. The description takes up the slack so the
+   stack line and buttons always sit together at the bottom. */
 .card-body {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     padding: 20px 20px 18px;
 }
 
@@ -800,18 +801,18 @@ button { font: inherit; }
 
 .card-title-sub {
     color: var(--text-faint);
-    font-family: var(--font-mono);
-    font-size: 10px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
     font-weight: 500;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
+    letter-spacing: 0;
 }
 
 .card-desc {
+    flex: 1;
     margin-bottom: 18px;
     color: var(--text-dim);
-    font-size: 14.4px;
-    line-height: 1.65;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 .card-desc strong {
@@ -839,33 +840,47 @@ button { font: inherit; }
 
 .card-actions {
     display: flex;
-    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 20px 20px;
 }
 
+/* Secondary link: an outlined button. The primary link is tinted with the
+   accent, and fills solid on hover. */
 .card-link {
-    flex: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
-    padding: 14px;
-    color: var(--text-dim);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    padding: 9px 16px;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-sm);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
-    transition: color 0.2s var(--ease), background-color 0.2s var(--ease);
+    transition: color 0.2s var(--ease), background-color 0.2s var(--ease),
+                border-color 0.2s var(--ease);
 }
-
-.card-link + .card-link { border-left: 1px solid var(--line); }
 
 .card-link:hover {
     color: var(--accent);
-    background: var(--accent-soft);
+    border-color: var(--accent-line);
 }
 
-.card-link-primary { color: var(--text); }
+.card-link-primary {
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-color: var(--accent-line);
+}
+
+.card-link-primary:hover {
+    color: #fff;
+    background: var(--accent-fill);
+    border-color: var(--accent-fill);
+}
 
 .card-hidden { display: none; }
 
@@ -877,57 +892,68 @@ button { font: inherit; }
     gap: 10px;
 }
 
+/* Dates and place sit in their own column on the left, so the list scans
+   like a résumé; the title, subline and detail read down the right. */
 .exp {
     display: grid;
-    grid-template-columns: minmax(190px, 300px) 1fr;
-    gap: 26px;
-    padding: 22px;
+    grid-template-columns: 168px 1fr;
+    gap: 28px;
+    padding: 24px;
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--r-md);
-    transition: border-color 0.25s var(--ease), transform 0.25s var(--ease),
-                background-color 0.25s var(--ease);
+    transition: border-color 0.25s var(--ease), background-color 0.25s var(--ease);
 }
 
 .exp:hover {
     border-color: var(--accent-line);
     background: var(--surface-2);
-    transform: translateX(3px);
 }
 
-.exp-org {
-    font-size: 1.06rem;
+.exp-time { align-self: center; }
+
+.exp-when {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.5;
+}
+
+.exp-where {
+    margin-top: 4px;
+    color: var(--text-faint);
+    font-size: 13.5px;
+    line-height: 1.45;
+}
+
+.exp-body {
+    padding-left: 28px;
+    border-left: 1px solid var(--line);
+}
+
+.exp-title {
+    font-size: 1.18rem;
     font-weight: 700;
-    line-height: 1.34;
+    line-height: 1.3;
     letter-spacing: -0.022em;
 }
 
-.exp-role {
-    margin-top: 5px;
-    color: var(--accent);
-    font-size: 13.5px;
+.exp-sub {
+    margin-top: 3px;
+    margin-bottom: 12px;
+    color: var(--text-dim);
+    font-size: 15px;
     font-weight: 500;
 }
 
-.exp-meta {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 9px;
-    margin-bottom: 10px;
-    color: var(--text-faint);
-    font-size: 13px;
-}
-
-.exp-when { color: var(--text-dim); }
-
-.exp-sep { color: var(--line-strong); }
-
 .exp-desc {
     max-width: 68ch;
-    margin-bottom: 13px;
+    margin-bottom: 14px;
     color: var(--text-dim);
-    font-size: 14.4px;
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 .exp-tags {
@@ -949,20 +975,26 @@ button { font: inherit; }
 
 .exp:hover .tag { background: var(--elevated); }
 
-.exp-more {
+.exp-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    margin-top: 14px;
-    color: var(--text-dim);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
+    margin-top: 16px;
+    padding: 8px 14px;
+    color: var(--text);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-sm);
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
-    transition: color 0.2s var(--ease);
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+                background-color 0.2s var(--ease);
 }
 
-.exp-more:hover { color: var(--accent); }
+.exp-link:hover {
+    color: var(--accent);
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+}
 
 /* ── Moments filmstrip ─────────────────────────────────────────────────── */
 
@@ -1266,10 +1298,23 @@ button { font: inherit; }
 @media (max-width: 900px) {
     .exp {
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 12px;
+        padding: 20px;
     }
 
-    .exp:hover { transform: none; }
+    .exp-time {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 4px 12px;
+    }
+
+    .exp-where { margin-top: 0; }
+
+    .exp-body {
+        padding-left: 0;
+        border-left: 0;
+    }
 }
 
 @media (max-width: 1000px) {
